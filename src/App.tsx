@@ -8,6 +8,7 @@ import Main from './pages/main/Main';
 import Board from './pages/board/Board';
 import Footer from './containers/footer/Footer';
 import NotFound from './pages/notFound/NotFound';
+import './main.css';
 
 function App() {
   return (
