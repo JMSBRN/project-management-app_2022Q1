@@ -1,0 +1,14 @@
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	background-color: rgb(137, 172, 224);
+}
+.header a {
+	text-decoration: none;
+	text-transform: uppercase;
+} 
+
+.active-link {
+	color: rgb(255, 255, 255);
+}
