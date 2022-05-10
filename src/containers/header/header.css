@@ -32,7 +32,8 @@
 	margin-right: 20px;
 	text-decoration: none;
 	text-transform: uppercase;
-} 
+	color: var(--color-text-white);
+}
 
 .header a:hover {
 	border-bottom: 1px solid var(--color-text-light);
