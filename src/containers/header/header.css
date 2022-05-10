@@ -19,7 +19,7 @@
 	position: sticky;
 	top: 45px;
 	height: 20px;
-	background-color: rgb(137, 172, 224);
+	background-color: var(--color-background-dark);
 	z-index: 1;
 }
 .header-navLink-wrapper ul {
