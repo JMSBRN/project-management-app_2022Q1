@@ -34,13 +34,14 @@
 	align-items: center;
 	justify-content: space-around;
 }
-.sing-btn-wrapper .btn {
+.sing-btn-wrapper .link {
 	width: auto;
 	height: auto;
 	font-size: 24px;
 	padding: 10px;
 	border-radius: 3px;
 	border: none;
+	text-decoration: none;
 	color: rgb(255, 0, 0);
 	background-color: rgb(209, 238, 238);
 	cursor: pointer;

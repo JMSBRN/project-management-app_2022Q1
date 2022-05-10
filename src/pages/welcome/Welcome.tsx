@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../components/button/Button';
+import { NavLink } from 'react-router-dom';
 import './welcome.css';
 
 const Welcome = () => {
@@ -12,8 +12,16 @@ const Welcome = () => {
           productivity and achieve quick returns with a single platform for IT
         </h3>
         <div className="sing-btn-wrapper">
-          <Button className="btn sing-in" textButton="Log In" />
-          <Button className="btn sing-out" textButton="Authorization" />
+          <ul>
+            <NavLink className="link sing-in" to={'/auth'}>
+              Login
+            </NavLink>
+          </ul>
+          <ul>
+            <NavLink className="link sing-out" to={'/auth'}>
+              Registration
+            </NavLink>
+          </ul>
         </div>
       </div>
     </div>
