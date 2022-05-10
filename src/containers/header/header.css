@@ -33,6 +33,12 @@
 	text-decoration: none;
 	text-transform: uppercase;
 } 
-.active-link {
+
+.header a:hover {
+	border-bottom: 1px solid var(--color-text-light);
+	color: var(--color-text-light);
+}
+
+.header .active-link {
 	color: var(--color-text-light);
 }
