@@ -1,9 +1,10 @@
 .header {
 	width: 100%;
+	height: 55px;
   position: sticky;
 	top: 0;
+	padding-top: 10px;
 	display: flex;
-	align-items: center;
 	justify-content: flex-start;
 	background-color: rgb(137, 172, 224);
 	z-index: 1;
@@ -15,7 +16,14 @@
 	background-color: rgb(137, 172, 224);
 	z-index: 1;
 }
+.header ul {
+	margin-left: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+} 
 .header a {
+	margin-right: 20px;
 	text-decoration: none;
 	text-transform: uppercase;
 } 
