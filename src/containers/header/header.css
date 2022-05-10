@@ -5,9 +5,15 @@
 	top: 0;
 	padding-top: 10px;
 	display: flex;
+	align-items: center;
 	justify-content: flex-start;
 	background-color: rgb(137, 172, 224);
 	z-index: 1;
+}
+.header-navLink-wrapper {
+	width: 90%;
+  display: flex;
+
 }
 .fake-header {
 	position: sticky;
@@ -16,13 +22,13 @@
 	background-color: rgb(137, 172, 224);
 	z-index: 1;
 }
-.header ul {
+.header-navLink-wrapper ul {
 	margin-left: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 } 
-.header a {
+.header-navLink-wrapper a {
 	margin-right: 20px;
 	text-decoration: none;
 	text-transform: uppercase;

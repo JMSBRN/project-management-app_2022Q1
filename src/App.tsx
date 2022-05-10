@@ -8,6 +8,7 @@ import Main from './pages/main/Main';
 import Board from './pages/board/Board';
 import Footer from './containers/footer/Footer';
 import NotFound from './pages/notFound/NotFound';
+import { AuthForm } from './pages/authForm/AuthForm';
 
 function App() {
   return (
@@ -15,12 +16,14 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Layout />} />
-          <Route index element={<Welcome />} />
-          <Route path="main" element={<Main />} />
-          <Route path="board" element={<Board />} />
-          <Route path="notFound" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Welcome />} />
+            <Route path="main" element={<Main />} />
+            <Route path="board" element={<Board />} />
+            <Route path="auth" element={<AuthForm />} />
+            <Route path="notFound" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
         </Routes>
         <Footer />
       </BrowserRouter>
