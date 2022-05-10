@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './welcome.css';
 
-export default class Welcome extends Component {
-  render() {
-    return <div>Welcome</div>;
-  }
-}
+const Welcome = () => {
+  return <div className="welcome">Welcome</div>;
+};
+export default Welcome;
