@@ -25,8 +25,15 @@ export default class Header extends Component {
               </NavLink>
             </ul>
           </div>
-          <Button className="header-log-out-tn" textButton={'Log-out'}></Button>
+          <div className="header-toggle-lang-select">
+            <select>
+              <option value="ru">Ru</option>
+              <option value="en">En</option>
+            </select>
+          </div>
+          <Button className="header-log-out-btn" textButton={'Log-out'}></Button>
         </div>
+
         <div className="fake-header"></div>
       </>
     );
