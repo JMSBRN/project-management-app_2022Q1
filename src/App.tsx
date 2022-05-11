@@ -10,6 +10,7 @@ import Footer from './containers/footer/Footer';
 import NotFound from './pages/notFound/NotFound';
 import { AuthForm } from './pages/authForm/AuthForm';
 import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
+import EditProfile from './pages/editProfile/EditProfile';
 
 function App() {
   return (
@@ -21,9 +22,10 @@ function App() {
             <Route index element={<Welcome />} />
             <Route element={<ProtectedRoute />}>
               <Route path="board" element={<Board />} />
+              <Route path="edit" element={<EditProfile />} />
               <Route path="main" element={<Main />} />
-              <Route path="auth" element={<AuthForm />} />
             </Route>
+            <Route path="auth" element={<AuthForm />} />
             <Route path="notFound" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Route>

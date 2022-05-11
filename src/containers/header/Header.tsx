@@ -15,7 +15,7 @@ export default class Header extends Component {
               </NavLink>
             </ul>
             <ul>
-              <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/auth'}>
+              <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/edit'}>
                 Edit profile
               </NavLink>
             </ul>
