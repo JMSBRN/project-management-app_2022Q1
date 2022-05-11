@@ -25,6 +25,12 @@ export default class Header extends Component {
               </NavLink>
             </Styled.Ul>
           </Styled.HeaderNavLinkWwrapper>
+          <div className="header-toggle-lang-select">
+            <select>
+              <option value="ru">Ru</option>
+              <option value="en">En</option>
+            </select>
+          </div>
           <Button className="header-log-out-tn" textButton={'Log-out'}></Button>
         </Styled.Header>
       </>
