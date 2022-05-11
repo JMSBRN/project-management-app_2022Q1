@@ -9,6 +9,7 @@ import Board from './pages/board/Board';
 import Footer from './containers/footer/Footer';
 import NotFound from './pages/notFound/NotFound';
 import { AuthForm } from './pages/authForm/AuthForm';
+import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
 
 function App() {
   return (
@@ -18,9 +19,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Welcome />} />
-            <Route path="main" element={<Main />} />
-            <Route path="board" element={<Board />} />
-            <Route path="auth" element={<AuthForm />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="board" element={<Board />} />
+              <Route path="main" element={<Main />} />
+              <Route path="auth" element={<AuthForm />} />
+            </Route>
             <Route path="notFound" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Route>

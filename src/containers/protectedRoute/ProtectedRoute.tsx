@@ -1,12 +1,13 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
-interface ProtectedRouteProps {
-  user: boolean;
-  children?: JSX.Element;
-}
-const ProtectedRoute = ({ user, children }: ProtectedRouteProps) => {
-  return user ? children : <Navigate to="/" />;
+const useAuth = () => {
+  const user = { loggedIn: false };
+  return user && user.loggedIn;
+};
+const ProtectedRoute = () => {
+  const isAuth = useAuth();
+  return isAuth ? <Outlet /> : <Navigate to={'/'} />;
 };
 
 export default ProtectedRoute;
