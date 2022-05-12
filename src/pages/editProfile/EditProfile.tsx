@@ -52,7 +52,11 @@ const EditProfile = () => {
                 <input
                   data-testid="name-input"
                   onChange={handleChangeName}
+<<<<<<< HEAD
                   placeholder="password:"
+=======
+                  placeholder="name:"
+>>>>>>> 0344bcd70e11fb8dcda434081a59f9fe141335f9
                   type="password"
                 />
                 <br />
