@@ -5,8 +5,15 @@ import './form.css';
 interface FormProps {
   handleSumit: (e: React.ChangeEvent<HTMLFormElement>) => void;
   handleChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChangeEmail: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChangePassword: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const Form = ({ handleSumit, handleChangeName }: FormProps) => {
+const Form = ({
+  handleSumit,
+  handleChangeName,
+  handleChangeEmail,
+  handleChangePassword,
+}: FormProps) => {
   return (
     <div className="edit">
       <div className="form-wrapper">
@@ -37,7 +44,7 @@ const Form = ({ handleSumit, handleChangeName }: FormProps) => {
                 Email:
                 <input
                   data-testid="name-input"
-                  onChange={handleChangeName}
+                  onChange={handleChangeEmail}
                   placeholder="email:"
                   type="email"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -51,7 +58,7 @@ const Form = ({ handleSumit, handleChangeName }: FormProps) => {
                 Password:
                 <input
                   data-testid="name-input"
-                  onChange={handleChangeName}
+                  onChange={handleChangePassword}
                   placeholder="password:"
                   type="password"
                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"

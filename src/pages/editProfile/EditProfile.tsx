@@ -9,9 +9,20 @@ const EditProfile = () => {
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
   };
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  };
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+  };
   return (
     <div className="edit">
-      <Form handleSumit={handleSumit} handleChangeName={handleChangeName} />
+      <Form
+        handleSumit={handleSumit}
+        handleChangeName={handleChangeName}
+        handleChangeEmail={handleChangeEmail}
+        handleChangePassword={handleChangePassword}
+      />
     </div>
   );
 };
