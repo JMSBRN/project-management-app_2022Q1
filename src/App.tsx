@@ -9,6 +9,7 @@ import Board from './pages/board/Board';
 import Footer from './containers/footer/Footer';
 import NotFound from './pages/notFound/NotFound';
 import { AuthForm } from './pages/authForm/AuthForm';
+import './main.css';
 
 function App() {
   return (
