@@ -6,11 +6,13 @@ const Welcome = () => {
   return (
     <Styled.Welcome>
       <Styled.Layout>
-        <Styled.H1>Looking for a Jira Service Management alternative?</Styled.H1>
-        <Styled.H3>
-          See why thousands of organizations choose This App to modernize service management, boost
-          productivity and achieve quick returns with a single platform for IT
-        </Styled.H3>
+        <Styled.H1>Final project - our version of Trello</Styled.H1>
+        <Styled.H3>Course React 2022 Q1:</Styled.H3>
+        <Styled.Ul>
+          <li>Aleksandr Zakhavai - Team Lead</li>
+          <li>Irina Bukley</li>
+          <li>Ivan Shukalo</li>
+        </Styled.Ul>
         <Styled.SingBtnWrapper>
           <Styled.Ul>
             <NavLink className="link sing-in" to={'/auth'}>
