@@ -5,8 +5,11 @@ interface BoardProps {
   boardDescription: string;
 }
 const Board = ({ boardTitle, boardDescription }: BoardProps) => {
+  const handleOnClick = () => {
+    console.log('s');
+  };
   return (
-    <Styled.Board>
+    <Styled.Board onClick={handleOnClick}>
       <div className="board-title">{boardTitle}</div>
       <div className="board-title">{boardDescription}</div>
     </Styled.Board>

@@ -13,4 +13,9 @@ export const Board = styled.div`
   color: white;
   border-radius: 3px;
   background-color: #5f9ea0;
+  cursor: pointer;
+  &:hover {
+    background-color: #008b8b;
+    transition: 0.3s;
+  }
 `;
