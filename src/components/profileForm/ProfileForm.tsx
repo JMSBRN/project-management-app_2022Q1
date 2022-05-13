@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../button/Button';
-import * as Styled from './Form.style';
+import * as Styled from './ProfileForm.style';
 
 interface FormProps {
   handleSumit: (e: React.ChangeEvent<HTMLFormElement>) => void;
@@ -15,19 +15,19 @@ const Form = ({
   handleChangePassword,
 }: FormProps) => {
   return (
-    <Styled.Form_main>
-      <Styled.Form_container>
+    <Styled.Profile_Form_main>
+      <Styled.Profile_Form_container>
         <Styled.User_info>
           <img src="" alt="user-logo" />
           <div className="user-name">Name</div>
           <div className="user-email">Email</div>
           <div className="user-password">Password</div>
         </Styled.User_info>
-        <Styled.Form onSubmit={handleSumit}>
-          <Styled.Form_input_wrapper>
+        <Styled.Profile_Form onSubmit={handleSumit}>
+          <Styled.Profile_Form_input_wrapper>
             <label>
               Name:
-              <Styled.Form_input
+              <Styled.Profile_Form_input
                 data-testid="name-input"
                 onChange={handleChangeName}
                 placeholder="name:"
@@ -37,11 +37,11 @@ const Form = ({
               <br />
             </label>
             <span data-testid="error-name"></span>
-          </Styled.Form_input_wrapper>
-          <Styled.Form_input_wrapper>
+          </Styled.Profile_Form_input_wrapper>
+          <Styled.Profile_Form_input_wrapper>
             <label>
               Email:
-              <Styled.Form_input
+              <Styled.Profile_Form_input
                 data-testid="name-input"
                 onChange={handleChangeEmail}
                 placeholder="email:"
@@ -51,11 +51,11 @@ const Form = ({
               <br />
             </label>
             <span data-testid="error-name"></span>
-          </Styled.Form_input_wrapper>
-          <Styled.Form_input_wrapper>
+          </Styled.Profile_Form_input_wrapper>
+          <Styled.Profile_Form_input_wrapper>
             <label>
               Password:
-              <Styled.Form_input
+              <Styled.Profile_Form_input
                 data-testid="name-input"
                 onChange={handleChangePassword}
                 placeholder="password:"
@@ -65,14 +65,14 @@ const Form = ({
               <br />
             </label>
             <span data-testid="error-name"></span>
-          </Styled.Form_input_wrapper>
-          <Styled.Form_btns_wrapper>
+          </Styled.Profile_Form_input_wrapper>
+          <Styled.Profile_Form_btns_wrapper>
             <Button textButton={'delete user'}></Button>
-            <Styled.Form_input_submit type="submit" value="submit" />
-          </Styled.Form_btns_wrapper>
-        </Styled.Form>
-      </Styled.Form_container>
-    </Styled.Form_main>
+            <Styled.Profile_Form_input_submit type="submit" value="submit" />
+          </Styled.Profile_Form_btns_wrapper>
+        </Styled.Profile_Form>
+      </Styled.Profile_Form_container>
+    </Styled.Profile_Form_main>
   );
 };
 

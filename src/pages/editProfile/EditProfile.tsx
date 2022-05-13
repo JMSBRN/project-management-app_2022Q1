@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../../components/form/Form';
+import ProfileForm from '../../components/profileForm/ProfileForm';
 import './editProfile.css';
 
 const EditProfile = () => {
@@ -17,7 +17,7 @@ const EditProfile = () => {
   };
   return (
     <div className="edit">
-      <Form
+      <ProfileForm
         handleSumit={handleSumit}
         handleChangeName={handleChangeName}
         handleChangeEmail={handleChangeEmail}

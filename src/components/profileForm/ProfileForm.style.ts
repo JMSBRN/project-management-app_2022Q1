@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Form_main = styled.div`
+export const Profile_Form_main = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -8,7 +8,7 @@ export const Form_main = styled.div`
   height: 100vh;
   background-color: rgb(255, 255, 255);
 `;
-export const Form_container = styled.div`
+export const Profile_Form_container = styled.div`
   min-width: 650px;
   height: 330px;
   margin-top: 100px;
@@ -25,13 +25,13 @@ export const User_info = styled.div`
   justify-content: center;
   border-right: 0.5px solid grey;
 `;
-export const Form = styled.form`
+export const Profile_Form = styled.form`
   width: 450px;
   height: 330px;
   padding: 20px;
 `;
-export const Form_input_wrapper = styled.div``;
-export const Form_input = styled.input`
+export const Profile_Form_input_wrapper = styled.div``;
+export const Profile_Form_input = styled.input`
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -40,7 +40,7 @@ export const Form_input = styled.input`
   border-radius: 4px;
   box-sizing: border-box;
 `;
-export const Form_input_submit = styled.input`
+export const Profile_Form_input_submit = styled.input`
   width: 70%;
   height: 45px;
   background-color: #4caf50;
@@ -49,7 +49,7 @@ export const Form_input_submit = styled.input`
   border-radius: 4px;
   cursor: pointer;
 `;
-export const Form_btns_wrapper = styled.div`
+export const Profile_Form_btns_wrapper = styled.div`
   width: 100%;
   padding: 10px;
   display: flex;
