@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
 `;
-  
+
 export const Open = styled.div`
   height: 100%;
   display: flex;
@@ -24,9 +24,9 @@ export const Btn = styled.button`
   position: absolute;
   top: 15px;
   right: 15px;
-  cursor: pointer;  
+  cursor: pointer;
 `;
-  
+
 export const Body = styled.div`
   width: 500px;
   height: auto;
