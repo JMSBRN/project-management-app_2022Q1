@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileForm from '../../components/profileForm/ProfileForm';
-import './editProfile.css';
+import * as Styled from './EditProfile.style';
 
 const EditProfile = () => {
   const handleSumit = (e: React.ChangeEvent<HTMLFormElement>) => {

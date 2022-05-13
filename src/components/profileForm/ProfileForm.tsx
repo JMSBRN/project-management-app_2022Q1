@@ -67,7 +67,6 @@ const Form = ({
             <span data-testid="error-name"></span>
           </Styled.Profile_Form_input_wrapper>
           <Styled.Profile_Form_btns_wrapper>
-            <Button textButton={'delete user'}></Button>
             <Styled.Profile_Form_input_submit type="submit" value="submit" />
           </Styled.Profile_Form_btns_wrapper>
         </Styled.Profile_Form>

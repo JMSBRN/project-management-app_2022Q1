@@ -41,7 +41,7 @@ export const Profile_Form_input = styled.input`
   box-sizing: border-box;
 `;
 export const Profile_Form_input_submit = styled.input`
-  width: 70%;
+  width: 100%;
   height: 45px;
   background-color: #4caf50;
   color: white;
