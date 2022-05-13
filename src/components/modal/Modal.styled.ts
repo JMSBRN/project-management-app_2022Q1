@@ -29,7 +29,7 @@ export const Btn = styled.button`
   
 export const Body = styled.div`
   width: 500px;
-  height: 300px;
+  height: auto;
   margin: auto;
   background-color: white;
   margin-top: 5%;
