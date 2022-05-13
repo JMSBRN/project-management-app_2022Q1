@@ -5,9 +5,9 @@ export enum Actions {
   SET_TASKNAME = 'SET_TASKNAME',
   SET_TASKDESCR = 'SET_TASKDESCR',
   SET_TASKUSER = 'SET_TASKUSER',
-};
+}
 
-export type Action = 
+export type Action =
   | {
       type: Actions.SET_NAME;
       payload: string;
