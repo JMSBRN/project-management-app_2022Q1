@@ -1,6 +1,6 @@
 import React from 'react';
 import ProfileForm from '../../components/profileForm/ProfileForm';
-import * as Styled from './EditProfile.style';
+import './editProfile.css';
 
 const EditProfile = () => {
   const handleSumit = (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -17,12 +17,15 @@ const EditProfile = () => {
   };
   return (
     <div className="edit">
-      <ProfileForm
-        handleSumit={handleSumit}
-        handleChangeName={handleChangeName}
-        handleChangeEmail={handleChangeEmail}
-        handleChangePassword={handleChangePassword}
-      />
+      <div className="edit-wrapper">
+        <ProfileForm
+          handleSumit={handleSumit}
+          handleChangeName={handleChangeName}
+          handleChangeEmail={handleChangeEmail}
+          handleChangePassword={handleChangePassword}
+        />
+      </div>
+      <button className="editForm-delete-btn">Delete User</button>
     </div>
   );
 };
