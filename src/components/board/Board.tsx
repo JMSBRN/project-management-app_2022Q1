@@ -12,6 +12,7 @@ const Board = ({ boardTitle, boardDescription }: BoardProps) => {
     <Styled.Board onClick={handleOnClick}>
       <div className="board-title">{boardTitle}</div>
       <div className="board-title">{boardDescription}</div>
+      <Styled.Delete_board>&#128465;</Styled.Delete_board>
     </Styled.Board>
   );
 };

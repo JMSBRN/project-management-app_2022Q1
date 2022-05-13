@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Board = styled.div`
+  position: relative;
   width: 200px;
   height: 100px;
   margin: 10px;
@@ -17,5 +18,13 @@ export const Board = styled.div`
   &:hover {
     background-color: #008b8b;
     transition: 0.3s;
+  }
+`;
+export const Delete_board = styled.div`
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  &:hover {
+    color: red;
   }
 `;
