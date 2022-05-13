@@ -15,13 +15,12 @@ export interface IFormProfile {
   userName: string;
   userEmail: string;
   userPassword: string;
-}
+};
 
 export interface IFormBoard {
   taskName: string;
   taskDescr: string;
-  taskUser: string;
-}
+};
 
 export type State = {
   profile: IFormProfile;
