@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Board = styled.div`
@@ -14,7 +15,6 @@ export const Board = styled.div`
   color: white;
   border-radius: 3px;
   background-color: #5f9ea0;
-  cursor: pointer;
   &:hover {
     background-color: #008b8b;
     transition: 0.3s;
@@ -26,5 +26,12 @@ export const Delete_board = styled.div`
   bottom: 3px;
   &:hover {
     color: red;
+    cursor: pointer;
   }
+`;
+export const Link = styled(NavLink)`
+  width: 90%;
+  height: 95%;
+  text-decoration: none;
+  color: white;
 `;
