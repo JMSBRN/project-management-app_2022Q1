@@ -8,27 +8,27 @@ export enum Actions {
 };
 
 export type Action = 
-| {
-    type: Actions.SET_NAME;
-    payload: string;
-  }
-| {
-    type: Actions.SET_EMAIL;
-    payload: string;
-  }
-| {
-    type: Actions.SET_PASSWORD;
-    payload: string;
-  }
-| {
-    type: Actions.SET_TASKNAME;
-    payload: string;
-  }
-| {
-    type: Actions.SET_TASKDESCR;
-    payload: string;
-  }
-| {
-    type: Actions.SET_TASKUSER;
-    payload: string;
-  };
+  | {
+      type: Actions.SET_NAME;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_EMAIL;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_PASSWORD;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_TASKNAME;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_TASKDESCR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_TASKUSER;
+      payload: string;
+    };

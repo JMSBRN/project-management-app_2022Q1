@@ -21,6 +21,6 @@ export const setTaskDescr = (taskDescr: string) => ({
   payload: taskDescr,
 });
 export const setTaskUser = (taskUser: string) => ({
-    type: Actions.SET_TASKUSER,
-    payload: taskUser,
+  type: Actions.SET_TASKUSER,
+  payload: taskUser,
 });
