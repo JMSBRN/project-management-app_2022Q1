@@ -22,6 +22,6 @@ export interface IFormBoard {
 };
 
 export type State = {
-  profile: IFormProfile,
-  board: IFormBoard,
+  profile: IFormProfile;
+  board: IFormBoard;
 };
