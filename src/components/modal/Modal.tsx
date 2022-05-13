@@ -1,16 +1,14 @@
 import React from 'react';
 import Button from '../button/Button';
-
 import * as Styled from './Modal.styled';
 
 interface IModal {
-    handleClose?: () => void;
-    children?: JSX.Element;
-    isOpen?: boolean
+  handleClose?: () => void;
+  children?: JSX.Element;
+  isOpen?: boolean;
 }
 
 const Modal = ({children, handleClose, isOpen}: IModal) => {
-    
     if (isOpen) {
         return (
             <Styled.Open>
@@ -38,7 +36,6 @@ const Modal = ({children, handleClose, isOpen}: IModal) => {
             </Styled.Hide>
         );
     }
-
 };
 
 export default Modal;

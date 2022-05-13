@@ -4,6 +4,7 @@ export enum Actions {
   SET_PASSWORD = 'SET_PASSWORD',
   SET_TASKNAME = 'SET_TASKNAME',
   SET_TASKDESCR = 'SET_TASKDESCR',
+  SET_TASKUSER = 'SET_TASKUSER',
 }
 
 export type Action =
@@ -25,5 +26,9 @@ export type Action =
     }
   | {
       type: Actions.SET_TASKDESCR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_TASKUSER;
       payload: string;
     };

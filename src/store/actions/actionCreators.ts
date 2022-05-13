@@ -20,3 +20,7 @@ export const setTaskDescr = (taskDescr: string) => ({
   type: Actions.SET_PASSWORD,
   payload: taskDescr,
 });
+export const setTaskUser = (taskUser: string) => ({
+  type: Actions.SET_TASKUSER,
+  payload: taskUser,
+});
