@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-
 import { boardFormReducer } from './boardFormReducer';
 import { profileFormReducer } from './profileFormReducer';
 

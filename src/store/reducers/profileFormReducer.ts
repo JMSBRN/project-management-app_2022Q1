@@ -7,7 +7,6 @@ export const profileFormReducer: Reducer<IFormProfile, Action> = (
   action: Action
 ) => {
   switch (action.type) {
-    
     default:
       return state;
   }
