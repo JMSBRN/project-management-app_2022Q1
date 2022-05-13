@@ -10,6 +10,10 @@ export class AuthForm extends Component {
         <div>User state</div>
         <Button textButton="Log-in" />
         <Button textButton="Log-out" />
+        <div className="">
+          temporary link
+          <Button linkPath="/main" textButton={'main route'} />
+        </div>
       </div>
     );
   }
