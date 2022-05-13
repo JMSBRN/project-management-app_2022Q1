@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Board = styled.div`
+export const Main_Board = styled.div`
   position: relative;
   width: 200px;
   height: 100px;
@@ -20,7 +20,7 @@ export const Board = styled.div`
     transition: 0.3s;
   }
 `;
-export const Delete_board = styled.div`
+export const Delete_main_board = styled.div`
   position: absolute;
   right: 5px;
   bottom: 3px;
@@ -34,4 +34,10 @@ export const Link = styled(NavLink)`
   height: 95%;
   text-decoration: none;
   color: white;
+`;
+export const Title = styled.div`
+  font-size: 20px;
+`;
+export const Description = styled.div`
+  font-size: 15px;
 `;

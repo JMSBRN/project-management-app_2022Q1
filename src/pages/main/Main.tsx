@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import Board from '../../components/board/Board';
+import Board from '../../components/mainBoard/MainBoard';
 import * as Styled from './Main.style';
 
 export default class Main extends Component {
+  boards = [
+    { title: 'work_one', description: 'frontend' },
+    { title: 'work_two', description: 'frontend_2' },
+    { title: 'work_three', description: 'frontend_3' },
+  ];
   render() {
     return (
-      <div>
-        <Styled.Boards_list>
-          <Board boardTitle={'work_one'} boardDescription={'frontend'} />
-          <Board boardTitle={'work_two'} boardDescription={'frontend_2'} />
-          <Board boardTitle={'work_three'} boardDescription={'frontend_3'} />
-        </Styled.Boards_list>
-      </div>
+      <Styled.Boards_list>
+        {this.boards.map((el, idx) => (
+          <Board key={idx} boardTitle={el.title} boardDescription={el.description} />
+        ))}
+      </Styled.Boards_list>
     );
   }
 }
