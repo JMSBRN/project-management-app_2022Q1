@@ -1,16 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import Button from '../../components/button/Button';
 import './authForm.css';
+import Modal from '../../components/modal/Modal';
+import Confirmation from '../../components/confirmation/Confirmation';
 
-export class AuthForm extends Component {
-  render() {
+const AuthForm = () =>  {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  }
+
+  const handleClose = () => {
+    setIsOpen(false);
+  } 
+
+  console.log(isOpen)
     return (
       <div>
         AuthForm
         <div>User state</div>
         <Button textButton="Log-in" />
         <Button textButton="Log-out" />
-      </div>
+        <br/>
+        <br/>
+        <br/>
+        <button onClick={handleOpen}>delete user</button>
+          <Modal isOpen={isOpen} handleClose={handleClose}>
+            <Confirmation param="User"/>
+          </Modal>
+        </div>
     );
-  }
 }
+
+export default AuthForm;
