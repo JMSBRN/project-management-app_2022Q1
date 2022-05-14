@@ -15,7 +15,6 @@ const Modal = ({ isOpen, children, handleClose }: IModal) => {
   ) : (
     <HideModal handleClose={handleClose}>{children}</HideModal>
   );
-};
 
 const ShowModal = ({ children, handleClose }: IModal) => {
   return (

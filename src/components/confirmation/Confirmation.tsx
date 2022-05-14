@@ -2,10 +2,6 @@ import React from 'react';
 import * as Styled from './confirmation.styled';
 import Button from '../button/Button';
 
-// interface IParam {
-//   param: string;
-// }
-
 const Confirmation = () => {
   return (
     <>
