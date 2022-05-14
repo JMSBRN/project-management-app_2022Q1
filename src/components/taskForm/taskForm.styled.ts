@@ -6,7 +6,7 @@ export const Form = styled.form`
   height: 330px;
   padding: 20px;
   display: flex;
-  Flex-direction: column;
+  flex-direction: column;
   align-items: center;
 `;
 export const Title = styled.h4`

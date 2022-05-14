@@ -5,12 +5,16 @@ import * as Styled from './Modal.styled';
 
 interface IModal {
   handleClose?: () => void;
-  children?: JSX.Element;
+  children: JSX.Element;
   isOpen?: boolean;
 }
 
-const Modal = ({ isOpen }: IModal) => {
-  return isOpen ? <ShowModal /> : <HideModal />;
+const Modal = ({ isOpen, children, handleClose }: IModal) => {
+  return isOpen ? (
+    <ShowModal handleClose={handleClose}>{children}</ShowModal>
+  ) : (
+    <HideModal handleClose={handleClose}>{children}</HideModal>
+  );
 };
 
 const ShowModal = ({ children, handleClose }: IModal) => {
