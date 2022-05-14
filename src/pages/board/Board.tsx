@@ -1,8 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './board.css';
+import TaskForm from '../../components/taskForm/TaskForm';
+import Button from '../../components/button/Button';
+import Modal from '../../components/modal/Modal';
 
-export default class Board extends Component {
-  render() {
-    return <div>Board</div>;
+const Board = () => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
   }
+
+  const handleClose = () => {
+    setIsOpen(false);
+  } 
+
+  return (
+    <>
+      <div>Board</div>
+      <div className="container">
+        <Button textButton='Add task' onClick={handleOpen}/>
+      </div>
+      <Modal isOpen={isOpen} handleClose={handleClose}>
+        <TaskForm />
+      </Modal>
+    </>
+  );
 }
+
+export default Board;
