@@ -18,7 +18,7 @@ const EditProfile = () => {
       EditProfile
       <button onClick={handleOpen}>delete user</button>
       <Modal isOpen={isOpen} handleClose={handleClose}>
-        <Confirmation param="User" />
+        <Confirmation />
       </Modal>
     </div>
   );
