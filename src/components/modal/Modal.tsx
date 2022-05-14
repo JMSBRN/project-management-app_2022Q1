@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../button/Button';
+
 import * as Styled from './Modal.styled';
 
 interface IModal {
@@ -8,34 +9,38 @@ interface IModal {
   isOpen?: boolean;
 }
 
-const Modal = ({children, handleClose, isOpen}: IModal) => {
-    if (isOpen) {
-        return (
-            <Styled.Open>
-                <Styled.Wrapper>
-                    <Styled.Body>
-                        {children}
-                        <Styled.Btn>
-                            <Button className={Styled.Btn} onClick={handleClose} textButton='✖' />
-                        </Styled.Btn>
-                    </Styled.Body>
-                </Styled.Wrapper>
-            </Styled.Open>
-        )
-    } else {
-        return (
-            <Styled.Hide>
-                <Styled.Wrapper>
-                    <Styled.Body>
-                        {children}
-                        <Styled.Btn>
-                            <Button className={Styled.Btn} onClick={handleClose} textButton='✖' />
-                        </Styled.Btn>
-                    </Styled.Body>
-                </Styled.Wrapper>
-            </Styled.Hide>
-        );
-    }
+const Modal = ({ isOpen }: IModal) => {
+  return isOpen ? <ShowModal /> : <HideModal />;
+};
+
+const ShowModal = ({ children, handleClose }: IModal) => {
+  return (
+    <Styled.Open>
+      <Styled.Wrapper>
+        <Styled.Body>
+          {children}
+          <Styled.Btn>
+            <Button className={Styled.Btn} onClick={handleClose} textButton="✖" />
+          </Styled.Btn>
+        </Styled.Body>
+      </Styled.Wrapper>
+    </Styled.Open>
+  );
+};
+
+const HideModal = ({ children, handleClose }: IModal) => {
+  return (
+    <Styled.Hide>
+      <Styled.Wrapper>
+        <Styled.Body>
+          {children}
+          <Styled.Btn>
+            <Button className={Styled.Btn} onClick={handleClose} textButton="✖" />
+          </Styled.Btn>
+        </Styled.Body>
+      </Styled.Wrapper>
+    </Styled.Hide>
+  );
 };
 
 export default Modal;
