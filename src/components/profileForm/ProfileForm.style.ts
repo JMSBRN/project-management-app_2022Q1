@@ -30,7 +30,6 @@ export const Profile_Form = styled.form`
   height: 330px;
   padding: 20px;
 `;
-export const Profile_Form_input_wrapper = styled.div``;
 export const Profile_Form_input = styled.input`
   width: 100%;
   padding: 12px 20px;
