@@ -19,14 +19,12 @@ export const Hide = styled.div`
   height: 0;
   display: none;
 `;
-
 export const Btn = styled.button`
   position: absolute;
   top: 15px;
   right: 15px;
   cursor: pointer;
 `;
-
 export const Body = styled.div`
   width: 500px;
   height: auto;
