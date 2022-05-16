@@ -1,32 +1,26 @@
-import React from 'react';
-import ProfileForm from '../../components/profileForm/ProfileForm';
-import * as Styled from './EditProfile.style';
+import React, { useState } from 'react';
+import Confirmation from '../../components/confirmation/Confirmation';
+import Modal from '../../components/modal/Modal';
 
 const EditProfile = () => {
-  const handleSumit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    console.log(e.target);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
   };
-  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+
+  const handleClose = () => {
+    setIsOpen(false);
   };
-  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  };
-  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-  };
+
   return (
-    <Styled.Edit>
-      <div className="edit-wrapper">
-        <ProfileForm
-          handleSumit={handleSumit}
-          handleChangeName={handleChangeName}
-          handleChangeEmail={handleChangeEmail}
-          handleChangePassword={handleChangePassword}
-        />
-      </div>
-      <Styled.Delete_Button textButton="Delete User" />
-    </Styled.Edit>
+    <div>
+      EditProfile
+      <button onClick={handleOpen}>delete user</button>
+      <Modal isOpen={isOpen} handleClose={handleClose}>
+        <Confirmation />
+      </Modal>
+    </div>
   );
 };
 
