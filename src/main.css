@@ -8,6 +8,7 @@ html {
     font-family: 'Lato', sans-serif;
     --color-background-dark: #496581;
     --color-background-light: #e0fdff;
+    --color-background-white: #fff;
     --color-text-dark: #313030;
     --color-text-light: #ffd891;
     --color-text-white: #fff;

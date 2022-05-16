@@ -6,7 +6,7 @@ export const Profile_Form_main = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--color-background-white);
 `;
 export const Profile_Form_container = styled.div`
   min-width: 650px;
