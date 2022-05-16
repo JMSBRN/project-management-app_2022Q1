@@ -14,7 +14,7 @@ export const Main_Board = styled.div`
   font-size: 20px;
   color: white;
   border-radius: 3px;
-  background-color: #5f9ea0;
+  background-color: var(--color-bacground-MainBoard);
   &:hover {
     background-color: #008b8b;
     transition: 0.3s;
