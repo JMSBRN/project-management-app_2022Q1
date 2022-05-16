@@ -10,7 +10,7 @@ interface ButtonProps {
 const Button = ({ className, linkPath, textButton, onClick }: ButtonProps) => {
   return (
     <Styled.Button onClick={onClick} className={className}>
-      <Styled.Link role="button" to={linkPath ?? ''}>
+      <Styled.Link role="button" to={linkPath || ''}>
         {textButton}
       </Styled.Link>
     </Styled.Button>
