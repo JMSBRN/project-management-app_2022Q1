@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
-import Button from '../../components/button/Button';
+import React from 'react';
 import './authForm.css';
 
-export class AuthForm extends Component {
-  render() {
-    return (
-      <div>
-        AuthForm
-        <div>User state</div>
-        <Button textButton="Log-in" />
-        <Button textButton="Log-out" />
-        <div className="">
-          temporary link
-          <Button linkPath="/main" textButton={'main route'} />
-        </div>
-      </div>
-    );
-  }
-}
+const AuthForm = () => {
+  return (
+    <div>
+      AuthForm
+      <div>User state</div>
+    </div>
+  );
+};
+
+export default AuthForm;

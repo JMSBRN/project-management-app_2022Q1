@@ -7,7 +7,8 @@ export const initialState = {
   board: {
     taskName: '',
     taskDescr: '',
-  }
+    taskUser: '',
+  },
 };
 
 export interface IFormProfile {

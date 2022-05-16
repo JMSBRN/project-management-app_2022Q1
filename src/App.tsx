@@ -8,7 +8,7 @@ import Main from './pages/main/Main';
 import Boards from './pages/boards/Boards';
 import Footer from './containers/footer/Footer';
 import NotFound from './pages/notFound/NotFound';
-import { AuthForm } from './pages/authForm/AuthForm';
+import AuthForm from './pages/authForm/AuthForm';
 import './main.css';
 import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
 import EditProfile from './pages/editProfile/EditProfile';
