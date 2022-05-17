@@ -12,17 +12,8 @@ import AuthForm from './pages/authForm/AuthForm';
 import './main.css';
 import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
 import EditProfile from './pages/editProfile/EditProfile';
-import { getUsers, loginUser } from './Api';
 
 function App() {
-  getUsers().then((data) => {
-    console.log(data);
-  });
-  const user = {
-    login: 'user001',
-    password: 'userpass@123',
-  };
-  loginUser(user);
   return (
     <div className="App">
       <BrowserRouter>
