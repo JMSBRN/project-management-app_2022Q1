@@ -5,7 +5,7 @@ import { Layout } from './containers/layout/Layout';
 import Header from './containers/header/Header';
 import Welcome from './pages/welcome/Welcome';
 import Main from './pages/main/Main';
-import Boards from './pages/boards/Boards';
+import Board from './pages/board/Board';
 import Footer from './containers/footer/Footer';
 import NotFound from './pages/notFound/NotFound';
 import AuthForm from './pages/authForm/AuthForm';
@@ -22,7 +22,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Welcome />} />
             <Route element={<ProtectedRoute />}>
-              <Route path="board" element={<Boards />} />
+              <Route path="board" element={<Board />} />
               <Route path="edit" element={<EditProfile />} />
               <Route path="main" element={<Main />} />
             </Route>
