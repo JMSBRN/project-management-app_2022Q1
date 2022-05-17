@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './button.css';
+import * as Styled from './Button.style';
 
 interface ButtonProps {
   className?: string;
@@ -10,13 +9,11 @@ interface ButtonProps {
 }
 const Button = ({ className, linkPath, textButton, onClick }: ButtonProps) => {
   return (
-    <div>
-      <button onClick={onClick} className={className}>
-        <Link role="button" to={linkPath ?? ''}>
-          {textButton}
-        </Link>
-      </button>
-    </div>
+    <Styled.Button onClick={onClick} className={className}>
+      <Styled.Link role="button" to={linkPath || ''}>
+        {textButton}
+      </Styled.Link>
+    </Styled.Button>
   );
 };
 

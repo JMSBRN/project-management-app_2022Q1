@@ -12,6 +12,7 @@ html {
     --color-text-dark: #313030;
     --color-text-light: #ffd891;
     --color-text-white: #fff;
+    --color-button-regular: #407283;
     background-color: var(--color-background-light);
     color: var(--color-text-dark);
 }
