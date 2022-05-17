@@ -5,7 +5,7 @@ import { Actions, Action } from '../actions/actionTypes';
 export const taskFormReducer: Reducer<IFormTask, Action> = (
   state: IFormTask = initialState.task,
   action: Action
-) => {
+): IFormTask => {
   switch (action.type) {
     case Actions.SET_TASKNAME: {
       return {
