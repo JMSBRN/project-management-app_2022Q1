@@ -1,3 +1,5 @@
+import { ITaskList } from '../utils';
+
 export enum Actions {
   SET_NAME = 'SET_NAME',
   SET_EMAIL = 'SET_EMAIL',
@@ -5,6 +7,7 @@ export enum Actions {
   SET_TASKNAME = 'SET_TASKNAME',
   SET_TASKDESCR = 'SET_TASKDESCR',
   SET_TASKUSER = 'SET_TASKUSER',
+  SET_TASKLIST = 'SET_TASKLIST',
 }
 
 export type Action =
@@ -31,4 +34,8 @@ export type Action =
   | {
       type: Actions.SET_TASKUSER;
       payload: string;
+    }
+  | {
+      type: Actions.SET_TASKLIST;
+      payload: ITaskList[];
     };
