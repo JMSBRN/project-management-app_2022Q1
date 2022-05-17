@@ -1,3 +1,9 @@
+export type State = {
+  profile: IFormProfile;
+  board: IFormBoard;
+  task: IFormTask;
+};
+
 export const initialState = {
   profile: {
     userName: '',
@@ -26,7 +32,7 @@ export interface IFormTask {
   taskName: string;
   taskDescr: string;
   taskUser: string;
-  taskList: ITaskData[];
+  taskList: ITaskList[];
 }
 
 export interface IFormBoard {
@@ -34,13 +40,7 @@ export interface IFormBoard {
   descr: string;
 }
 
-export type State = {
-  profile: IFormProfile;
-  board: IFormBoard;
-  task: IFormTask;
-};
-
-export interface ITaskData {
+export interface ITaskList {
   taskName: string;
   taskDescr: string;
   taskUser: string;

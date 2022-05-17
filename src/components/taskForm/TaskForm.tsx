@@ -1,42 +1,53 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTaskDescr, setTaskName, setTaskUser } from '../../store/actions/actionCreators';
+import {
+  setTaskDescr,
+  setTaskName,
+  setTaskUser,
+  setTaskList,
+} from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import * as Styled from './taskForm.styled';
 
 const TaskForm = () => {
-  const { taskName, taskDescr, taskUser } = useSelector((state: State) => state.task);
+  const { taskName, taskDescr, taskUser, taskList } = useSelector((state: State) => state.task);
   const dispatch = useDispatch();
-  console.log(dispatch);
 
-  const handleTaskName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setTaskName(e.target.value));
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    callback: (value: string) => any //TYPE?????????????????????
+  ) => {
+    dispatch(callback(e.target.value)); //I have a mistake here when type is: (value: string) => void
   };
 
-  const handleTaskDescr = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setTaskDescr(e.target.value));
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(
+      setTaskList([
+        ...taskList,
+        {
+          taskName: taskName,
+          taskDescr: taskDescr,
+          taskUser: taskUser,
+        },
+      ])
+    );
+    dispatch(setTaskName(''));
+    dispatch(setTaskDescr(''));
+    dispatch(setTaskUser(''));
+    // first task add after second click?????????????????
+    console.log(taskList);
   };
-
-  const handleTaskUser = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setTaskUser(e.target.value));
-  };
-
-  //   const handleChange = (
-  //     e: React.ChangeEvent<HTMLInputElement>,
-  //     callback: (value: string) => void //TYPE?????????????????????
-  //   ) => {
-  //     dispatch(callback(e.target.value));
-  //   };
 
   return (
     <>
-      <Styled.Form>
+      <Styled.Form onSubmit={handleSubmit}>
         <Styled.Title>Create new task</Styled.Title>
         <label>Task name:</label>
         <Styled.Form_input
           type="text"
           value={taskName}
-          onChange={handleTaskName}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setTaskName)}
           placeholder="Enter task name"
           required
         />
@@ -44,7 +55,7 @@ const TaskForm = () => {
         <Styled.Form_input
           type="text"
           value={taskDescr}
-          onChange={handleTaskDescr}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setTaskDescr)}
           placeholder="Enter task description"
           required
         />
@@ -52,7 +63,7 @@ const TaskForm = () => {
         <Styled.Form_input
           type="text"
           value={taskUser}
-          onChange={handleTaskUser}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setTaskUser)}
           placeholder="Enter user"
           required
         />

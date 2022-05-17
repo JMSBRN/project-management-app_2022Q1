@@ -1,4 +1,4 @@
-import { ITaskData } from '../utils';
+import { ITaskList } from '../utils';
 
 export enum Actions {
   SET_NAME = 'SET_NAME',
@@ -37,5 +37,5 @@ export type Action =
     }
   | {
       type: Actions.SET_TASKLIST;
-      payload: ITaskData[];
+      payload: ITaskList[];
     };
