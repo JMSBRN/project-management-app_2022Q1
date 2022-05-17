@@ -11,34 +11,14 @@ interface IColumn {
 }
 
 const Board = () => {
-  const columnListBase: IColumn[] = [
-    {
-      id: 1,
-      title: 'Task 1',
-      order: 1,
-      tasks: [
-        'First task',
-        'Second task',
-        'Bla bla bla',
-        '3. Super task',
-        'First task',
-        'Second task',
-        'Bla bla bla',
-        '3. Super task',
-        'First task',
-        'Second task',
-        'Bla bla bla',
-        '3. Super task',
-      ],
-    },
-    { id: 2, title: 'Task 2', order: 2, tasks: ['First task', 'Second task'] },
-    { id: 3, title: 'Task 3', order: 3, tasks: ['First task', 'Second task', 'task task task'] },
-  ];
-
-  const [columnList, setColumnList] = useState<IColumn[]>(columnListBase);
+  const [columnList, setColumnList] = useState<IColumn[]>([]);
 
   const buttonClick = () => {
-    setColumnList([...columnList, { id: 4, title: 'Task +++', order: 4, tasks: [] }]);
+    const idColumn: number = columnList.length;
+    setColumnList([
+      ...columnList,
+      { id: idColumn, title: 'New Column', order: idColumn, tasks: [] },
+    ]);
   };
 
   return (

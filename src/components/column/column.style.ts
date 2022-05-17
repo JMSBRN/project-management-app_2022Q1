@@ -7,6 +7,7 @@ export const Column = styled.div`
   min-width: 270px;
   margin-right: 10px;
   padding: 10px;
+  border-radius: 5px;
   background-color: var(--color-background-white);
   color: var(--color-text-dark);
   border: 1px solid var(--color-background-dark);
@@ -17,6 +18,6 @@ export const Title = styled.div`
   font-weight: 600;
 `;
 
-export const Column_list = styled.div`
+export const Task_list = styled.div`
   overflow-x: auto;
 `;

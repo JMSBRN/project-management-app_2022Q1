@@ -12,18 +12,18 @@ const Column = (props: IProps) => {
   const [tasksList, setTasksList] = useState<string[]>([...props.tasks]);
 
   const clickButton = () => {
-    setTasksList([...props.tasks, 'New task']);
+    setTasksList([...tasksList, 'New task']);
   };
 
   return (
     <>
       <Styled.Column>
         <Styled.Title>{props.title}</Styled.Title>
-        <Styled.Column_list>
+        <Styled.Task_list>
           {tasksList.map((task, i) => (
-            <Task key={props.title + i} task={task} />
+            <Task key={i} task={task} />
           ))}
-        </Styled.Column_list>
+        </Styled.Task_list>
         <Button textButton="Add task" onClick={clickButton} />
       </Styled.Column>
     </>
