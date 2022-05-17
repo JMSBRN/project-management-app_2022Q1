@@ -20,7 +20,7 @@ const TaskForm = () => {
     dispatch(callback(e.target.value)); //I have a mistake here when type is: (value: string) => void
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleTaskSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(
       setTaskList([
@@ -41,7 +41,7 @@ const TaskForm = () => {
 
   return (
     <>
-      <Styled.Form onSubmit={handleSubmit}>
+      <Styled.Form onSubmit={handleTaskSubmit}>
         <Styled.Title>Create new task</Styled.Title>
         <label>Task name:</label>
         <Styled.Form_input

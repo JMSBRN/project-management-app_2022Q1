@@ -1,17 +1,21 @@
-import { ITaskList } from '../utils';
+import { IRegList, ITaskList } from '../utils';
 import { Actions } from './actionTypes';
 
 export const setUserName = (userName: string) => ({
-  type: Actions.SET_NAME,
+  type: Actions.SET_USERNAME,
   payload: userName,
 });
-export const setUserBirth = (userEmail: string) => ({
-  type: Actions.SET_EMAIL,
+export const setUserEmail = (userEmail: string) => ({
+  type: Actions.SET_USEREMAIL,
   payload: userEmail,
 });
-export const setUserCountry = (userPassword: string) => ({
-  type: Actions.SET_PASSWORD,
+export const setUserPassword = (userPassword: string) => ({
+  type: Actions.SET_USERPASSWORD,
   payload: userPassword,
+});
+export const setUserList = (userList: IRegList[]) => ({
+  type: Actions.SET_USERLIST,
+  payload: userList,
 });
 export const setTaskName = (taskName: string) => ({
   type: Actions.SET_TASKNAME,

@@ -1,18 +1,47 @@
-import React from 'react';
+import React, { DispatchWithoutAction } from 'react';
 import * as Styled from './ProfileForm.style';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setUserName,
+  setUserEmail,
+  setUserPassword,
+  setUserList,
+} from '../../store/actions/actionCreators';
+import { State } from '../../store/utils';
 
-interface FormProps {
-  handleSumit: (e: React.ChangeEvent<HTMLFormElement>) => void;
-  handleChangeName: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleChangeEmail: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleChangePassword: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-const Form = ({
-  handleSumit,
-  handleChangeName,
-  handleChangeEmail,
-  handleChangePassword,
-}: FormProps) => {
+
+const Form = () => {
+  const { userName, userEmail, userPassword, userList } = useSelector(
+    (state: State) => state.profile
+  );
+  const dispatch = useDispatch();
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    callback: (value: string) => any
+  ) => {
+    dispatch(callback(e.target.value)); //I have a mistake here when type is: (value: string) => void
+  };
+
+  const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    dispatch(
+      setUserList([
+        ...userList,
+        {
+          userName: userName,
+          userEmail: userEmail,
+          userPassword: userPassword,
+        },
+      ])
+    );
+    dispatch(setUserName(''));
+    dispatch(setUserEmail(''));
+    dispatch(setUserPassword(''));
+    // first task add after second click?????????????????
+    console.log(userList);
+  };
+
   return (
     <Styled.Profile_Form_main>
       <Styled.Profile_Form_container>
@@ -22,12 +51,12 @@ const Form = ({
           <div className="user-email">Email</div>
           <div className="user-password">Password</div>
         </Styled.User_info>
-        <Styled.Profile_Form onSubmit={handleSumit}>
+        <Styled.Profile_Form onSubmit={handleUserSubmit}>
           <label>
             Name:
             <Styled.Profile_Form_input
               data-testid="name-input"
-              onChange={handleChangeName}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserName)}
               placeholder="name:"
               type="text"
               pattern="[A-Za-z]{3}"
@@ -39,7 +68,7 @@ const Form = ({
             Email:
             <Styled.Profile_Form_input
               data-testid="name-input"
-              onChange={handleChangeEmail}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserEmail)}
               placeholder="email:"
               type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -51,7 +80,9 @@ const Form = ({
             Password:
             <Styled.Profile_Form_input
               data-testid="name-input"
-              onChange={handleChangePassword}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleChange(e, setUserPassword)
+              }
               placeholder="password:"
               type="password"
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
