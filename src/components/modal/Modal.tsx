@@ -1,24 +1,26 @@
+import React from 'react';
 import Button from '../button/Button';
+
 import * as Styled from './Modal.styled';
 
 interface IModal {
   handleClose?: () => void;
-  children?: JSX.Element;
-  isOpen?: boolean;
+  children: React.ReactNode;
+  isOpen: boolean;
 }
 
-const Modal = ({children, handleClose, isOpen}: IModal) => {
+const Modal = ({ isOpen, children, handleClose }: IModal) => {
   return (
-    <Styled.Open>
+    <Styled.Modal isOpen={isOpen}>
       <Styled.Wrapper>
         <Styled.Body>
           {children}
           <Styled.Btn>
-            <Button className={Styled.Btn} onClick={handleClose} textButton='✖' />
+            <Button onClick={handleClose} textButton="✖" />
           </Styled.Btn>
         </Styled.Body>
       </Styled.Wrapper>
-    </Styled.Open>
+    </Styled.Modal>
   );
 };
 

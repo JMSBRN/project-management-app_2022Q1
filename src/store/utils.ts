@@ -1,27 +1,47 @@
+export type State = {
+  profile: IFormProfile;
+  board: IFormBoard;
+  task: IFormTask;
+};
+
 export const initialState = {
   profile: {
     userName: '',
     userEmail: '',
     userPassword: '',
   },
-  board: {
+  task: {
     taskName: '',
     taskDescr: '',
-  }
+    taskUser: '',
+    taskList: [],
+  },
+  board: {
+    title: '',
+    descr: '',
+  },
 };
 
 export interface IFormProfile {
   userName: string;
   userEmail: string;
   userPassword: string;
-};
+}
 
-export interface IFormBoard {
+export interface IFormTask {
   taskName: string;
   taskDescr: string;
-};
+  taskUser: string;
+  taskList: ITaskList[];
+}
 
-export type State = {
-  profile: IFormProfile;
-  board: IFormBoard;
-};
+export interface IFormBoard {
+  title: string;
+  descr: string;
+}
+
+export interface ITaskList {
+  taskName: string;
+  taskDescr: string;
+  taskUser: string;
+}

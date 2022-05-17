@@ -1,3 +1,4 @@
+import { ITaskList } from '../utils';
 import { Actions } from './actionTypes';
 
 export const setUserName = (userName: string) => ({
@@ -13,14 +14,18 @@ export const setUserCountry = (userPassword: string) => ({
   payload: userPassword,
 });
 export const setTaskName = (taskName: string) => ({
-  type: Actions.SET_EMAIL,
+  type: Actions.SET_TASKNAME,
   payload: taskName,
 });
 export const setTaskDescr = (taskDescr: string) => ({
-  type: Actions.SET_PASSWORD,
+  type: Actions.SET_TASKDESCR,
   payload: taskDescr,
 });
 export const setTaskUser = (taskUser: string) => ({
   type: Actions.SET_TASKUSER,
   payload: taskUser,
+});
+export const setTaskList = (taskList: ITaskList[]) => ({
+  type: Actions.SET_TASKLIST,
+  payload: taskList,
 });

@@ -7,29 +7,24 @@ export const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
 `;
-  
-export const Open = styled.div`
-  height: 100%;
-  display: flex;
+interface IModal {
+  isOpen: boolean;
+}
+export const Modal = styled.div<IModal>`
+  height: ${({ isOpen }) => (isOpen ? '100%' : '0')};
+  display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
   justify-content: center;
   aling-items: center;
 `;
-
-export const Hide = styled.div`
-  height: 0;
-  display: none;
-`;
-
 export const Btn = styled.button`
   position: absolute;
   top: 15px;
   right: 15px;
-  cursor: pointer;  
+  cursor: pointer;
 `;
-  
 export const Body = styled.div`
   width: 500px;
-  height: 300px;
+  height: auto;
   margin: auto;
   background-color: white;
   margin-top: 5%;
