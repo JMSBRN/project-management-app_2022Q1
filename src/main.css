@@ -8,9 +8,11 @@ html {
     font-family: 'Lato', sans-serif;
     --color-background-dark: #496581;
     --color-background-light: #e0fdff;
+    --color-background-white: #fff;
     --color-text-dark: #313030;
     --color-text-light: #ffd891;
     --color-text-white: #fff;
+    --color-button-regular: #407283;
     background-color: var(--color-background-light);
     color: var(--color-text-dark);
 }
