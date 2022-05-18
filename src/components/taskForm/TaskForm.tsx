@@ -18,7 +18,7 @@ const TaskForm = () => {
     e: React.ChangeEvent<HTMLInputElement>,
     callback: (value: string) => AnyAction
   ) => {
-    dispatch(callback(e.target.value)); 
+    dispatch(callback(e.target.value));
   };
 
   const handleTaskSubmit = (e: React.FormEvent<HTMLFormElement>) => {
