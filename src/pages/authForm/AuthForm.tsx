@@ -12,8 +12,11 @@ const AuthForm = () => {
   const [users, setUsers] = useState(localUsers);
   const [authErrors, setAuthErrors] = useState([]);
   const [loginErrors, setloginErrors] = useState([]);
+  const [editErrors, setEditErrors] = useState([]);
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
+  const [userEdit, setUserEdit] = useState({ name: '', login: '' });
   const [userAuth, setUserAuth] = useState({ name: '', login: '', password: '' });
+  getUsers();
   useEffect(() => {
     setTimeout(() => {
       setUsers(JSON.parse(localStorage.getItem('users') || '[]'));
@@ -46,10 +49,17 @@ const AuthForm = () => {
     const value = e.target.value;
     setUserAuth((values) => ({ ...values, [name]: value }));
   };
-  getUsers();
+  const handlChangeEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setUserEdit((values) => ({ ...values, [name]: value }));
+  };
   const handleDeleteUser = () => {
-    const id = localStorage.getItem('id');
-    deleteUser(id || '');
+    const id = JSON.parse(localStorage.getItem('id') || '');
+    deleteUser(id);
+    setTimeout(() => {
+      setEditErrors(JSON.parse(localStorage.getItem('Edit_Error_msg') || '[]'));
+    }, 1000);
   };
   return (
     <div>
@@ -79,14 +89,16 @@ const AuthForm = () => {
         {authErrors.length <= 0 ? authErrors.filter((el: string) => el.length > 0) : authErrors}
       </p>
       MockEdit
-      <form onSubmit={handlSubmitAuth}>
-        <input type="text" name="name" placeholder="name" />
+      <form>
+        <input onChange={handlChangeEdit} type="text" name="name" placeholder="name" />
         <br />
-        <input type="text" name="login" placeholder="login" />
+        <input onChange={handlChangeEdit} type="text" name="login" placeholder="login" />
         <br />
-        <input type="submit" />
-        <button onClick={handleDeleteUser}>Delete user</button>
       </form>
+      <p style={{ color: 'red' }}>
+        {editErrors.length <= 0 ? editErrors.filter((el: string) => el.length > 0) : editErrors}
+      </p>
+      <button onClick={handleDeleteUser}>Delete user</button>
       <div>
         <br />
         Users in local
