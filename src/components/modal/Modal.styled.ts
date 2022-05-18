@@ -2,10 +2,17 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
+  margin: auto;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 interface IModal {
   isOpen: boolean;
@@ -13,8 +20,6 @@ interface IModal {
 export const Modal = styled.div<IModal>`
   height: ${({ isOpen }) => (isOpen ? '100%' : '0')};
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-  justify-content: center;
-  aling-items: center;
 `;
 export const Btn = styled.button`
   position: absolute;

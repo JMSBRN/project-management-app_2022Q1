@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTaskList } from '../../store/actions/actionCreators';
+import { State } from '../../store/utils';
 import Button from '../button/Button';
 import Modal from '../modal/Modal';
 import { Task } from '../task/Task';
 import TaskForm from '../taskForm/TaskForm';
 import * as Styled from './column.style';
 
-interface IProps {
-  title: string;
-  tasks: string[];
-}
-
-const Column = (props: IProps) => {
-  const [tasksList, setTasksList] = useState<string[]>([...props.tasks]);
+const Column = () => {
+  const { taskList } = useSelector((state: State) => state.task);
+  const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,17 +24,18 @@ const Column = (props: IProps) => {
   };
 
   const clickButton = () => {
-    setTasksList([...tasksList, 'New task']);
+    dispatch(setTaskList([...taskList]));
   };
 
   return (
     <>
       <Styled.Column>
-        <Styled.Title>{props.title}</Styled.Title>
+        <Styled.Title>New Task</Styled.Title>
         <Styled.Task_list>
-          {tasksList.map((task, i) => (
-            <Task key={i} task={task} />
-          ))}
+          {taskList.map((task, i) => {
+            console.log(task.taskName);
+            return <Task key={i} taskItem={task} />;
+          })}
         </Styled.Task_list>
         <Button textButton="Add task" onClick={handleOpen} />
         <Modal isOpen={isOpen} handleClose={handleClose}>

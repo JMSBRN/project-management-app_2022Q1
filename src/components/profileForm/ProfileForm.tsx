@@ -1,4 +1,4 @@
-import React, { DispatchWithoutAction } from 'react';
+import React from 'react';
 import * as Styled from './ProfileForm.style';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -9,7 +9,6 @@ import {
 } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import { AnyAction } from 'redux';
-
 
 const Form = () => {
   const { userName, userEmail, userPassword, userList } = useSelector(

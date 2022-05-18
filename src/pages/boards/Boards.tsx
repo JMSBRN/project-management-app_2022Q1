@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Boards extends Component {
-  render() {
-    return <div>Boards</div>;
-  }
-}
+export const Boards = () => {
+  return <>Boards</>;
+};

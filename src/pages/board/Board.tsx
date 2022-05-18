@@ -22,12 +22,14 @@ const Board = () => {
   };
 
   return (
-    <Styled.Board>
-      {columnList.map((column) => (
-        <Column key={column.id} title={column.title} tasks={column.tasks} />
-      ))}
-      <Button textButton="Add Column" onClick={buttonClick} />
-    </Styled.Board>
+    <>
+      <Styled.Board>
+        {columnList.map((column) => (
+          <Column key={column.id} />
+        ))}
+        <Button textButton="Add Column" onClick={buttonClick} />
+      </Styled.Board>
+    </>
   );
 };
 

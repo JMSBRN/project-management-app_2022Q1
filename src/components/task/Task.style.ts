@@ -10,4 +10,17 @@ export const Task_block = styled.div`
   box-shadow: 0 1px 0 var(--color-background-dark-60);
 `;
 
-export const Title = styled.div``;
+export const Title = styled.h4`
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 15px;
+`;
+export const Descr = styled.div`
+  font-size: 16px;
+  margin-bottom: 15px;
+`;
+export const User = styled.div`
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+`;
