@@ -43,6 +43,7 @@ export const loginUser = async (user: object) => {
     body: JSON.stringify(user),
   });
   const content = await resp.json();
+  console.log(content);
   localStorage.setItem('Login_Error_msg', JSON.stringify(content.message) || '');
   localStorage.setItem('freshToken', JSON.stringify(content.token) || '');
 };

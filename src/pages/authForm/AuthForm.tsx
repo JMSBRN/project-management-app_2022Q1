@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createUser, getUsers, loginUser } from '../../Api';
 import './authForm.css';
 
@@ -14,9 +14,11 @@ const AuthForm = () => {
   const [loginErrors, setloginErrors] = useState([]);
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
   const [userAuth, setUserAuth] = useState({ name: '', login: '', password: '' });
-  setTimeout(() => {
-    setUsers(JSON.parse(localStorage.getItem('users') || '[]'));
-  }, 800);
+  useEffect(() => {
+    setTimeout(() => {
+      setUsers(JSON.parse(localStorage.getItem('users') || '[]'));
+    }, 1000);
+  }, []);
   const handlSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     loginUser(userLogin);
@@ -69,6 +71,15 @@ const AuthForm = () => {
       <p style={{ color: 'red' }}>
         {authErrors.length <= 0 ? authErrors.filter((el: string) => el.length > 0) : authErrors}
       </p>
+      MockEdit
+      <form onSubmit={handlSubmitAuth}>
+        <input type="text" value={'s'} name="name" placeholder="name" />
+        <br />
+        <input type="text" value={'s'} name="login" placeholder="login" />
+        <br />
+        <input type="submit" />
+        <button>Delete user</button>
+      </form>
       <div>
         <br />
         Users in local
