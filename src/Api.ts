@@ -11,7 +11,8 @@ export const getUsers = async () => {
       Authorization: `Bearer ${token}`,
     },
   });
-  const data = resp.json();
+  const data = await resp.json();
+  localStorage.setItem('users', JSON.stringify(data));
   return data;
 };
 export const createUser = async (user: object) => {
@@ -24,10 +25,13 @@ export const createUser = async (user: object) => {
     body: JSON.stringify(user),
   });
   const content = await resp.json();
-  console.log(content);
-  localStorage.setItem('name', JSON.stringify(content.name));
-  localStorage.setItem('login', JSON.stringify(content.login));
-  localStorage.setItem('id', JSON.stringify(content.id));
+
+  if (content !== '') {
+    localStorage.setItem('Auth_Error_msg', JSON.stringify(content.message));
+    localStorage.setItem('name', JSON.stringify(content.name));
+    localStorage.setItem('login', JSON.stringify(content.login));
+    localStorage.setItem('id', JSON.stringify(content.id));
+  }
 };
 export const loginUser = async (user: object) => {
   const resp = await fetch(signIn, {
