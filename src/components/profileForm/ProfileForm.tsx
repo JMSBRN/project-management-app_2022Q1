@@ -38,8 +38,6 @@ const Form = () => {
     dispatch(setUserName(''));
     dispatch(setUserEmail(''));
     dispatch(setUserPassword(''));
-    // first task add after second click???
-    //console.log(userList);
   };
 
   return (
