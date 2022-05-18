@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createUser, getUsers, loginUser } from '../../Api';
 import './authForm.css';
 
@@ -14,9 +14,11 @@ const AuthForm = () => {
   const [loginErrors, setloginErrors] = useState([]);
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
   const [userAuth, setUserAuth] = useState({ name: '', login: '', password: '' });
-  setTimeout(() => {
-    setUsers(JSON.parse(localStorage.getItem('users') || '[]'));
-  }, 800);
+  useEffect(() => {
+    setTimeout(() => {
+      setUsers(JSON.parse(localStorage.getItem('users') || '[]'));
+    }, 800);
+  }, []);
   const handlSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     loginUser(userLogin);
