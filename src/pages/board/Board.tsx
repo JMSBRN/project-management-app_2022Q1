@@ -1,29 +1,34 @@
 import React, { useState } from 'react';
-import './board.css';
-import TaskForm from '../../components/taskForm/TaskForm';
-import Button from '../../components/button/Button';
-import Modal from '../../components/modal/Modal';
+import Column from '../../components/column/Column';
+import * as Styled from './board.style';
+import Button from './../../components/button/Button';
+
+interface IColumn {
+  id: number;
+  title: string;
+  order: number;
+  tasks: string[];
+}
 
 const Board = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [columnList, setColumnList] = useState<IColumn[]>([]);
 
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsOpen(false);
+  const buttonClick = () => {
+    const idColumn: number = columnList.length;
+    setColumnList([
+      ...columnList,
+      { id: idColumn, title: 'New Column', order: idColumn, tasks: [] },
+    ]);
   };
 
   return (
     <>
-      <div>Board</div>
-      <div className="container">
-        <Button textButton="Add task" onClick={handleOpen} />
-      </div>
-      <Modal isOpen={isOpen} handleClose={handleClose}>
-        <TaskForm />
-      </Modal>
+      <Styled.Board>
+        {columnList.map((column) => (
+          <Column key={column.id} />
+        ))}
+        <Button textButton="Add Column" onClick={buttonClick} />
+      </Styled.Board>
     </>
   );
 };

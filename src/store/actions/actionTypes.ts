@@ -1,9 +1,10 @@
-import { ITaskList } from '../utils';
+import { IRegList, ITaskList } from '../utils';
 
 export enum Actions {
-  SET_NAME = 'SET_NAME',
-  SET_EMAIL = 'SET_EMAIL',
-  SET_PASSWORD = 'SET_PASSWORD',
+  SET_USERNAME = 'SET_USERNAME',
+  SET_USEREMAIL = 'SET_USEREMAIL',
+  SET_USERPASSWORD = 'SET_USERPASSWORD',
+  SET_USERLIST = 'SET_USERLIST',
   SET_TASKNAME = 'SET_TASKNAME',
   SET_TASKDESCR = 'SET_TASKDESCR',
   SET_TASKUSER = 'SET_TASKUSER',
@@ -12,16 +13,20 @@ export enum Actions {
 
 export type Action =
   | {
-      type: Actions.SET_NAME;
+      type: Actions.SET_USERNAME;
       payload: string;
     }
   | {
-      type: Actions.SET_EMAIL;
+      type: Actions.SET_USEREMAIL;
       payload: string;
     }
   | {
-      type: Actions.SET_PASSWORD;
+      type: Actions.SET_USERPASSWORD;
       payload: string;
+    }
+  | {
+      type: Actions.SET_USERLIST;
+      payload: IRegList[];
     }
   | {
       type: Actions.SET_TASKNAME;
