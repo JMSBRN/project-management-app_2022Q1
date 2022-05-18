@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Main_Board = styled.div`
   position: relative;
-  width: 200px;
+  min-width: 200px;
   height: 100px;
   margin: 10px;
   padding: 10px;
@@ -14,7 +14,7 @@ export const Main_Board = styled.div`
   font-size: 20px;
   color: white;
   border-radius: 3px;
-  background-color: var(--color-bacground-MainBoard);
+  background-color: var(--color-button-regular);
   &:hover {
     background-color: #008b8b;
     transition: 0.3s;
