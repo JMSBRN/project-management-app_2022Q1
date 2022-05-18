@@ -9,6 +9,7 @@ export const initialState = {
     userName: '',
     userEmail: '',
     userPassword: '',
+    userList: [],
   },
   task: {
     taskName: '',
@@ -26,6 +27,7 @@ export interface IFormProfile {
   userName: string;
   userEmail: string;
   userPassword: string;
+  userList: IRegList[];
 }
 
 export interface IFormTask {
@@ -44,4 +46,10 @@ export interface ITaskList {
   taskName: string;
   taskDescr: string;
   taskUser: string;
+}
+
+export interface IRegList {
+  userName: string;
+  userEmail: string;
+  userPassword: string;
 }
