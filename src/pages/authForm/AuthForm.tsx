@@ -10,21 +10,23 @@ interface User {
 const AuthForm = () => {
   const localUsers: User[] = JSON.parse(localStorage.getItem('users') || '[]');
   const [users] = useState(localUsers);
-  const localAuthErrors = JSON.parse(localStorage.getItem('Auth_Error_msg') || '[]');
-  const localLoginErrors = JSON.parse(localStorage.getItem('Login_Error_msg') || '[]');
-  const [authErrors, setAuthErrors] = useState(localAuthErrors);
-  const [loginErrors, setloginErrors] = useState(localLoginErrors);
+  const [authErrors, setAuthErrors] = useState([]);
+  const [loginErrors, setloginErrors] = useState([]);
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
   const [userAuth, setUserAuth] = useState({ name: '', login: '', password: '' });
   const handlSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     loginUser(userLogin);
-    setloginErrors(localLoginErrors);
+    setTimeout(() => {
+      setloginErrors(JSON.parse(localStorage.getItem('Login_Error_msg') || '[]'));
+    }, 800);
   };
   const handlSubmitAuth = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createUser(userAuth);
-    setAuthErrors(authErrors);
+    setTimeout(() => {
+      setAuthErrors(JSON.parse(localStorage.getItem('Auth_Error_msg') || '[]'));
+    }, 800);
   };
   const handlChangeLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -46,7 +48,9 @@ const AuthForm = () => {
         <input onChange={handlChangeLogin} type="text" name="password" placeholder="password" />
         <input type="submit" />
         <p style={{ color: 'red' }}>
-          {loginErrors.length <= 0 ? authErrors.filter((el: string) => el.length > 0) : loginErrors}
+          {loginErrors.length <= 0
+            ? loginErrors.filter((el: string) => el.length > 0)
+            : loginErrors}
         </p>
       </form>
       MockAuth
