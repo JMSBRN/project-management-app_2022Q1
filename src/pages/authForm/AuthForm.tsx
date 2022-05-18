@@ -10,6 +10,8 @@ interface User {
 const AuthForm = () => {
   const localUsers: User[] = JSON.parse(localStorage.getItem('users') || '[]');
   const [users] = useState(localUsers);
+  const localErrors = JSON.parse(localStorage.getItem('Auth_Error_msg') || '[]');
+  const [errors, setErrors] = useState(localErrors);
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
   const [userAuth, setUserAuth] = useState({ name: '', login: '', password: '' });
   const handlSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
@@ -19,6 +21,7 @@ const AuthForm = () => {
   const handlSubmitAuth = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createUser(userAuth);
+    setErrors(errors);
   };
   const handlChangeLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -49,6 +52,10 @@ const AuthForm = () => {
         <input onChange={handlChangeAuth} type="text" name="password" placeholder="password" />
         <input type="submit" />
       </form>
+      <br />
+      <p style={{ color: 'red' }}>
+        {errors.length <= 0 ? errors.filter((el: string) => el.length > 0) : errors}
+      </p>
       <div>
         <br />
         Users in local
