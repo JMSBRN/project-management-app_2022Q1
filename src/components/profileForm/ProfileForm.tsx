@@ -8,6 +8,7 @@ import {
   setUserList,
 } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
+import { AnyAction } from 'redux';
 
 
 const Form = () => {
@@ -18,9 +19,9 @@ const Form = () => {
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    callback: (value: string) => any
+    callback: (value: string) => AnyAction
   ) => {
-    dispatch(callback(e.target.value)); //I have a mistake here when type is: (value: string) => void
+    dispatch(callback(e.target.value));
   };
 
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,8 +39,8 @@ const Form = () => {
     dispatch(setUserName(''));
     dispatch(setUserEmail(''));
     dispatch(setUserPassword(''));
-    // first task add after second click?????????????????
-    console.log(userList);
+    // first task add after second click???
+    //console.log(userList);
   };
 
   return (

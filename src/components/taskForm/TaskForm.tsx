@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { AnyAction } from 'redux';
 import {
   setTaskDescr,
   setTaskName,
@@ -15,9 +16,9 @@ const TaskForm = () => {
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    callback: (value: string) => any //TYPE?????????????????????
+    callback: (value: string) => AnyAction
   ) => {
-    dispatch(callback(e.target.value)); //I have a mistake here when type is: (value: string) => void
+    dispatch(callback(e.target.value)); 
   };
 
   const handleTaskSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,8 +36,8 @@ const TaskForm = () => {
     dispatch(setTaskName(''));
     dispatch(setTaskDescr(''));
     dispatch(setTaskUser(''));
-    // first task add after second click?????????????????
-    console.log(taskList);
+    // first task add after second click???
+    // console.log(taskList);
   };
 
   return (
