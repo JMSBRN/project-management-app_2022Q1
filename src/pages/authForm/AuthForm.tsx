@@ -9,11 +9,14 @@ interface User {
 }
 const AuthForm = () => {
   const localUsers: User[] = JSON.parse(localStorage.getItem('users') || '[]');
-  const [users] = useState(localUsers);
+  const [users, setUsers] = useState(localUsers);
   const [authErrors, setAuthErrors] = useState([]);
   const [loginErrors, setloginErrors] = useState([]);
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
   const [userAuth, setUserAuth] = useState({ name: '', login: '', password: '' });
+  setTimeout(() => {
+    setUsers(JSON.parse(localStorage.getItem('users') || '[]'));
+  }, 800);
   const handlSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     loginUser(userLogin);
