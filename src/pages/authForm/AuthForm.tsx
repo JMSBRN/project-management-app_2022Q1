@@ -10,18 +10,21 @@ interface User {
 const AuthForm = () => {
   const localUsers: User[] = JSON.parse(localStorage.getItem('users') || '[]');
   const [users] = useState(localUsers);
-  const localErrors = JSON.parse(localStorage.getItem('Auth_Error_msg') || '[]');
-  const [errors, setErrors] = useState(localErrors);
+  const localAuthErrors = JSON.parse(localStorage.getItem('Auth_Error_msg') || '[]');
+  const localLoginErrors = JSON.parse(localStorage.getItem('Login_Error_msg') || '[]');
+  const [authErrors, setAuthErrors] = useState(localAuthErrors);
+  const [loginErrors, setloginErrors] = useState(localLoginErrors);
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
   const [userAuth, setUserAuth] = useState({ name: '', login: '', password: '' });
   const handlSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     loginUser(userLogin);
+    setloginErrors(localLoginErrors);
   };
   const handlSubmitAuth = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createUser(userAuth);
-    setErrors(errors);
+    setAuthErrors(authErrors);
   };
   const handlChangeLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -42,6 +45,9 @@ const AuthForm = () => {
         <br />
         <input onChange={handlChangeLogin} type="text" name="password" placeholder="password" />
         <input type="submit" />
+        <p style={{ color: 'red' }}>
+          {loginErrors.length <= 0 ? authErrors.filter((el: string) => el.length > 0) : loginErrors}
+        </p>
       </form>
       MockAuth
       <form onSubmit={handlSubmitAuth}>
@@ -54,7 +60,7 @@ const AuthForm = () => {
       </form>
       <br />
       <p style={{ color: 'red' }}>
-        {errors.length <= 0 ? errors.filter((el: string) => el.length > 0) : errors}
+        {authErrors.length <= 0 ? authErrors.filter((el: string) => el.length > 0) : authErrors}
       </p>
       <div>
         <br />

@@ -27,10 +27,10 @@ export const createUser = async (user: object) => {
   const content = await resp.json();
 
   if (content !== '') {
-    localStorage.setItem('Auth_Error_msg', JSON.stringify(content.message));
-    localStorage.setItem('name', JSON.stringify(content.name));
-    localStorage.setItem('login', JSON.stringify(content.login));
-    localStorage.setItem('id', JSON.stringify(content.id));
+    localStorage.setItem('Auth_Error_msg', JSON.stringify(content.message) || '');
+    localStorage.setItem('name', JSON.stringify(content.name || ''));
+    localStorage.setItem('login', JSON.stringify(content.login || ''));
+    localStorage.setItem('id', JSON.stringify(content.id || ''));
   }
 };
 export const loginUser = async (user: object) => {
@@ -43,5 +43,6 @@ export const loginUser = async (user: object) => {
     body: JSON.stringify(user),
   });
   const content = await resp.json();
-  localStorage.setItem('freshToken', JSON.stringify(content.token));
+  localStorage.setItem('Login_Error_msg', JSON.stringify(content.message) || '');
+  localStorage.setItem('freshToken', JSON.stringify(content.token) || '');
 };
