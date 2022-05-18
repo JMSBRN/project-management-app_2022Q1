@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { createUser, getUsers, loginUser } from '../../Api';
+import { createUser, deleteUser, getUsers, loginUser } from '../../Api';
 import './authForm.css';
 
 interface User {
@@ -24,14 +24,17 @@ const AuthForm = () => {
     loginUser(userLogin);
     setTimeout(() => {
       setloginErrors(JSON.parse(localStorage.getItem('Login_Error_msg') || '[]'));
-    }, 800);
+    }, 1000);
+    users
+      .filter((el) => el.login === userLogin.login)
+      .map((el) => localStorage.setItem('id', el.id));
   };
   const handlSubmitAuth = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createUser(userAuth);
     setTimeout(() => {
       setAuthErrors(JSON.parse(localStorage.getItem('Auth_Error_msg') || '[]'));
-    }, 800);
+    }, 1000);
   };
   const handlChangeLogin = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -44,6 +47,10 @@ const AuthForm = () => {
     setUserAuth((values) => ({ ...values, [name]: value }));
   };
   getUsers();
+  const handleDeleteUser = () => {
+    const id = localStorage.getItem('id');
+    deleteUser(id || '');
+  };
   return (
     <div>
       MockLogin
@@ -73,12 +80,12 @@ const AuthForm = () => {
       </p>
       MockEdit
       <form onSubmit={handlSubmitAuth}>
-        <input type="text" value={'s'} name="name" placeholder="name" />
+        <input type="text" name="name" placeholder="name" />
         <br />
-        <input type="text" value={'s'} name="login" placeholder="login" />
+        <input type="text" name="login" placeholder="login" />
         <br />
         <input type="submit" />
-        <button>Delete user</button>
+        <button onClick={handleDeleteUser}>Delete user</button>
       </form>
       <div>
         <br />

@@ -25,13 +25,11 @@ export const createUser = async (user: object) => {
     body: JSON.stringify(user),
   });
   const content = await resp.json();
-
-  if (content !== '') {
-    localStorage.setItem('Auth_Error_msg', JSON.stringify(content.message) || '');
-    localStorage.setItem('name', JSON.stringify(content.name || ''));
-    localStorage.setItem('login', JSON.stringify(content.login || ''));
-    localStorage.setItem('id', JSON.stringify(content.id || ''));
-  }
+  localStorage.setItem('Auth_Error_msg', JSON.stringify(content.message) || '');
+  localStorage.setItem('name', JSON.stringify(content.name || ''));
+  localStorage.setItem('login', JSON.stringify(content.login || ''));
+  localStorage.setItem('id', JSON.stringify(content.id || ''));
+  localStorage.setItem('user', JSON.stringify(content.id || ''));
 };
 export const loginUser = async (user: object) => {
   const resp = await fetch(signIn, {
@@ -43,7 +41,16 @@ export const loginUser = async (user: object) => {
     body: JSON.stringify(user),
   });
   const content = await resp.json();
-  console.log(content);
   localStorage.setItem('Login_Error_msg', JSON.stringify(content.message) || '');
-  localStorage.setItem('freshToken', JSON.stringify(content.token) || '');
+  localStorage.setItem('token', JSON.stringify(content.token) || '');
+};
+export const deleteUser = async (id: string) => {
+  const resp = await fetch(`${users}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const content = await resp.json();
+  console.log(content);
 };
