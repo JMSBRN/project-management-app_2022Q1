@@ -6,6 +6,7 @@ import {
   setTaskName,
   setTaskUser,
   setTaskList,
+  setIsOpen,
 } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import * as Styled from './taskForm.styled';
@@ -36,6 +37,7 @@ const TaskForm = () => {
     dispatch(setTaskName(''));
     dispatch(setTaskDescr(''));
     dispatch(setTaskUser(''));
+    dispatch(setIsOpen(false));
   };
 
   return (

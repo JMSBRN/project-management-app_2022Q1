@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTaskList } from '../../store/actions/actionCreators';
+import { setIsOpen, setTaskList } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import Button from '../button/Button';
 import Modal from '../modal/Modal';
@@ -12,15 +12,15 @@ const Column = () => {
   const { taskList } = useSelector((state: State) => state.task);
   const dispatch = useDispatch();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen } = useSelector((state: State) => state.modal);
 
   const handleOpen = () => {
-    setIsOpen(true);
+    dispatch(setIsOpen(true));
     clickButton();
   };
 
   const handleClose = () => {
-    setIsOpen(false);
+    dispatch(setIsOpen(false));
   };
 
   const clickButton = () => {

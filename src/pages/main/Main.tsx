@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BoardForm } from '../../components/boardForm/BoardForm';
 import Button from '../../components/button/Button';
 import Board from '../../components/mainBoard/MainBoard';
 import Modal from '../../components/modal/Modal';
+import { setIsOpen } from '../../store/actions/actionCreators';
+import { State } from '../../store/utils';
 import * as Styled from './Main.style';
 
 interface IBord {
@@ -11,16 +14,17 @@ interface IBord {
 }
 
 const Main = () => {
+  const { isOpen } = useSelector((state: State) => state.modal);
+  const dispatch = useDispatch();
   const [boards, setBoards] = useState<IBord[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
-    setIsOpen(true);
+    dispatch(setIsOpen(true));
     clickButton();
   };
 
   const handleClose = () => {
-    setIsOpen(false);
+    dispatch(setIsOpen(false));
   };
 
   const clickButton = () => {

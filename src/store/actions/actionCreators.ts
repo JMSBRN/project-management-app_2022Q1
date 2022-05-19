@@ -33,3 +33,7 @@ export const setTaskList = (taskList: ITaskList[]) => ({
   type: Actions.SET_TASKLIST,
   payload: taskList,
 });
+export const setIsOpen = (isOpen: boolean) => ({
+  type: Actions.SET_ISOPEN,
+  payload: isOpen,
+});

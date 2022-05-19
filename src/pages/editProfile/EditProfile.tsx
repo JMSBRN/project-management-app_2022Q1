@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Confirmation from '../../components/confirmation/Confirmation';
 import Modal from '../../components/modal/Modal';
+import { setIsOpen } from '../../store/actions/actionCreators';
+import { State } from '../../store/utils';
 
 const EditProfile = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen } = useSelector((state: State) => state.modal);
+  const dispatch = useDispatch();
 
   const handleOpen = () => {
-    setIsOpen(true);
+    dispatch(setIsOpen(true));
   };
 
   const handleClose = () => {
-    setIsOpen(false);
+    dispatch(setIsOpen(false));
   };
 
   return (
