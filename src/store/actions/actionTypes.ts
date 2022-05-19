@@ -9,6 +9,7 @@ export enum Actions {
   SET_TASKDESCR = 'SET_TASKDESCR',
   SET_TASKUSER = 'SET_TASKUSER',
   SET_TASKLIST = 'SET_TASKLIST',
+  SET_ISOPEN = 'SET_ISOPEN',
 }
 
 export type Action =
@@ -43,4 +44,8 @@ export type Action =
   | {
       type: Actions.SET_TASKLIST;
       payload: ITaskList[];
+    }
+  | {
+      type: Actions.SET_ISOPEN;
+      payload: boolean;
     };

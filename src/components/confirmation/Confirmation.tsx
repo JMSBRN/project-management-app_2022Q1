@@ -1,8 +1,15 @@
 import React from 'react';
 import * as Styled from './confirmation.styled';
 import Button from '../button/Button';
+import { useDispatch } from 'react-redux';
+import { setIsOpen } from '../../store/actions/actionCreators';
 
 const Confirmation = () => {
+  const dispatch = useDispatch();
+  const handleClose = () => {
+    dispatch(setIsOpen(false));
+  };
+
   return (
     <>
       <Styled.Wrapper>
@@ -12,8 +19,8 @@ const Confirmation = () => {
           Do you really want to delete this User? This process cannot be undone.
         </Styled.Info>
         <Styled.Action>
-          <Button textButton="Cancel" />
-          <Button textButton="Delete" />
+          <Button textButton="Cancel" onClick={handleClose} />
+          <Button textButton="Delete" onClick={handleClose} />
         </Styled.Action>
       </Styled.Wrapper>
     </>
