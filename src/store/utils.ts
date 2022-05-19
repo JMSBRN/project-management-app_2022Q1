@@ -2,6 +2,7 @@ export type State = {
   profile: IFormProfile;
   board: IFormBoard;
   task: IFormTask;
+  modal: IModal;
 };
 
 export const initialState = {
@@ -21,7 +22,14 @@ export const initialState = {
     title: '',
     descr: '',
   },
+  modal: {
+    isOpen: false,
+  },
 };
+
+export interface IModal {
+  isOpen: boolean;
+}
 
 export interface IFormProfile {
   userName: string;
