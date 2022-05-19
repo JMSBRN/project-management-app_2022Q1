@@ -36,8 +36,6 @@ const TaskForm = () => {
     dispatch(setTaskName(''));
     dispatch(setTaskDescr(''));
     dispatch(setTaskUser(''));
-    // first task add after second click???
-    // console.log(taskList);
   };
 
   return (

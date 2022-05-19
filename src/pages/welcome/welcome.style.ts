@@ -2,6 +2,13 @@ import styled from 'styled-components';
 
 export const Welcome = styled.div``;
 
+export const Container = styled.div`
+  max-width: 1170px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Layout = styled.div`
   width: 100%;
   height: 100vh;
@@ -10,19 +17,12 @@ export const Layout = styled.div`
 
 export const H1 = styled.h1`
   margin-left: 20%;
-  width: 30%;
+  margin-bottom: 50px;
+  width: 90%;
   padding-top: 30px;
   font-size: 60px;
   color: rgb(12, 97, 97);
-`;
-
-export const H3 = styled.h3`
-  margin-top: 5%;
-  margin-left: 25%;
-  width: 60%;
-  max-width: 500px;
-  font-size: 30px;
-  color: rgb(184, 84, 84);
+  display: flex;
 `;
 
 export const SingBtnWrapper = styled.div`
