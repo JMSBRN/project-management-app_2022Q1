@@ -13,6 +13,7 @@ const AuthForm = () => {
   const [authErrors, setAuthErrors] = useState([]);
   const [loginErrors, setloginErrors] = useState([]);
   const [editErrors, setEditErrors] = useState([]);
+  const [id, setId] = useState('');
   const [userLogin, setUserLogin] = useState({ login: '', password: '' });
   const [userEdit, setUserEdit] = useState({ name: '', login: '' });
   const [userAuth, setUserAuth] = useState({ name: '', login: '', password: '' });
@@ -28,9 +29,7 @@ const AuthForm = () => {
     setTimeout(() => {
       setloginErrors(JSON.parse(localStorage.getItem('Login_Error_msg') || '[]'));
     }, 1000);
-    users
-      .filter((el) => el.login === userLogin.login)
-      .map((el) => localStorage.setItem('id', el.id));
+    users.filter((el) => el.login === userLogin.login).map((el) => setId(el.id));
   };
   const handlSubmitAuth = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,7 +54,6 @@ const AuthForm = () => {
     setUserEdit((values) => ({ ...values, [name]: value }));
   };
   const handleDeleteUser = () => {
-    const id = JSON.parse(localStorage.getItem('id') || '');
     deleteUser(id);
     setTimeout(() => {
       setEditErrors(JSON.parse(localStorage.getItem('Edit_Error_msg') || '[]'));
@@ -69,11 +67,7 @@ const AuthForm = () => {
         <br />
         <input onChange={handlChangeLogin} type="text" name="password" placeholder="password" />
         <input type="submit" />
-        <p style={{ color: 'red' }}>
-          {loginErrors.length <= 0
-            ? loginErrors.filter((el: string) => el.length > 0)
-            : loginErrors}
-        </p>
+        <p style={{ color: 'red' }}>{loginErrors}</p>
       </form>
       MockAuth
       <form onSubmit={handlSubmitAuth}>
@@ -85,9 +79,7 @@ const AuthForm = () => {
         <input type="submit" />
       </form>
       <br />
-      <p style={{ color: 'red' }}>
-        {authErrors.length <= 0 ? authErrors.filter((el: string) => el.length > 0) : authErrors}
-      </p>
+      <p style={{ color: 'red' }}>{authErrors}</p>
       MockEdit
       <form>
         <input onChange={handlChangeEdit} type="text" name="name" placeholder="name" />
@@ -95,9 +87,7 @@ const AuthForm = () => {
         <input onChange={handlChangeEdit} type="text" name="login" placeholder="login" />
         <br />
       </form>
-      <p style={{ color: 'red' }}>
-        {editErrors.length <= 0 ? editErrors.filter((el: string) => el.length > 0) : editErrors}
-      </p>
+      <p style={{ color: 'red' }}>{editErrors}</p>
       <button onClick={handleDeleteUser}>Delete user</button>
       <div>
         <br />

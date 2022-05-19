@@ -43,10 +43,10 @@ export const loginUser = async (user: object) => {
   localStorage.setItem('token', JSON.stringify(content.token) || '');
 };
 export const deleteUser = async (id: string) => {
-  const resp = await fetch(`${users}/${id}`, {
+  await fetch(`${users}/${id}`, {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  }).then((data) => console.log(data));
+  });
 };
