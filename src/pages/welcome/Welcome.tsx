@@ -22,7 +22,7 @@ const Welcome = () => {
   return (
     <Styled.Welcome>
       <Styled.Layout>
-        <Styled.H1>{t('welcomeTitle')}</Styled.H1>
+        <Styled.H1>{t('welcomeRoute.title')}</Styled.H1>
         <Styled.Container>
           {Team.map((item: IMember, i: number) => {
             return <TeamCard key={i} member={item} />;
@@ -31,12 +31,12 @@ const Welcome = () => {
         <Styled.SingBtnWrapper>
           <Styled.Ul>
             <NavLink className="link sing-in" to={'/auth'}>
-              Login
+              {t('welcomeRoute.btns.login')}
             </NavLink>
           </Styled.Ul>
           <Styled.Ul>
             <NavLink className="link sing-out" to={'/auth'}>
-              Registration
+              {t('welcomeRoute.btns.registration')}
             </NavLink>
           </Styled.Ul>
         </Styled.SingBtnWrapper>

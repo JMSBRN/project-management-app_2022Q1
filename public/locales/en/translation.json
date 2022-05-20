@@ -1,3 +1,9 @@
 {
-  "welcomeTitle": "Final project - React 2022 Q1 course"
+  "welcomeRoute": {
+    "title": "Final project - React 2022 Q1 course",
+    "btns": {
+      "login": "Login",
+      "registration": "Registration"
+    }
+  }
 }

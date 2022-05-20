@@ -6,8 +6,8 @@ import * as Styled from './header.style';
 
 const Header = () => {
   const { i18n } = useTranslation();
-  const changeLanguage = (language: string) => {
-    i18n.changeLanguage(language);
+  const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    i18n.changeLanguage(e.target.value);
   };
   return (
     <Styled.Header>
@@ -28,10 +28,10 @@ const Header = () => {
           </NavLink>
         </Styled.Ul>
       </Styled.HeaderNavLinkWwrapper>
-      <div className="header-toggle-lang-select">
-        <button onClick={() => changeLanguage('en')}>EN</button>
-        <button onClick={() => changeLanguage('ru')}>RU</button>
-      </div>
+      <select onChange={changeLanguage}>
+        <option value="en">en</option>
+        <option value="ru">ru</option>
+      </select>
       <Button className="header-log-out-tn" textButton={'Log-out'}></Button>
     </Styled.Header>
   );

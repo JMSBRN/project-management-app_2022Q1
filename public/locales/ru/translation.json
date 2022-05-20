@@ -1,3 +1,9 @@
 {
-  "welcomeTitle": "Финальный проект - курс React 2022 Q1"
+  "welcomeRoute": {
+    "title": "Финальный проект - курс React 2022 Q1",
+    "btns": {
+      "login": "Вход",
+      "registration": "Регистрация"
+    }
+  }
 }
