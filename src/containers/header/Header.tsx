@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import Button from '../../components/button/Button';
+import Select from '../../components/select/Select';
 import * as Styled from './header.style';
 
 const Header = () => {
@@ -28,10 +29,13 @@ const Header = () => {
           </NavLink>
         </Styled.Ul>
       </Styled.HeaderNavLinkWwrapper>
-      <select onChange={changeLanguage}>
-        <option value="en">en</option>
-        <option value="ru">ru</option>
-      </select>
+      <Select
+        onChange={changeLanguage}
+        options={[
+          { text: 'en', value: 'en' },
+          { text: 'ru', value: 'ru' },
+        ]}
+      />
       <Button className="header-log-out-tn" textButton={'Log-out'}></Button>
     </Styled.Header>
   );
