@@ -5,5 +5,11 @@
       "login": "Login",
       "registration": "Registration"
     }
+  },
+  "Headerlinks": {
+    "welcome": "welcome",
+    "editProfile": "Edit Profile",
+    "CreateNewBoard": "Create New Board",
+    "logOut": "Log out"
   }
 }

@@ -6,6 +6,7 @@ import Select from '../../components/select/Select';
 import * as Styled from './header.style';
 
 const Header = () => {
+  const { t } = useTranslation();
   const { i18n } = useTranslation();
   const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     i18n.changeLanguage(e.target.value);
@@ -15,17 +16,17 @@ const Header = () => {
       <Styled.HeaderNavLinkWwrapper>
         <Styled.Ul>
           <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/'}>
-            Welcome
+            {t('Headerlinks.welcome')}
           </NavLink>
         </Styled.Ul>
         <Styled.Ul>
           <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/edit'}>
-            Edit profile
+            {t('Headerlinks.editProfile')}
           </NavLink>
         </Styled.Ul>
         <Styled.Ul>
           <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/board'}>
-            Create new board
+            {t('Headerlinks.CreateNewBoard')}
           </NavLink>
         </Styled.Ul>
       </Styled.HeaderNavLinkWwrapper>
@@ -36,7 +37,7 @@ const Header = () => {
           { text: 'ru', value: 'ru' },
         ]}
       />
-      <Button className="header-log-out-tn" textButton={'Log-out'}></Button>
+      <Button className="header-log-out-tn" textButton={t('Headerlinks.logOut')}></Button>
     </Styled.Header>
   );
 };

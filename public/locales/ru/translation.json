@@ -5,5 +5,11 @@
       "login": "Вход",
       "registration": "Регистрация"
     }
+  },
+  "Headerlinks": {
+    "welcome": "Мы рады видеть вас",
+    "editProfile": "Редактировать профиль",
+    "CreateNewBoard": "Новая доска",
+    "logOut": "Выход"
   }
 }
