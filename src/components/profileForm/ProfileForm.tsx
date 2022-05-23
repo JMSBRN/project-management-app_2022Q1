@@ -10,7 +10,7 @@ import {
 import { State } from '../../store/utils';
 import { AnyAction } from 'redux';
 
-const Form = () => {
+const ProfileForm = () => {
   const { userName, userEmail, userPassword, userList } = useSelector(
     (state: State) => state.profile
   );
@@ -97,4 +97,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default ProfileForm;
