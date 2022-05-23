@@ -1,0 +1,15 @@
+{
+  "welcomeRoute": {
+    "title": "Финальный проект - курс React 2022 Q1",
+    "btns": {
+      "login": "Вход",
+      "registration": "Регистрация"
+    }
+  },
+  "Headerlinks": {
+    "welcome": "Мы рады видеть вас",
+    "editProfile": "Редактировать профиль",
+    "CreateNewBoard": "Новая доска",
+    "logOut": "Выход"
+  }
+}

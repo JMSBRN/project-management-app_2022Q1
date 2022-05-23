@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import TeamCard from '../../components/teamCard/TeamCard';
 import * as Styled from './welcome.style';
 import { Team } from '../../team';
+import { useTranslation } from 'react-i18next';
 
 interface IMember {
   name: string;
@@ -17,10 +18,11 @@ interface IMember {
 }
 
 const Welcome = () => {
+  const { t } = useTranslation();
   return (
     <Styled.Welcome>
       <Styled.Layout>
-        <Styled.H1>Final project - React 2022 Q1 course</Styled.H1>
+        <Styled.H1>{t('welcomeRoute.title')}</Styled.H1>
         <Styled.Container>
           {Team.map((item: IMember, i: number) => {
             return <TeamCard key={i} member={item} />;
@@ -29,12 +31,12 @@ const Welcome = () => {
         <Styled.SingBtnWrapper>
           <Styled.Ul>
             <NavLink className="link sing-in" to={'/auth'}>
-              Login
+              {t('welcomeRoute.btns.login')}
             </NavLink>
           </Styled.Ul>
           <Styled.Ul>
             <NavLink className="link sing-out" to={'/auth'}>
-              Registration
+              {t('welcomeRoute.btns.registration')}
             </NavLink>
           </Styled.Ul>
         </Styled.SingBtnWrapper>
