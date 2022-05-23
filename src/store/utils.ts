@@ -1,7 +1,11 @@
 export type State = {
   profile: IFormProfile;
   board: IFormBoard;
+  boardList: IBoardList;
+  column: IFormColumn;
+  columnList: IColumnList;
   task: IFormTask;
+  taskList: ITaskList;
   modal: IModal;
 };
 
@@ -12,15 +16,25 @@ export const initialState = {
     userPassword: '',
     userList: [],
   },
-  task: {
-    taskName: '',
-    taskDescr: '',
-    taskUser: '',
-    taskList: [],
-  },
   board: {
-    title: '',
-    descr: '',
+    boardList: [
+      {
+        boardTitle: '',
+        boardDescr: '',
+        columnList: [
+          {
+            columnTitle: '',
+            taskList: [
+              {
+                taskName: '',
+                taskDescr: '',
+                taskUser: '',
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   modal: {
     isOpen: false,
@@ -38,18 +52,26 @@ export interface IFormProfile {
   userList: IRegList[];
 }
 
+export interface IFormBoard {
+  boardList: IBoardList[];
+}
+export interface IBoardList {
+  boardTitle: string;
+  boardDescr: string;
+  colunmList?: IColumnList[];
+}
+
+export interface IFormColumn {
+  columnList: IColumnList[];
+}
+export interface IColumnList {
+  columnTitle: string;
+  taskList?: ITaskList[];
+}
+
 export interface IFormTask {
-  taskName: string;
-  taskDescr: string;
-  taskUser: string;
   taskList: ITaskList[];
 }
-
-export interface IFormBoard {
-  title: string;
-  descr: string;
-}
-
 export interface ITaskList {
   taskName: string;
   taskDescr: string;
