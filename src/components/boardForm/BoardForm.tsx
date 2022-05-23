@@ -1,11 +1,41 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AnyAction } from 'redux';
+import {
+  setBoardDescr,
+  setBoardList,
+  setBoardTitle,
+  setIsOpen,
+} from '../../store/actions/actionCreators';
+import { State } from '../../store/utils';
 import * as Styled from './BoardForm.style';
 
 export const BoardForm = () => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
+  const { boardTitle, boardDescr } = useSelector((state: State) => state.boardList);
+  const { boardList } = useSelector((state: State) => state.board);
+  const dispatch = useDispatch();
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    callback: (value: string) => AnyAction
+  ) => {
+    dispatch(callback(e.target.value));
+  };
 
   const handleBoardSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    dispatch(
+      setBoardList([
+        ...boardList,
+        {
+          boardTitle: boardTitle,
+          boardDescr: boardDescr,
+        },
+      ])
+    );
+    dispatch(setBoardTitle(''));
+    dispatch(setBoardDescr(''));
+    dispatch(setIsOpen(false));
   };
 
   return (
@@ -15,16 +45,16 @@ export const BoardForm = () => {
         <label>Board name:</label>
         <Styled.Form_input
           type="text"
-          value=""
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
+          value={boardTitle}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setBoardTitle)}
           placeholder="Enter board name"
           required
         />
         <label>Board description:</label>
         <Styled.Form_input
           type="text"
-          value=""
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
+          value={boardDescr}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setBoardDescr)}
           placeholder="Enter board description"
           required
         />

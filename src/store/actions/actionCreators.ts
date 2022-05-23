@@ -1,4 +1,4 @@
-import { IRegList, ITaskList } from '../utils';
+import { IRegList, ITaskList, IColumnList, IBoardList } from '../utils';
 import { Actions } from './actionTypes';
 
 export const setUserName = (userName: string) => ({
@@ -32,6 +32,26 @@ export const setTaskUser = (taskUser: string) => ({
 export const setTaskList = (taskList: ITaskList[]) => ({
   type: Actions.SET_TASKLIST,
   payload: taskList,
+});
+export const setColumnTitle = (columnTitle: string) => ({
+  type: Actions.SET_COLUMNTITLE,
+  payload: columnTitle,
+});
+export const setColumnList = (columnList: IColumnList[]) => ({
+  type: Actions.SET_TASKLIST,
+  payload: columnList,
+});
+export const setBoardTitle = (boardTitle: string) => ({
+  type: Actions.SET_BOARDTITLE,
+  payload: boardTitle,
+});
+export const setBoardDescr = (boardDescr: string) => ({
+  type: Actions.SET_BOARDDESCR,
+  payload: boardDescr,
+});
+export const setBoardList = (boardList: IBoardList[]) => ({
+  type: Actions.SET_BOARDLIST,
+  payload: boardList,
 });
 export const setIsOpen = (isOpen: boolean) => ({
   type: Actions.SET_ISOPEN,

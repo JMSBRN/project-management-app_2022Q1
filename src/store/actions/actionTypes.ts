@@ -1,4 +1,4 @@
-import { IRegList, ITaskList } from '../utils';
+import { IRegList, ITaskList, IColumnList, IBoardList } from '../utils';
 
 export enum Actions {
   SET_USERNAME = 'SET_USERNAME',
@@ -9,6 +9,11 @@ export enum Actions {
   SET_TASKDESCR = 'SET_TASKDESCR',
   SET_TASKUSER = 'SET_TASKUSER',
   SET_TASKLIST = 'SET_TASKLIST',
+  SET_COLUMNTITLE = 'SET_COLUMNTITLE',
+  SET_COLUMNLIST = 'SET_COLUMNLIST',
+  SET_BOARDTITLE = 'SET_BOARDTITE',
+  SET_BOARDDESCR = 'SET_BOARDDESCR',
+  SET_BOARDLIST = 'SET_BOARDLIST',
   SET_ISOPEN = 'SET_ISOPEN',
 }
 
@@ -44,6 +49,26 @@ export type Action =
   | {
       type: Actions.SET_TASKLIST;
       payload: ITaskList[];
+    }
+  | {
+      type: Actions.SET_COLUMNTITLE;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_COLUMNLIST;
+      payload: IColumnList[];
+    }
+  | {
+      type: Actions.SET_BOARDTITLE;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_BOARDDESCR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_BOARDLIST;
+      payload: IBoardList[];
     }
   | {
       type: Actions.SET_ISOPEN;

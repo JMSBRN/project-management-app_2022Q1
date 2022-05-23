@@ -32,7 +32,7 @@ const Column = () => {
       <Styled.Column>
         <Styled.Title>New Task</Styled.Title>
         <Styled.Task_list>
-          {taskList.map((task, i) => {
+          {taskList?.map((task, i) => {
             return <Task key={i} taskItem={task} />;
           })}
         </Styled.Task_list>
