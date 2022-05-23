@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import * as Styled from './header.style';
 
@@ -33,6 +33,7 @@ export default class Header extends Component {
           </div>
           <Button className="header-log-out-tn" textButton={'Log-out'}></Button>
         </Styled.Header>
+        <Outlet />
       </>
     );
   }

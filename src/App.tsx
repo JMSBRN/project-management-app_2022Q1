@@ -1,8 +1,6 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './containers/layout/Layout';
-import Header from './containers/header/Header';
 import Welcome from './pages/welcome/Welcome';
 import Main from './pages/main/Main';
 import Board from './pages/board/Board';
@@ -12,19 +10,21 @@ import AuthForm from './pages/authForm/AuthForm';
 import './main.css';
 import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
 import EditProfile from './pages/editProfile/EditProfile';
+import Header from './containers/header/Header';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Welcome />} />
             <Route element={<ProtectedRoute />}>
-              <Route path="board" element={<Board />} />
-              <Route path="edit" element={<EditProfile />} />
-              <Route path="main" element={<Main />} />
+              <Route element={<Header />}>
+                <Route path="board" element={<Board />} />
+                <Route path="edit" element={<EditProfile />} />
+                <Route path="main" element={<Main />} />
+              </Route>
             </Route>
             <Route path="auth" element={<AuthForm />} />
             <Route path="notFound" element={<NotFound />} />
