@@ -3,9 +3,9 @@ import { Reducer } from 'redux';
 import { Actions, Action } from '../actions/actionTypes';
 
 export const taskFormReducer: Reducer<IFormTask, Action> = (
-  state: IFormTask = initialState.task,
+  state: IFormTask = initialState.board.boardList[0].columnList[0],
   action: Action
-): IFormTask => {
+) => {
   switch (action.type) {
     case Actions.SET_TASKNAME: {
       return {
