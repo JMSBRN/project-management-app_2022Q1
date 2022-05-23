@@ -6,7 +6,7 @@ import Main from './pages/main/Main';
 import Board from './pages/board/Board';
 import Footer from './containers/footer/Footer';
 import NotFound from './pages/notFound/NotFound';
-import AuthForm from './pages/authForm/AuthForm';
+import AuthPage from './pages/authPage/AuthPage';
 import './main.css';
 import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
 import EditProfile from './pages/editProfile/EditProfile';
@@ -26,7 +26,7 @@ function App() {
                 <Route path="main" element={<Main />} />
               </Route>
             </Route>
-            <Route path="auth" element={<AuthForm />} />
+            <Route path="auth" element={<AuthPage />} />
             <Route path="notFound" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Route>
