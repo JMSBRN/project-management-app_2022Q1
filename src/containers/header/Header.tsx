@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import Button from '../../components/button/Button';
 import Select from '../../components/select/Select';
 import * as Styled from './header.style';
@@ -12,33 +12,36 @@ const Header = () => {
     i18n.changeLanguage(e.target.value);
   };
   return (
-    <Styled.Header>
-      <Styled.HeaderNavLinkWwrapper>
-        <Styled.Ul>
-          <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/'}>
-            {t('Headerlinks.welcome')}
-          </NavLink>
-        </Styled.Ul>
-        <Styled.Ul>
-          <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/edit'}>
-            {t('Headerlinks.editProfile')}
-          </NavLink>
-        </Styled.Ul>
-        <Styled.Ul>
-          <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/board'}>
-            {t('Headerlinks.CreateNewBoard')}
-          </NavLink>
-        </Styled.Ul>
-      </Styled.HeaderNavLinkWwrapper>
-      <Select
-        onChange={changeLanguage}
-        options={[
-          { text: 'en', value: 'en' },
-          { text: 'ru', value: 'ru' },
-        ]}
-      />
-      <Button className="header-log-out-tn" textButton={t('Headerlinks.logOut')}></Button>
-    </Styled.Header>
+    <>
+      <Styled.Header>
+        <Styled.HeaderNavLinkWwrapper>
+          <Styled.Ul>
+            <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/'}>
+              {t('Headerlinks.welcome')}
+            </NavLink>
+          </Styled.Ul>
+          <Styled.Ul>
+            <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/edit'}>
+              {t('Headerlinks.editProfile')}
+            </NavLink>
+          </Styled.Ul>
+          <Styled.Ul>
+            <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/board'}>
+              {t('Headerlinks.CreateNewBoard')}
+            </NavLink>
+          </Styled.Ul>
+        </Styled.HeaderNavLinkWwrapper>
+        <Select
+          onChange={changeLanguage}
+          options={[
+            { text: 'en', value: 'en' },
+            { text: 'ru', value: 'ru' },
+          ]}
+        />
+        <Button className="header-log-out-tn" textButton={t('Headerlinks.logOut')}></Button>
+      </Styled.Header>
+      <Outlet />
+    </>
   );
 };
 
