@@ -30,7 +30,7 @@ const Welcome = () => {
         </Styled.Container>
         <Styled.SingBtnWrapper>
           <Styled.Ul>
-            <NavLink className="link sing-in" to={'/auth'}>
+            <NavLink className="link sing-in" to={'/login'}>
               {t('welcomeRoute.btns.login')}
             </NavLink>
           </Styled.Ul>
