@@ -11,7 +11,7 @@ import './main.css';
 import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
 import EditProfile from './pages/editProfile/EditProfile';
 import Header from './containers/header/Header';
-import LoginForm from './pages/loginForm/LoginForm';
+import LoginForm from './pages/loginPage/LoginPage';
 
 function App() {
   return (
