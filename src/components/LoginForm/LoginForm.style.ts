@@ -10,7 +10,7 @@ export const Login_Form_main = styled.div`
 `;
 export const Login_Form_container = styled.div`
   min-width: 650px;
-  height: 330px;
+  height: auto;
   margin-top: 100px;
   display: grid;
   grid-template-columns: 200px 450px;
@@ -18,7 +18,7 @@ export const Login_Form_container = styled.div`
 `;
 export const User_info = styled.div`
   width: 200px;
-  height: 330px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +27,7 @@ export const User_info = styled.div`
 `;
 export const Login_Form = styled.form`
   width: 450px;
-  height: 330px;
+  height: auto;
   padding: 20px;
 `;
 export const Login_Form_input = styled.input`
@@ -42,16 +42,10 @@ export const Login_Form_input = styled.input`
 export const Login_Form_input_submit = styled.input`
   width: 100%;
   height: 45px;
-  background-color: #4caf50;
+  margin-top: 15px;
+  background-color: var(--color-button-regular);
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-`;
-export const Login_Form_btns_wrapper = styled.div`
-  width: 100%;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;

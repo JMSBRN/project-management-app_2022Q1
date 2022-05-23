@@ -68,9 +68,7 @@ const LoginForm = () => {
             <br />
           </label>
           <span data-testid="error-name"></span>
-          <Styled.Login_Form_btns_wrapper>
-            <Styled.Login_Form_input_submit type="submit" value="submit" />
-          </Styled.Login_Form_btns_wrapper>
+          <Styled.Login_Form_input_submit type="submit" value="submit" />
         </Styled.Login_Form>
       </Styled.Login_Form_container>
     </Styled.Login_Form_main>
