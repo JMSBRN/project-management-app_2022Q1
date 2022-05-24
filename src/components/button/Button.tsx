@@ -6,11 +6,12 @@ interface ButtonProps {
   textButton: string;
   linkPath?: string;
   onClick?: () => void;
+  id?: string;
 }
-const Button = ({ className, linkPath, textButton, onClick }: ButtonProps) => {
+const Button = ({ className, linkPath, textButton, onClick, id }: ButtonProps) => {
   return (
     <Styled.Button onClick={onClick} className={className}>
-      <Styled.Link role="button" to={linkPath || ''}>
+      <Styled.Link role="button" to={linkPath || ''} id={id}>
         {textButton}
       </Styled.Link>
     </Styled.Button>

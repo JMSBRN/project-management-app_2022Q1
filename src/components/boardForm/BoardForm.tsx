@@ -13,8 +13,8 @@ import { useTranslation } from 'react-i18next';
 
 export const BoardForm = () => {
   const { t } = useTranslation();
-  const { boardTitle, boardDescr } = useSelector((state: State) => state.boardList);
   const { boardList } = useSelector((state: State) => state.board);
+  const { boardTitle, boardDescr } = useSelector((state: State) => state.board);
   const dispatch = useDispatch();
 
   const handleChange = (

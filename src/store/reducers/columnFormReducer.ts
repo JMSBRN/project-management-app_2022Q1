@@ -3,7 +3,7 @@ import { Reducer } from 'redux';
 import { Actions, Action } from '../actions/actionTypes';
 
 export const columnFormReducer: Reducer<IFormColumn, Action> = (
-  state: IFormColumn = initialState.board.boardList[0],
+  state: IFormColumn = initialState.column,
   action: Action
 ) => {
   switch (action.type) {
