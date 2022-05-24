@@ -11,5 +11,48 @@
     "editProfile": "Edit Profile",
     "CreateNewBoard": "Create New Board",
     "logOut": "Log out"
+  },
+  "BoardForm": {
+    "title": "Create new board",
+    "name": "Board name",
+    "namePlaceholder": "Enter board name",
+    "description": "Board description",
+    "descriptionPlaceholder": "Enter board description",
+    "btn": "Create board" 
+  },
+  "Confirmation": {
+    "title": "Are you sure",
+    "info": "Do you really want to delete this User? This process cannot be undone",
+    "btns": {
+      "cancel": "Cancel",
+      "delete": "Delete"
+    }
+  },
+  "ProfileForm": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "btn": "Submit"
+  },
+  "TaskForm": {
+    "title": "Create new task",
+    "name": "Task name",
+    "namePlaceholder": "Enter task name",
+    "description": "Task description",
+    "descriptionPlaceholder": "Enter task description",
+    "user": "User",
+    "userPlaceholder": "Enter user",
+    "btn": "Create task"
+  },
+  "AuthForm": {
+    "name":"Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPass": "Confirm Password",
+    "btn": "Submit"
+  },
+  "NotFound": {
+    "linkWelcome": "Welcome page",
+    "title": "Something went wrong... Page NotFound"
   }
 }

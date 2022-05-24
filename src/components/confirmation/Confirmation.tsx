@@ -3,8 +3,10 @@ import * as Styled from './confirmation.styled';
 import Button from '../button/Button';
 import { useDispatch } from 'react-redux';
 import { setIsOpen } from '../../store/actions/actionCreators';
+import { useTranslation } from 'react-i18next';
 
 const Confirmation = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const handleClose = () => {
     dispatch(setIsOpen(false));
@@ -14,13 +16,11 @@ const Confirmation = () => {
     <>
       <Styled.Wrapper>
         <Styled.Icon>✖</Styled.Icon>
-        <Styled.Title>Are you sure?</Styled.Title>
-        <Styled.Info>
-          Do you really want to delete this User? This process cannot be undone.
-        </Styled.Info>
+        <Styled.Title>{t('Confirmation.title')}?</Styled.Title>
+        <Styled.Info>{t('Confirmation.info')}.</Styled.Info>
         <Styled.Action>
-          <Button textButton="Cancel" onClick={handleClose} />
-          <Button textButton="Delete" onClick={handleClose} />
+          <Button textButton={t('Confirmation.btns.cancel')} onClick={handleClose} />
+          <Button textButton={t('Confirmation.btns.delete')} onClick={handleClose} />
         </Styled.Action>
       </Styled.Wrapper>
     </>

@@ -9,8 +9,10 @@ import {
 } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import { AnyAction } from 'redux';
+import { useTranslation } from 'react-i18next';
 
 const AuthForm = () => {
+  const { t } = useTranslation();
   const { userName, userEmail, userPassword, userList } = useSelector(
     (state: State) => state.profile
   );
@@ -45,11 +47,11 @@ const AuthForm = () => {
       <Styled.Auth_Form_container>
         <Styled.Auth_Form onSubmit={handleUserSubmit}>
           <label>
-            Name:
+            {t('AuthForm.name')}:
             <Styled.Auth_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserName)}
-              placeholder="name:"
+              placeholder={t('AuthForm.name')}
               type="text"
               pattern="[A-Za-z]{3}"
             />
@@ -57,11 +59,11 @@ const AuthForm = () => {
           </label>
           <span data-testid="error-name"></span>
           <label>
-            Email:
+            {t('AuthForm.email')}:
             <Styled.Auth_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserEmail)}
-              placeholder="email:"
+              placeholder={t('AuthForm.email')}
               type="email"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
@@ -69,33 +71,33 @@ const AuthForm = () => {
           </label>
           <span data-testid="error-name"></span>
           <label>
-            Password:
+            {t('AuthForm.password')}:
             <Styled.Auth_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleChange(e, setUserPassword)
               }
-              placeholder="password:"
+              placeholder={t('AuthForm.password')}
               type="password"
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>
           <label>
-            Confirm Password:
+            {t('AuthForm.confirmPass')}:
             <Styled.Auth_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleChange(e, setUserPassword)
               }
-              placeholder="password:"
+              placeholder={t('AuthForm.password')}
               type="password"
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>
           <span data-testid="error-name"></span>
-          <Styled.Auth_Form_input_submit type="submit" value="submit" />
+          <Styled.Auth_Form_input_submit type="submit" value={t('AuthForm.btn')} />
         </Styled.Auth_Form>
       </Styled.Auth_Form_container>
     </Styled.Auth_Form_main>
