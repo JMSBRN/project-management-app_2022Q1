@@ -21,7 +21,7 @@ export const Modal = styled.div<IModal>`
   height: ${({ isOpen }) => (isOpen ? '100%' : '0')};
   display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 `;
-export const Btn = styled.button`
+export const Btn = styled.div`
   position: absolute;
   top: 15px;
   right: 15px;

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Button = styled.button`
+export const Button = styled.div`
   width: auto;
-  height: auto;
+  height: 45px;
   margin: 10px;
   padding: 10px;
   border: none;

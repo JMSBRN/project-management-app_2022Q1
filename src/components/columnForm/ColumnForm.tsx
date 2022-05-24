@@ -6,7 +6,7 @@ import { State } from '../../store/utils';
 import * as Styled from './ColumnForm.style';
 
 const ColumnForm = () => {
-  const { columnTitle } = useSelector((state: State) => state.columnList);
+  const { columnTitle } = useSelector((state: State) => state.column);
   const { columnList } = useSelector((state: State) => state.column);
   const dispatch = useDispatch();
 

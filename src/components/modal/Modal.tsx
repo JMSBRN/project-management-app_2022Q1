@@ -4,7 +4,7 @@ import Button from '../button/Button';
 import * as Styled from './Modal.styled';
 
 interface IModal {
-  handleClose?: () => void;
+  handleClose: () => void;
   children: React.ReactNode;
   isOpen: boolean;
 }

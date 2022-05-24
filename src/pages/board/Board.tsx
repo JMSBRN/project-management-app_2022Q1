@@ -9,26 +9,27 @@ import Modal from '../../components/modal/Modal';
 import { setIsOpen } from '../../store/actions/actionCreators';
 
 const Board = () => {
-  const { columnList } = useSelector((state: State) => state.column);
   const { isOpen } = useSelector((state: State) => state.modal);
+  const { columnList } = useSelector((state: State) => state.column);
   const dispatch = useDispatch();
 
-  const handleOpen = () => {
+  const handleOpenColumn = () => {
     dispatch(setIsOpen(true));
+    console.log('column');
   };
 
-  const handleClose = () => {
+  const handleCloseColumn = () => {
     dispatch(setIsOpen(false));
   };
 
   return (
     <>
       <Styled.Board>
-        {columnList.map((column, i) => (
-          <Column key={i} />
+        {columnList?.map((column, i) => (
+          <Column key={i} columnItem={column} />
         ))}
-        <Button textButton="Add Column" onClick={handleOpen} />
-        <Modal isOpen={isOpen} handleClose={handleClose}>
+        <Button textButton="Add Column" onClick={handleOpenColumn} />
+        <Modal isOpen={isOpen} handleClose={handleCloseColumn}>
           <ColumnForm />
         </Modal>
       </Styled.Board>

@@ -12,6 +12,7 @@ export const Column = styled.div`
   color: var(--color-text-dark);
   border: 1px solid var(--color-background-dark);
   align-self: flex-start;
+  position: relative;
 `;
 
 export const Title = styled.div`
@@ -20,4 +21,14 @@ export const Title = styled.div`
 
 export const Task_list = styled.div`
   overflow-x: auto;
+`;
+
+export const Delete_main_board = styled.div`
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
 `;

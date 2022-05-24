@@ -11,8 +11,8 @@ import { State } from '../../store/utils';
 import * as Styled from './BoardForm.style';
 
 export const BoardForm = () => {
-  const { boardTitle, boardDescr } = useSelector((state: State) => state.boardList);
   const { boardList } = useSelector((state: State) => state.board);
+  const { boardTitle, boardDescr } = useSelector((state: State) => state.board);
   const dispatch = useDispatch();
 
   const handleChange = (

@@ -12,8 +12,7 @@ import { State } from '../../store/utils';
 import * as Styled from './taskForm.styled';
 
 const TaskForm = () => {
-  const { taskList } = useSelector((state: State) => state.task);
-  const { taskName, taskDescr, taskUser } = useSelector((state: State) => state.taskList);
+  const { taskList, taskName, taskDescr, taskUser } = useSelector((state: State) => state.task);
   const dispatch = useDispatch();
 
   const handleChange = (
