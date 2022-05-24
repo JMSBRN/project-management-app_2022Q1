@@ -1,7 +1,9 @@
 import React from 'react';
 import * as Styled from './BoardForm.style';
+import { useTranslation } from 'react-i18next';
 
 export const BoardForm = () => {
+  const { t } = useTranslation();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {};
 
   const handleBoardSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -11,24 +13,24 @@ export const BoardForm = () => {
   return (
     <>
       <Styled.Form onSubmit={handleBoardSubmit}>
-        <Styled.Title>Create new board</Styled.Title>
-        <label>Board name:</label>
+        <Styled.Title>{t('BoardForm.title')}</Styled.Title>
+        <label>{t('BoardForm.name')}:</label>
         <Styled.Form_input
           type="text"
           value=""
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
-          placeholder="Enter board name"
+          placeholder={t('BoardForm.namePlaceholder')}
           required
         />
-        <label>Board description:</label>
+        <label>{t('BoardForm.description')}:</label>
         <Styled.Form_input
           type="text"
           value=""
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
-          placeholder="Enter board description"
+          placeholder={t('BoardForm.descriptionPlaceholder')}
           required
         />
-        <Styled.Form_input_submit type="submit" value="Create board" />
+        <Styled.Form_input_submit type="submit" value={t('BoardForm.btn')} />
       </Styled.Form>
     </>
   );
