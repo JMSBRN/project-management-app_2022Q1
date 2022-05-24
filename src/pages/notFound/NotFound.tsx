@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './notFound.css';
+import { useTranslation } from 'react-i18next';
 
 const NotFound = () => {
+  const { t } = useTranslation();
   const linkStyle = {
     textDecoration: 'none',
     fontSize: 30,
@@ -15,9 +17,9 @@ const NotFound = () => {
   return (
     <div>
       <Link style={linkStyle} to={'/'}>
-        Welcome page
+        {t('NotFound.linkWelcome')}
       </Link>
-      <div style={titleStyle}> Something went wrong... Page NotFound</div>
+      <div style={titleStyle}>{t('NotFound.title')}</div>
     </div>
   );
 };

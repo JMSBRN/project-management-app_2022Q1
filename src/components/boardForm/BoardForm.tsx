@@ -9,8 +9,10 @@ import {
 } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import * as Styled from './BoardForm.style';
+import { useTranslation } from 'react-i18next';
 
 export const BoardForm = () => {
+  const { t } = useTranslation();
   const { boardList } = useSelector((state: State) => state.board);
   const { boardTitle, boardDescr } = useSelector((state: State) => state.board);
   const dispatch = useDispatch();
@@ -41,24 +43,24 @@ export const BoardForm = () => {
   return (
     <>
       <Styled.Form onSubmit={handleBoardSubmit}>
-        <Styled.Title>Create new board</Styled.Title>
-        <label>Board name:</label>
+        <Styled.Title>{t('BoardForm.title')}</Styled.Title>
+        <label>{t('BoardForm.name')}:</label>
         <Styled.Form_input
           type="text"
           value={boardTitle}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setBoardTitle)}
-          placeholder="Enter board name"
+          placeholder={t('BoardForm.namePlaceholder')}
           required
         />
-        <label>Board description:</label>
+        <label>{t('BoardForm.description')}:</label>
         <Styled.Form_input
           type="text"
           value={boardDescr}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setBoardDescr)}
-          placeholder="Enter board description"
+          placeholder={t('BoardForm.descriptionPlaceholder')}
           required
         />
-        <Styled.Form_input_submit type="submit" value="Create board" />
+        <Styled.Form_input_submit type="submit" value={t('BoardForm.btn')} />
       </Styled.Form>
     </>
   );

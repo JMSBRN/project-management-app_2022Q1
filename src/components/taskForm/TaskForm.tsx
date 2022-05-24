@@ -10,9 +10,11 @@ import {
 } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import * as Styled from './taskForm.styled';
+import { useTranslation } from 'react-i18next';
 
 const TaskForm = () => {
   const { taskList, taskName, taskDescr, taskUser } = useSelector((state: State) => state.task);
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -43,32 +45,32 @@ const TaskForm = () => {
   return (
     <>
       <Styled.Form onSubmit={handleTaskSubmit}>
-        <Styled.Title>Create new task</Styled.Title>
-        <label>Task name:</label>
+        <Styled.Title>{t('TaskForm.title')}</Styled.Title>
+        <label>{t('TaskForm.name')}:</label>
         <Styled.Form_input
           type="text"
           value={taskName}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setTaskName)}
-          placeholder="Enter task name"
+          placeholder={t('TaskForm.namePlaceholder')}
           required
         />
-        <label>Task description:</label>
+        <label>{t('TaskForm.description')}:</label>
         <Styled.Form_input
           type="text"
           value={taskDescr}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setTaskDescr)}
-          placeholder="Enter task description"
+          placeholder={t('TaskForm.descriptionPlaceholder')}
           required
         />
-        <label>User:</label>
+        <label>{t('TaskForm.user')}:</label>
         <Styled.Form_input
           type="text"
           value={taskUser}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setTaskUser)}
-          placeholder="Enter user"
+          placeholder={t('TaskForm.userPlaceholder')}
           required
         />
-        <Styled.Form_input_submit type="submit" value="Create task" />
+        <Styled.Form_input_submit type="submit" value={t('TaskForm.btn')} />
       </Styled.Form>
     </>
   );
