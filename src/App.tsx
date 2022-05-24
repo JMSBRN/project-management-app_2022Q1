@@ -11,6 +11,7 @@ import './main.css';
 import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
 import EditProfile from './pages/editProfile/EditProfile';
 import Header from './containers/header/Header';
+import LoginPage from './pages/loginPage/LoginPage';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               </Route>
             </Route>
             <Route path="auth" element={<AuthPage />} />
+            <Route path="login" element={<LoginPage />} />
             <Route path="notFound" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Route>

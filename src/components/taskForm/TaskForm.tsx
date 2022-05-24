@@ -14,7 +14,8 @@ import { useTranslation } from 'react-i18next';
 
 const TaskForm = () => {
   const { t } = useTranslation();
-  const { taskName, taskDescr, taskUser, taskList } = useSelector((state: State) => state.task);
+  const { taskList } = useSelector((state: State) => state.task);
+  const { taskName, taskDescr, taskUser } = useSelector((state: State) => state.taskList);
   const dispatch = useDispatch();
 
   const handleChange = (
