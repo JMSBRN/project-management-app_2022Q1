@@ -1,11 +1,11 @@
 export type State = {
   profile: IFormProfile;
   board: IFormBoard;
-  boardList: IBoardList;
+  // boardList: IBoardList;
   column: IFormColumn;
-  columnList: IColumnList;
+  // columnList: IColumnList;
   task: IFormTask;
-  taskList: ITaskList;
+  // taskList: ITaskList;
   modal: IModal;
 };
 
@@ -17,32 +17,51 @@ export const initialState = {
     userList: [],
   },
   board: {
+    boardTitle: '',
+    boardDescr: '',
     boardList: [
-      {
-        boardTitle: '',
-        boardDescr: '',
-        columnList: [
-          {
-            columnTitle: '',
-            taskList: [
-              {
-                taskName: '',
-                taskDescr: '',
-                taskUser: '',
-              },
-            ],
-          },
-        ],
-      },
+      // {
+      //   boardTitle: '',
+      //   boardDescr: '',
+      //   columnTitle: '',
+      //   columnList: [
+      //     {
+      //       columnTitle: '',
+      //       taskList: [],
+      //     },
+      //     {
+      //       columnTitle: '',
+      //       taskList: [
+      //         {
+      //           taskName: '',
+      //           taskDescr: '',
+      //           taskUser: '',
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
     ],
+  },
+  column: {
+    columnTitle: '',
+    columnList: [],
+  },
+  task: {
+    taskName: '',
+    taskDescr: '',
+    taskUser: '',
+    taskList: [],
   },
   modal: {
     isOpen: false,
+    form: '',
   },
 };
 
 export interface IModal {
   isOpen: boolean;
+  form: string;
 }
 
 export interface IFormProfile {
@@ -53,23 +72,27 @@ export interface IFormProfile {
 }
 
 export interface IFormBoard {
+  boardTitle: string;
+  boardDescr: string;
   boardList: IBoardList[];
 }
 export interface IBoardList {
   boardTitle: string;
   boardDescr: string;
-  colunmList?: IColumnList[];
 }
 
 export interface IFormColumn {
+  columnTitle: string;
   columnList: IColumnList[];
 }
 export interface IColumnList {
   columnTitle: string;
-  taskList?: ITaskList[];
 }
 
 export interface IFormTask {
+  taskName: string;
+  taskDescr: string;
+  taskUser: string;
   taskList: ITaskList[];
 }
 export interface ITaskList {

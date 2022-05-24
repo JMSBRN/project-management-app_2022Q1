@@ -6,7 +6,7 @@ interface IProps {
   taskItem: ITaskList;
 }
 
-export const Task = (props: IProps) => {
+const Task = (props: IProps) => {
   const { taskName, taskDescr, taskUser } = props.taskItem;
 
   return (
@@ -17,3 +17,5 @@ export const Task = (props: IProps) => {
     </Styled.Task_block>
   );
 };
+
+export default Task;

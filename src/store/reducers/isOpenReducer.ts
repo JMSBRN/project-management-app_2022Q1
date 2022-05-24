@@ -13,6 +13,12 @@ export const isOpenReducer: Reducer<IModal, Action> = (
         isOpen: action.payload,
       };
     }
+    case Actions.SET_FORM: {
+      return {
+        ...state,
+        form: action.payload,
+      };
+    }
     default:
       return state;
   }

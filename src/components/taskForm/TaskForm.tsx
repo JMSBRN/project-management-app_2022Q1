@@ -13,9 +13,8 @@ import * as Styled from './taskForm.styled';
 import { useTranslation } from 'react-i18next';
 
 const TaskForm = () => {
+  const { taskList, taskName, taskDescr, taskUser } = useSelector((state: State) => state.task);
   const { t } = useTranslation();
-  const { taskList } = useSelector((state: State) => state.task);
-  const { taskName, taskDescr, taskUser } = useSelector((state: State) => state.taskList);
   const dispatch = useDispatch();
 
   const handleChange = (
