@@ -55,11 +55,13 @@ export const initialState = {
   },
   modal: {
     isOpen: false,
+    form: '',
   },
 };
 
 export interface IModal {
   isOpen: boolean;
+  form: string;
 }
 
 export interface IFormProfile {

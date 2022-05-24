@@ -57,3 +57,7 @@ export const setIsOpen = (isOpen: boolean) => ({
   type: Actions.SET_ISOPEN,
   payload: isOpen,
 });
+export const setForm = (form: string) => ({
+  type: Actions.SET_FORM,
+  payload: form,
+});

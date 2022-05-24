@@ -15,6 +15,7 @@ export enum Actions {
   SET_BOARDDESCR = 'SET_BOARDDESCR',
   SET_BOARDLIST = 'SET_BOARDLIST',
   SET_ISOPEN = 'SET_ISOPEN',
+  SET_FORM = 'SET_FORM',
 }
 
 export type Action =
@@ -73,4 +74,8 @@ export type Action =
   | {
       type: Actions.SET_ISOPEN;
       payload: boolean;
+    }
+  | {
+      type: Actions.SET_FORM;
+      payload: string;
     };

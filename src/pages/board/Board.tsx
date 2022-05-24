@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Column from '../../components/column/Column';
 import * as Styled from './board.style';
 import Button from './../../components/button/Button';
@@ -6,21 +6,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../../store/utils';
 import ColumnForm from '../../components/columnForm/ColumnForm';
 import Modal from '../../components/modal/Modal';
-import { setIsOpen } from '../../store/actions/actionCreators';
+import { setForm, setIsOpen } from '../../store/actions/actionCreators';
+import TaskForm from '../../components/taskForm/TaskForm';
 
 const Board = () => {
-  const { isOpen } = useSelector((state: State) => state.modal);
+  const { isOpen, form } = useSelector((state: State) => state.modal);
   const { columnList } = useSelector((state: State) => state.column);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const handleOpenColumn = () => {
     dispatch(setIsOpen(true));
-    console.log('column');
+    dispatch(setForm('column'));
   };
 
   const handleCloseColumn = () => {
     dispatch(setIsOpen(false));
   };
+
+  const column = form === 'column' ? <ColumnForm /> : null;
+  const task = form === 'task' ? <TaskForm /> : null;
 
   return (
     <>
@@ -28,9 +32,10 @@ const Board = () => {
         {columnList?.map((column, i) => (
           <Column key={i} columnItem={column} />
         ))}
-        <Button textButton="Add Column" onClick={handleOpenColumn} />
+        <Button id="column" textButton="Add Column" onClick={handleOpenColumn} />
         <Modal isOpen={isOpen} handleClose={handleCloseColumn}>
-          <ColumnForm />
+          {column}
+          {task}
         </Modal>
       </Styled.Board>
     </>
