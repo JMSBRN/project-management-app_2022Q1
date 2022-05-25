@@ -7,8 +7,10 @@ import Modal from '../../components/modal/Modal';
 import { setIsOpen } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import * as Styled from './Main.style';
+import { useTranslation } from 'react-i18next';
 
 const Main = () => {
+  const { t } = useTranslation();
   const { isOpen } = useSelector((state: State) => state.modal);
   const dispatch = useDispatch();
   const { boardList } = useSelector((state: State) => state.board);
@@ -26,7 +28,7 @@ const Main = () => {
       {boardList.map((el, id) => (
         <MainBoard key={id} boardItem={el} />
       ))}
-      <Button textButton="➕ Add board" onClick={handleOpen} />
+      <Button textButton={'➕ ' + t('Main.addBoard')} onClick={handleOpen} />
       <Modal isOpen={isOpen} handleClose={handleClose}>
         <BoardForm />
       </Modal>
