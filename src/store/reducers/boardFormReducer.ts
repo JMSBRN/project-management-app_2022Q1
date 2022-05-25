@@ -25,6 +25,12 @@ export const boardFormReducer: Reducer<IFormBoard, Action> = (
         boardList: [...action.payload],
       };
     }
+    case Actions.REMOVE_BOARD: {
+      return {
+        ...state,
+        boardList: state.boardList.filter((board) => board.boardTitle !== action.payload),
+      };
+    }
     default:
       return state;
   }

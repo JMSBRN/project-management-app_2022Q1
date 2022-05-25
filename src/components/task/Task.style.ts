@@ -8,6 +8,7 @@ export const Task_block = styled.div`
   width: calc(100%-20px);
   border-radius: 5px;
   box-shadow: 0 1px 0 var(--color-background-dark-60);
+  position: relative;
 `;
 
 export const Title = styled.h4`
@@ -23,4 +24,15 @@ export const User = styled.div`
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 15px;
+`;
+
+export const Delete_main_board = styled.div`
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  font-size: 24px;
+  &:hover {
+    color: red;
+    cursor: pointer;
+  }
 `;
