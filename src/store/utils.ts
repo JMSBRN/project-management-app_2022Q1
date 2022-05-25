@@ -20,7 +20,6 @@ export const initialState = {
   login: {
     userLogin: '',
     userLoginPassword: '',
-    loginList: [],
   },
   board: {
     boardTitle: '',
@@ -112,12 +111,8 @@ export interface IRegList {
   userEmail: string;
   userPassword: string;
 }
+
 export interface IFormLogin {
-  userLogin: string;
-  userLoginPassword: string;
-  loginList: ILoginList[];
-}
-export interface ILoginList {
   userLogin: string;
   userLoginPassword: string;
 }

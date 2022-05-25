@@ -1,4 +1,4 @@
-import { IRegList, ITaskList, IColumnList, IBoardList, ILoginList } from '../utils';
+import { IRegList, ITaskList, IColumnList, IBoardList } from '../utils';
 import { Actions } from './actionTypes';
 
 export const setUserName = (userName: string) => ({
@@ -8,10 +8,6 @@ export const setUserName = (userName: string) => ({
 export const setUserLogin = (userLogin: string) => ({
   type: Actions.SET_USERLOGIN,
   payload: userLogin,
-});
-export const setLoginList = (loginList: ILoginList[]) => ({
-  type: Actions.SET_LOGINLIST,
-  payload: loginList,
 });
 export const setUserEmail = (userEmail: string) => ({
   type: Actions.SET_USEREMAIL,

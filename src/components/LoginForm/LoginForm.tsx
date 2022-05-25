@@ -1,18 +1,14 @@
 import React from 'react';
 import * as Styled from './LoginForm.style';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setLoginList,
-  setUserLogin,
-  setUserLoginPassword,
-} from '../../store/actions/actionCreators';
+import { setUserLogin, setUserLoginPassword } from '../../store/actions/actionCreators';
 import { AnyAction } from 'redux';
 import { State } from '../../store/utils';
+import { apiLoginUser } from '../../Api';
 
 const LoginForm = () => {
-  const { userLogin, userLoginPassword, loginList } = useSelector((state: State) => state.login);
+  const { userLogin, userLoginPassword } = useSelector((state: State) => state.login);
   const dispatch = useDispatch();
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     callback: (value: string) => AnyAction
@@ -21,15 +17,7 @@ const LoginForm = () => {
   };
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(
-      setLoginList([
-        ...loginList,
-        {
-          userLogin: userLogin,
-          userLoginPassword: userLoginPassword,
-        },
-      ])
-    );
+    apiLoginUser({ login: userLogin, password: userLoginPassword });
   };
   return (
     <Styled.Login_Form_main>

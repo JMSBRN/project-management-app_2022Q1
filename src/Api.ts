@@ -29,7 +29,7 @@ export const createUser = async (user: object) => {
   localStorage.setItem('name', JSON.stringify(content.name || ''));
   localStorage.setItem('id', JSON.stringify(content.id || ''));
 };
-export const loginUser = async (user: object) => {
+export const apiLoginUser = async (user: object) => {
   const resp = await fetch(signInUrl, {
     method: 'POST',
     headers: {
