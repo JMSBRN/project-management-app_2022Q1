@@ -21,6 +21,10 @@ export const setUserPassword = (userPassword: string) => ({
   type: Actions.SET_USERPASSWORD,
   payload: userPassword,
 });
+export const setUserLoginPassword = (userLoginPassword: string) => ({
+  type: Actions.SET_USERLOGINPASSWORD,
+  payload: userLoginPassword,
+});
 export const setUserList = (userList: IRegList[]) => ({
   type: Actions.SET_USERLIST,
   payload: userList,

@@ -13,8 +13,13 @@ import EditProfile from './pages/editProfile/EditProfile';
 import Header from './containers/header/Header';
 import LoginPage from './pages/loginPage/LoginPage';
 import { Boards } from './pages/boards/Boards';
+import { useSelector } from 'react-redux';
+import { State } from './store/utils';
 
 function App() {
+  const { loginList } = useSelector((state: State) => state.login);
+  console.log(loginList);
+
   return (
     <div className="App">
       <BrowserRouter>

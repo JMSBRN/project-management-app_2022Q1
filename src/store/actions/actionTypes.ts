@@ -18,6 +18,7 @@ export enum Actions {
   SET_FORM = 'SET_FORM',
   SET_USERLOGIN = 'SET_USERLOGIN',
   SET_LOGINLIST = 'SET_LOGINLIST',
+  SET_USERLOGINPASSWORD = 'SET_USERLOGINPASSWORD',
 }
 
 export type Action =
@@ -83,6 +84,10 @@ export type Action =
     }
   | {
       type: Actions.SET_USERLOGIN;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_USERLOGINPASSWORD;
       payload: string;
     }
   | {

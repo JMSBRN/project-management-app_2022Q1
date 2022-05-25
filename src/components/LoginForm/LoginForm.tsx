@@ -1,12 +1,16 @@
 import React from 'react';
 import * as Styled from './LoginForm.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoginList, setUserLogin, setUserPassword } from '../../store/actions/actionCreators';
+import {
+  setLoginList,
+  setUserLogin,
+  setUserLoginPassword,
+} from '../../store/actions/actionCreators';
 import { AnyAction } from 'redux';
 import { State } from '../../store/utils';
 
 const LoginForm = () => {
-  const { userLogin, userPassword, loginList } = useSelector((state: State) => state.login);
+  const { userLogin, userLoginPassword, loginList } = useSelector((state: State) => state.login);
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -15,7 +19,6 @@ const LoginForm = () => {
   ) => {
     dispatch(callback(e.target.value));
   };
-
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(
@@ -23,7 +26,7 @@ const LoginForm = () => {
         ...loginList,
         {
           userLogin: userLogin,
-          userPassword: userPassword,
+          userLoginPassword: userLoginPassword,
         },
       ])
     );
@@ -54,7 +57,7 @@ const LoginForm = () => {
             <Styled.Login_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleChange(e, setUserPassword)
+                handleChange(e, setUserLoginPassword)
               }
               placeholder="password:"
               type="password"

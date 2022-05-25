@@ -13,10 +13,16 @@ export const loginFormReducer: Reducer<IFormLogin, Action> = (
         userLogin: action.payload,
       };
     }
-    case Actions.SET_USERPASSWORD: {
+    case Actions.SET_USERLOGINPASSWORD: {
       return {
         ...state,
-        userLogin: action.payload,
+        userLoginPassword: action.payload,
+      };
+    }
+    case Actions.SET_LOGINLIST: {
+      return {
+        ...state,
+        loginList: [...action.payload],
       };
     }
     default:
