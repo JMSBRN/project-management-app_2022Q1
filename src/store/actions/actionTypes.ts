@@ -19,6 +19,9 @@ export enum Actions {
   REMOVE_BOARD = 'REMOVE_BOARD',
   SET_ISOPEN = 'SET_ISOPEN',
   SET_FORM = 'SET_FORM',
+  SET_AUTHNAME = 'SET_AUTHNAME',
+  SET_AUTHEMAIL = 'SET_AUTHEMAIL',
+  SET_AUTHPASSWORD = 'SET_AUTHPASSWORD',
 }
 
 export type Action =
@@ -92,5 +95,17 @@ export type Action =
     }
   | {
       type: Actions.SET_FORM;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_AUTHNAME;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_AUTHEMAIL;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_AUTHPASSWORD;
       payload: string;
     };
