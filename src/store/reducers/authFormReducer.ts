@@ -13,10 +13,10 @@ export const authFormReducer: Reducer<IAuthForm, Action> = (
         name: action.payload,
       };
     }
-    case Actions.SET_AUTHEMAIL: {
+    case Actions.SET_AUTHLOGIN: {
       return {
         ...state,
-        email: action.payload,
+        login: action.payload,
       };
     }
     case Actions.SET_AUTHPASSWORD: {

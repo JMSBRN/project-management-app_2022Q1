@@ -21,7 +21,7 @@ export enum Actions {
   SET_FORM = 'SET_FORM',
   SET_USERLOGIN = 'SET_USERLOGIN',
   SET_AUTHNAME = 'SET_AUTHNAME',
-  SET_AUTHEMAIL = 'SET_AUTHEMAIL',
+  SET_AUTHLOGIN = 'SET_AUTHLOGIN',
   SET_AUTHPASSWORD = 'SET_AUTHPASSWORD',
   SET_USERLOGINPASSWORD = 'SET_USERLOGINPASSWORD',
 }
@@ -104,7 +104,7 @@ export type Action =
       payload: string;
     }
   | {
-      type: Actions.SET_AUTHEMAIL;
+      type: Actions.SET_AUTHLOGIN;
       payload: string;
     }
   | {

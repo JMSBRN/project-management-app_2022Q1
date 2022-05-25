@@ -85,9 +85,9 @@ export const setAuthName = (name: string) => ({
   type: Actions.SET_AUTHNAME,
   payload: name,
 });
-export const setAuthEmail = (email: string) => ({
-  type: Actions.SET_AUTHEMAIL,
-  payload: email,
+export const setAuthEmail = (login: string) => ({
+  type: Actions.SET_AUTHLOGIN,
+  payload: login,
 });
 export const setAuthPassword = (password: string) => ({
   type: Actions.SET_AUTHPASSWORD,

@@ -5,10 +5,11 @@ import { setAuthName, setAuthEmail, setAuthPassword } from '../../store/actions/
 import { State } from '../../store/utils';
 import { AnyAction } from 'redux';
 import { useTranslation } from 'react-i18next';
+import { apiCreateUser } from '../../Api';
 
 const AuthForm = () => {
   const { t } = useTranslation();
-  const { name, email, password } = useSelector((state: State) => state.auth);
+  const { name, login, password } = useSelector((state: State) => state.auth);
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -16,16 +17,11 @@ const AuthForm = () => {
     callback: (value: string) => AnyAction
   ) => {
     dispatch(callback(e.target.value));
-    dispatch(setAuthName(name));
-    dispatch(setAuthEmail(email));
-    dispatch(setAuthPassword(password));
   };
 
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(name);
-    console.log(email);
-    console.log(password);
+    apiCreateUser({ name: name, login: login, password: password });
   };
 
   return (

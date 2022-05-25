@@ -20,7 +20,7 @@ export const initialState = {
   },
   auth: {
     name: '',
-    email: '',
+    login: '',
     password: '',
   },
   login: {
@@ -119,7 +119,7 @@ export interface IRegList {
 }
 export interface IAuthForm {
   name: string;
-  email: string;
+  login: string;
   password: string;
 }
 export interface IFormLogin {
