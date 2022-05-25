@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Column from '../../components/column/Column';
 import * as Styled from './board.style';
 import Button from './../../components/button/Button';

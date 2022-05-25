@@ -41,6 +41,10 @@ export const setTaskList = (taskList: ITaskList[]) => ({
   type: Actions.SET_TASKLIST,
   payload: taskList,
 });
+export const setRemoveTask = (taskName: string) => ({
+  type: Actions.REMOVE_TASK,
+  payload: taskName,
+});
 export const setColumnTitle = (columnTitle: string) => ({
   type: Actions.SET_COLUMNTITLE,
   payload: columnTitle,
@@ -48,6 +52,10 @@ export const setColumnTitle = (columnTitle: string) => ({
 export const setColumnList = (columnList: IColumnList[]) => ({
   type: Actions.SET_COLUMNLIST,
   payload: columnList,
+});
+export const setRemoveColumn = (columnTitle: string) => ({
+  type: Actions.REMOVE_COLUMN,
+  payload: columnTitle,
 });
 export const setBoardTitle = (boardTitle: string) => ({
   type: Actions.SET_BOARDTITLE,
@@ -60,6 +68,10 @@ export const setBoardDescr = (boardDescr: string) => ({
 export const setBoardList = (boardList: IBoardList[]) => ({
   type: Actions.SET_BOARDLIST,
   payload: boardList,
+});
+export const setRemoveBoard = (boardTitle: string) => ({
+  type: Actions.REMOVE_BOARD,
+  payload: boardTitle,
 });
 export const setIsOpen = (isOpen: boolean) => ({
   type: Actions.SET_ISOPEN,

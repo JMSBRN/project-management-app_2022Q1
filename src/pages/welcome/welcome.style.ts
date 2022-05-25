@@ -16,13 +16,12 @@ export const Layout = styled.div`
 `;
 
 export const H1 = styled.h1`
-  margin-left: 20%;
   margin-bottom: 50px;
-  width: 90%;
   padding-top: 30px;
   font-size: 60px;
   color: rgb(12, 97, 97);
   display: flex;
+  justify-content: center;
 `;
 
 export const SingBtnWrapper = styled.div`

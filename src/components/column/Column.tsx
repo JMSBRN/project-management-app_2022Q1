@@ -1,6 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setForm, setIsOpen, setTaskList } from '../../store/actions/actionCreators';
+import {
+  setForm,
+  setIsOpen,
+  setRemoveColumn,
+  setTaskList,
+} from '../../store/actions/actionCreators';
 import { IColumnList, State } from '../../store/utils';
 import Button from '../button/Button';
 import Task from '../task/Task';
@@ -16,6 +21,10 @@ const Column = (props: IProps) => {
   const { columnTitle } = props.columnItem;
   const { taskList } = useSelector((state: State) => state.task);
   const dispatch = useDispatch();
+
+  const handleRemove = () => {
+    dispatch(setRemoveColumn(columnTitle));
+  };
 
   const handleOpenModal = () => {
     dispatch(setIsOpen(true));
@@ -37,7 +46,7 @@ const Column = (props: IProps) => {
           })}
         </Styled.Task_list>
         <Button id="task" textButton={'➕ ' + t('Task.addTask')} onClick={handleOpenModal} />
-        <Styled.Delete_main_board>&#128465;</Styled.Delete_main_board>
+        <Styled.Delete_main_board onClick={handleRemove}>&#128465;</Styled.Delete_main_board>
       </Styled.Column>
     </>
   );

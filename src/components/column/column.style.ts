@@ -6,7 +6,7 @@ export const Column = styled.div`
   max-height: 100%;
   min-width: 270px;
   margin-right: 10px;
-  padding: 10px;
+  padding: 10px 10px 30px 10px;
   border-radius: 5px;
   background-color: var(--color-background-white);
   color: var(--color-text-dark);
@@ -27,6 +27,7 @@ export const Delete_main_board = styled.div`
   position: absolute;
   right: 5px;
   bottom: 3px;
+  font-size: 24px;
   &:hover {
     color: red;
     cursor: pointer;
