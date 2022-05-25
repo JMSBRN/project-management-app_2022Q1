@@ -54,5 +54,20 @@
   "NotFound": {
     "linkWelcome": "Welcome page",
     "title": "Something went wrong... Page NotFound"
+  },
+  "Main": {
+    "addBoard": "Add board"
+  },
+  "Board": {
+    "addColumn": "Add Column"
+  }, 
+  "ColumnForm": {
+    "title": "Create new column", 
+    "name": "Column name",
+    "namePlaceholder": "Enter column name",
+    "btn": "Create column"
+  },
+  "Task": {
+    "addTask": "Add task"
   }
 }

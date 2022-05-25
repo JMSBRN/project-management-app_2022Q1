@@ -8,8 +8,10 @@ import ColumnForm from '../../components/columnForm/ColumnForm';
 import Modal from '../../components/modal/Modal';
 import { setForm, setIsOpen } from '../../store/actions/actionCreators';
 import TaskForm from '../../components/taskForm/TaskForm';
+import { useTranslation } from 'react-i18next';
 
 const Board = () => {
+  const { t } = useTranslation();
   const { isOpen, form } = useSelector((state: State) => state.modal);
   const { columnList } = useSelector((state: State) => state.column);
 
@@ -32,7 +34,7 @@ const Board = () => {
         {columnList?.map((column, i) => (
           <Column key={i} columnItem={column} />
         ))}
-        <Button id="column" textButton="Add Column" onClick={handleOpenColumn} />
+        <Button id="column" textButton={'➕ ' + t('Board.addColumn')} onClick={handleOpenColumn} />
         <Modal isOpen={isOpen} handleClose={handleCloseColumn}>
           {column}
           {task}
