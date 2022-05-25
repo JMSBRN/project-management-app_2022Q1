@@ -19,6 +19,8 @@ export enum Actions {
   REMOVE_BOARD = 'REMOVE_BOARD',
   SET_ISOPEN = 'SET_ISOPEN',
   SET_FORM = 'SET_FORM',
+  SET_USERLOGIN = 'SET_USERLOGIN',
+  SET_USERLOGINPASSWORD = 'SET_USERLOGINPASSWORD',
 }
 
 export type Action =
@@ -92,5 +94,13 @@ export type Action =
     }
   | {
       type: Actions.SET_FORM;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_USERLOGIN;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_USERLOGINPASSWORD;
       payload: string;
     };
