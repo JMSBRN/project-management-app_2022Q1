@@ -9,21 +9,12 @@ export const Login_Form_main = styled.div`
   background-color: var(--color-background-white);
 `;
 export const Login_Form_container = styled.div`
-  min-width: 650px;
+  width: 450px;
   height: auto;
   margin-top: 100px;
   display: grid;
   grid-template-columns: 200px 450px;
   border: 0.5px solid grey;
-`;
-export const User_info = styled.div`
-  width: 200px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-right: 0.5px solid grey;
 `;
 export const Login_Form = styled.form`
   width: 450px;

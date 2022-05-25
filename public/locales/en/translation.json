@@ -51,6 +51,11 @@
     "confirmPass": "Confirm Password",
     "btn": "Submit"
   },
+  "LoginForm": {
+    "login": "Login",
+    "password": "Password",
+    "btn": "Submit"
+  },
   "NotFound": {
     "linkWelcome": "Welcome page",
     "title": "Something went wrong... Page NotFound"
