@@ -73,3 +73,15 @@ export const setForm = (form: string) => ({
   type: Actions.SET_FORM,
   payload: form,
 });
+export const setAuthName = (name: string) => ({
+  type: Actions.SET_AUTHNAME,
+  paylload: name,
+});
+export const setAuthEmail = (email: string) => ({
+  type: Actions.SET_AUTHEMAIL,
+  paylload: email,
+});
+export const setAuthPassword = (password: string) => ({
+  type: Actions.SET_AUTHPASSWORD,
+  paylload: password,
+});
