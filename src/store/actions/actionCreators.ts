@@ -61,6 +61,10 @@ export const setBoardList = (boardList: IBoardList[]) => ({
   type: Actions.SET_BOARDLIST,
   payload: boardList,
 });
+export const setRemoveBoard = (boardTitle: string) => ({
+  type: Actions.REMOVE_BOARD,
+  payload: boardTitle,
+});
 export const setIsOpen = (isOpen: boolean) => ({
   type: Actions.SET_ISOPEN,
   payload: isOpen,

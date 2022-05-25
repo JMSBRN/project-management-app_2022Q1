@@ -16,6 +16,7 @@ export enum Actions {
   SET_BOARDTITLE = 'SET_BOARDTITE',
   SET_BOARDDESCR = 'SET_BOARDDESCR',
   SET_BOARDLIST = 'SET_BOARDLIST',
+  REMOVE_BOARD = 'REMOVE_BOARD',
   SET_ISOPEN = 'SET_ISOPEN',
   SET_FORM = 'SET_FORM',
 }
@@ -80,6 +81,10 @@ export type Action =
   | {
       type: Actions.SET_BOARDLIST;
       payload: IBoardList[];
+    }
+  | {
+      type: Actions.REMOVE_BOARD;
+      payload: string;
     }
   | {
       type: Actions.SET_ISOPEN;
