@@ -7,6 +7,7 @@ export type State = {
   task: IFormTask;
   // taskList: ITaskList;
   modal: IModal;
+  login: IFormLogin;
 };
 
 export const initialState = {
@@ -15,6 +16,11 @@ export const initialState = {
     userEmail: '',
     userPassword: '',
     userList: [],
+  },
+  login: {
+    userLogin: '',
+    userPassword: '',
+    loginList: [],
   },
   board: {
     boardTitle: '',
@@ -104,5 +110,14 @@ export interface ITaskList {
 export interface IRegList {
   userName: string;
   userEmail: string;
+  userPassword: string;
+}
+export interface IFormLogin {
+  userLogin: string;
+  userPassword: string;
+  loginList: ILoginList[];
+}
+export interface ILoginList {
+  userLogin: string;
   userPassword: string;
 }

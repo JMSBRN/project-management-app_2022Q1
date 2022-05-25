@@ -1,14 +1,12 @@
 import React from 'react';
 import * as Styled from './LoginForm.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUserEmail, setUserPassword, setUserList } from '../../store/actions/actionCreators';
-import { State } from '../../store/utils';
+import { setLoginList, setUserLogin, setUserPassword } from '../../store/actions/actionCreators';
 import { AnyAction } from 'redux';
+import { State } from '../../store/utils';
 
 const LoginForm = () => {
-  const { userName, userEmail, userPassword, userList } = useSelector(
-    (state: State) => state.profile
-  );
+  const { userLogin, userPassword, loginList } = useSelector((state: State) => state.login);
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -21,17 +19,14 @@ const LoginForm = () => {
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(
-      setUserList([
-        ...userList,
+      setLoginList([
+        ...loginList,
         {
-          userName: userName,
-          userEmail: userEmail,
+          userLogin: userLogin,
           userPassword: userPassword,
         },
       ])
     );
-    dispatch(setUserEmail(''));
-    dispatch(setUserPassword(''));
   };
   return (
     <Styled.Login_Form_main>
@@ -46,10 +41,10 @@ const LoginForm = () => {
             Email:
             <Styled.Login_Form_input
               data-testid="name-input"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserEmail)}
-              placeholder="email:"
-              type="email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserLogin)}
+              placeholder="login:"
+              type="text"
+              // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
             <br />
           </label>
@@ -63,7 +58,7 @@ const LoginForm = () => {
               }
               placeholder="password:"
               type="password"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>

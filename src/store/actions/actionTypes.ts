@@ -1,4 +1,4 @@
-import { IRegList, ITaskList, IColumnList, IBoardList } from '../utils';
+import { IRegList, ITaskList, IColumnList, IBoardList, ILoginList } from '../utils';
 
 export enum Actions {
   SET_USERNAME = 'SET_USERNAME',
@@ -16,6 +16,8 @@ export enum Actions {
   SET_BOARDLIST = 'SET_BOARDLIST',
   SET_ISOPEN = 'SET_ISOPEN',
   SET_FORM = 'SET_FORM',
+  SET_USERLOGIN = 'SET_USERLOGIN',
+  SET_LOGINLIST = 'SET_LOGINLIST',
 }
 
 export type Action =
@@ -78,4 +80,12 @@ export type Action =
   | {
       type: Actions.SET_FORM;
       payload: string;
+    }
+  | {
+      type: Actions.SET_USERLOGIN;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_LOGINLIST;
+      payload: ILoginList[];
     };
