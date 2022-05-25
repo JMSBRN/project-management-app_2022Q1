@@ -16,6 +16,9 @@ const AuthForm = () => {
     callback: (value: string) => AnyAction
   ) => {
     dispatch(callback(e.target.value));
+    dispatch(setAuthName(name));
+    dispatch(setAuthEmail(email));
+    dispatch(setAuthPassword(password));
   };
 
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
