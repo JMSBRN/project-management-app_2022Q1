@@ -17,7 +17,11 @@ const LoginForm = () => {
   };
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    apiLoginUser({ login: userLogin, password: userLoginPassword });
+    const loginUser = {
+      login: userLogin,
+      password: userLoginPassword,
+    };
+    apiLoginUser(loginUser);
   };
   return (
     <Styled.Login_Form_main>
@@ -35,7 +39,7 @@ const LoginForm = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserLogin)}
               placeholder="login:"
               type="text"
-              // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
             <br />
           </label>
@@ -49,7 +53,7 @@ const LoginForm = () => {
               }
               placeholder="password:"
               type="password"
-              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Styled from './AuthForm.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuthName, setAuthEmail, setAuthPassword } from '../../store/actions/actionCreators';
+import { setAuthName, setAuthLogin, setAuthPassword } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import { AnyAction } from 'redux';
 import { useTranslation } from 'react-i18next';
@@ -21,7 +21,12 @@ const AuthForm = () => {
 
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    apiCreateUser({ name: name, login: login, password: password });
+    const authUser = {
+      name: name,
+      login: login,
+      password: password,
+    };
+    apiCreateUser(authUser);
   };
 
   return (
@@ -35,19 +40,19 @@ const AuthForm = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setAuthName)}
               placeholder={t('AuthForm.name')}
               type="text"
-              // pattern="[A-Za-z]{3}"
+              pattern="[A-Za-z]{3}"
             />
             <br />
           </label>
           <span data-testid="error-name"></span>
           <label>
-            {t('AuthForm.email')}:
+            {t('AuthForm.login')}:
             <Styled.Auth_Form_input
               data-testid="name-input"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setAuthEmail)}
-              placeholder={t('AuthForm.email')}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setAuthLogin)}
+              placeholder={t('AuthForm.login')}
               type="text"
-              // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
             <br />
           </label>
@@ -61,7 +66,7 @@ const AuthForm = () => {
               }
               placeholder={t('AuthForm.password')}
               type="password"
-              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>

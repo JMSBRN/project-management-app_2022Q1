@@ -46,7 +46,7 @@
   },
   "AuthForm": {
     "name":"Name",
-    "email": "Email",
+    "login": "Login",
     "password": "Password",
     "confirmPass": "Confirm Password",
     "btn": "Submit"
