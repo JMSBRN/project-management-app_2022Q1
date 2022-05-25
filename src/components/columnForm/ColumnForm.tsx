@@ -4,8 +4,10 @@ import { AnyAction } from 'redux';
 import { setColumnList, setColumnTitle, setIsOpen } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import * as Styled from './ColumnForm.style';
+import { useTranslation } from 'react-i18next';
 
 const ColumnForm = () => {
+  const { t } = useTranslation();
   const { columnTitle } = useSelector((state: State) => state.column);
   const { columnList } = useSelector((state: State) => state.column);
   const dispatch = useDispatch();
@@ -34,16 +36,16 @@ const ColumnForm = () => {
   return (
     <>
       <Styled.Form onSubmit={handleColumnSubmit}>
-        <Styled.Title>Create new column</Styled.Title>
-        <label>Column name:</label>
+        <Styled.Title>{t('ColumnForm.title')}</Styled.Title>
+        <label>{t('ColumnForm.name')}:</label>
         <Styled.Form_input
           type="text"
           value={columnTitle}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setColumnTitle)}
-          placeholder="Enter column name"
+          placeholder={t('ColumnForm.namePlaceholder')}
           required
         />
-        <Styled.Form_input_submit type="submit" value="Create column" />
+        <Styled.Form_input_submit type="submit" value={t('ColumnForm.btn')} />
       </Styled.Form>
     </>
   );
