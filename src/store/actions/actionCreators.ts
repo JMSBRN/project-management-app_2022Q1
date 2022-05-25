@@ -45,6 +45,10 @@ export const setColumnList = (columnList: IColumnList[]) => ({
   type: Actions.SET_COLUMNLIST,
   payload: columnList,
 });
+export const setRemoveColumn = (columnTitle: string) => ({
+  type: Actions.REMOVE_COLUMN,
+  payload: columnTitle,
+});
 export const setBoardTitle = (boardTitle: string) => ({
   type: Actions.SET_BOARDTITLE,
   payload: boardTitle,

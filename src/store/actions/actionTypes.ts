@@ -12,6 +12,7 @@ export enum Actions {
   REMOVE_TASK = 'REMOVE_TASK',
   SET_COLUMNTITLE = 'SET_COLUMNTITLE',
   SET_COLUMNLIST = 'SET_COLUMNLIST',
+  REMOVE_COLUMN = 'REMOVE_COLUMN',
   SET_BOARDTITLE = 'SET_BOARDTITE',
   SET_BOARDDESCR = 'SET_BOARDDESCR',
   SET_BOARDLIST = 'SET_BOARDLIST',
@@ -63,6 +64,10 @@ export type Action =
   | {
       type: Actions.SET_COLUMNLIST;
       payload: IColumnList[];
+    }
+  | {
+      type: Actions.REMOVE_COLUMN;
+      payload: string;
     }
   | {
       type: Actions.SET_BOARDTITLE;
