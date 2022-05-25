@@ -1,37 +1,23 @@
 import React from 'react';
 import * as Styled from './LoginForm.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUserEmail, setUserPassword, setUserList } from '../../store/actions/actionCreators';
-import { State } from '../../store/utils';
+import { setUserLogin, setUserLoginPassword } from '../../store/actions/actionCreators';
 import { AnyAction } from 'redux';
+import { State } from '../../store/utils';
+import { apiLoginUser } from '../../Api';
 
 const LoginForm = () => {
-  const { userName, userEmail, userPassword, userList } = useSelector(
-    (state: State) => state.profile
-  );
+  const { userLogin, userLoginPassword } = useSelector((state: State) => state.login);
   const dispatch = useDispatch();
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     callback: (value: string) => AnyAction
   ) => {
     dispatch(callback(e.target.value));
   };
-
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(
-      setUserList([
-        ...userList,
-        {
-          userName: userName,
-          userEmail: userEmail,
-          userPassword: userPassword,
-        },
-      ])
-    );
-    dispatch(setUserEmail(''));
-    dispatch(setUserPassword(''));
+    apiLoginUser({ login: userLogin, password: userLoginPassword });
   };
   return (
     <Styled.Login_Form_main>
@@ -46,10 +32,10 @@ const LoginForm = () => {
             Email:
             <Styled.Login_Form_input
               data-testid="name-input"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserEmail)}
-              placeholder="email:"
-              type="email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserLogin)}
+              placeholder="login:"
+              type="text"
+              // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
             <br />
           </label>
@@ -59,11 +45,11 @@ const LoginForm = () => {
             <Styled.Login_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleChange(e, setUserPassword)
+                handleChange(e, setUserLoginPassword)
               }
               placeholder="password:"
               type="password"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>

@@ -8,6 +8,7 @@ export type State = {
   // taskList: ITaskList;
   modal: IModal;
   auth: IAuthForm;
+  login: IFormLogin;
 };
 
 export const initialState = {
@@ -21,6 +22,10 @@ export const initialState = {
     name: '',
     email: '',
     password: '',
+  },
+  login: {
+    userLogin: '',
+    userLoginPassword: '',
   },
   board: {
     boardTitle: '',
@@ -116,4 +121,8 @@ export interface IAuthForm {
   name: string;
   email: string;
   password: string;
+}
+export interface IFormLogin {
+  userLogin: string;
+  userLoginPassword: string;
 }

@@ -5,6 +5,10 @@ export const setUserName = (userName: string) => ({
   type: Actions.SET_USERNAME,
   payload: userName,
 });
+export const setUserLogin = (userLogin: string) => ({
+  type: Actions.SET_USERLOGIN,
+  payload: userLogin,
+});
 export const setUserEmail = (userEmail: string) => ({
   type: Actions.SET_USEREMAIL,
   payload: userEmail,
@@ -12,6 +16,10 @@ export const setUserEmail = (userEmail: string) => ({
 export const setUserPassword = (userPassword: string) => ({
   type: Actions.SET_USERPASSWORD,
   payload: userPassword,
+});
+export const setUserLoginPassword = (userLoginPassword: string) => ({
+  type: Actions.SET_USERLOGINPASSWORD,
+  payload: userLoginPassword,
 });
 export const setUserList = (userList: IRegList[]) => ({
   type: Actions.SET_USERLIST,
