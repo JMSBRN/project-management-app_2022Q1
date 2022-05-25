@@ -2,10 +2,11 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Board = styled.div`
-  width: 100vw;
+  width: 100%;
+  height: calc(100vh - 170px);
   display: flex;
   overflow-x: auto;
-  margin: 20px;
+  padding: 20px;
 `;
 
 export const Link = styled(NavLink)`
