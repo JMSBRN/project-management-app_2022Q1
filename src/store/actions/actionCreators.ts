@@ -33,6 +33,10 @@ export const setTaskList = (taskList: ITaskList[]) => ({
   type: Actions.SET_TASKLIST,
   payload: taskList,
 });
+export const setRemoveTask = (taskName: string) => ({
+  type: Actions.REMOVE_TASK,
+  payload: taskName,
+});
 export const setColumnTitle = (columnTitle: string) => ({
   type: Actions.SET_COLUMNTITLE,
   payload: columnTitle,

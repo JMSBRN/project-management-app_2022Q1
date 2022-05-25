@@ -27,6 +27,7 @@ const Column = (props: IProps) => {
     dispatch(setTaskList([...taskList]));
   };
 
+  console.log(taskList);
   return (
     <>
       <Styled.Column>
