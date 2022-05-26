@@ -49,3 +49,10 @@ export const Ul = styled.ul`
     cursor: pointer;
   }
 `;
+export const main_Page_Link_wrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+`;
