@@ -19,6 +19,7 @@ interface IMember {
 
 const Welcome = () => {
   const { t } = useTranslation();
+  const token = localStorage.getItem('token');
   return (
     <Styled.Welcome>
       <Styled.Layout>
@@ -28,18 +29,22 @@ const Welcome = () => {
             return <TeamCard key={i} member={item} />;
           })}
         </Styled.Container>
-        <Styled.SingBtnWrapper>
-          <Styled.Ul>
-            <NavLink className="link sing-in" to={'/login'}>
-              {t('welcomeRoute.btns.login')}
-            </NavLink>
-          </Styled.Ul>
-          <Styled.Ul>
-            <NavLink className="link sing-out" to={'/auth'}>
-              {t('welcomeRoute.btns.registration')}
-            </NavLink>
-          </Styled.Ul>
-        </Styled.SingBtnWrapper>
+        {token == null ? (
+          <Styled.SingBtnWrapper>
+            <Styled.Ul>
+              <NavLink to={'/login'}>{t('welcomeRoute.btns.login')}</NavLink>
+            </Styled.Ul>
+            <Styled.Ul>
+              <NavLink to={'/auth'}>{t('welcomeRoute.btns.registration')}</NavLink>
+            </Styled.Ul>
+          </Styled.SingBtnWrapper>
+        ) : (
+          <Styled.main_Page_Link_wrapper>
+            <Styled.Ul>
+              <NavLink to={'/main'}>{t('welcomeRoute.btns.mainPage')}</NavLink>
+            </Styled.Ul>
+          </Styled.main_Page_Link_wrapper>
+        )}
       </Styled.Layout>
     </Styled.Welcome>
   );

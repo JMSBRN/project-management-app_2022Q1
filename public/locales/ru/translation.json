@@ -3,7 +3,8 @@
     "title": "Финальный проект - курс React 2022 Q1",
     "btns": {
       "login": "Вход",
-      "registration": "Регистрация"
+      "registration": "Регистрация",
+      "mainPage": "Главная Страница"
     }
   },
   "Headerlinks": {
