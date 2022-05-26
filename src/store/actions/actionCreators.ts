@@ -93,3 +93,7 @@ export const setAuthPassword = (password: string) => ({
   type: Actions.SET_AUTHPASSWORD,
   payload: password,
 });
+export const setLoginError = (error: string) => ({
+  type: Actions.SET_LOGIN_ERROR,
+  payload: error,
+});

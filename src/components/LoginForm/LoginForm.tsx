@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 const LoginForm = () => {
   const { t } = useTranslation();
   const { userLogin, userLoginPassword } = useSelector((state: State) => state.login);
+  const error = useSelector((state: State) => state.error);
   const dispatch = useDispatch();
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -30,6 +31,7 @@ const LoginForm = () => {
         location.replace('/main');
       }
     }, 2000);
+    console.log(error.error);
   };
   return (
     <Styled.Login_Form_main>
@@ -46,7 +48,8 @@ const LoginForm = () => {
             />
             <br />
           </label>
-          <span data-testid="error-name"></span>
+          <Styled.errors>{error.error}</Styled.errors>
+          <br />
           <label>
             {t('LoginForm.password')}
             <Styled.Login_Form_input
@@ -59,7 +62,8 @@ const LoginForm = () => {
             />
             <br />
           </label>
-          <span data-testid="error-name"></span>
+          <Styled.errors>{error.error}</Styled.errors>
+          <br />
           <Styled.Login_Form_input_submit type="submit" value={t('LoginForm.btn')} />
         </Styled.Login_Form>
       </Styled.Login_Form_container>

@@ -6,6 +6,7 @@ import { profileFormReducer } from './profileFormReducer';
 import { taskFormReducer } from './taskFormReducer';
 import { authFormReducer } from './authFormReducer';
 import { loginFormReducer } from './loginFormReducer';
+import { LoginErrorsReducer } from './LoginErrorsReducer';
 
 export default combineReducers({
   profile: profileFormReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
   modal: isOpenReducer,
   auth: authFormReducer,
   login: loginFormReducer,
+  error: LoginErrorsReducer,
 });
