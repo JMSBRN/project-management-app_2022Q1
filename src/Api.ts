@@ -15,7 +15,7 @@ export const getUsers = async () => {
   localStorage.setItem('users', JSON.stringify(data));
   return data;
 };
-export const createUser = async (user: object) => {
+export const apiCreateUser = async (user: object) => {
   const resp = await fetch(signUpUrl, {
     method: 'POST',
     headers: {

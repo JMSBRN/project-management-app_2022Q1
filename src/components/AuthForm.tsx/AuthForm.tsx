@@ -1,21 +1,15 @@
 import React from 'react';
 import * as Styled from './AuthForm.style';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setUserName,
-  setUserEmail,
-  setUserPassword,
-  setUserList,
-} from '../../store/actions/actionCreators';
+import { setAuthName, setAuthLogin, setAuthPassword } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import { AnyAction } from 'redux';
 import { useTranslation } from 'react-i18next';
+import { apiCreateUser } from '../../Api';
 
 const AuthForm = () => {
   const { t } = useTranslation();
-  const { userName, userEmail, userPassword, userList } = useSelector(
-    (state: State) => state.profile
-  );
+  const { name, login, password } = useSelector((state: State) => state.auth);
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -27,19 +21,12 @@ const AuthForm = () => {
 
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(
-      setUserList([
-        ...userList,
-        {
-          userName: userName,
-          userEmail: userEmail,
-          userPassword: userPassword,
-        },
-      ])
-    );
-    dispatch(setUserName(''));
-    dispatch(setUserEmail(''));
-    dispatch(setUserPassword(''));
+    const authUser = {
+      name: name,
+      login: login,
+      password: password,
+    };
+    apiCreateUser(authUser);
   };
 
   return (
@@ -50,7 +37,7 @@ const AuthForm = () => {
             {t('AuthForm.name')}:
             <Styled.Auth_Form_input
               data-testid="name-input"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserName)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setAuthName)}
               placeholder={t('AuthForm.name')}
               type="text"
               pattern="[A-Za-z]{3}"
@@ -59,13 +46,13 @@ const AuthForm = () => {
           </label>
           <span data-testid="error-name"></span>
           <label>
-            {t('AuthForm.email')}:
+            {t('AuthForm.login')}:
             <Styled.Auth_Form_input
               data-testid="name-input"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserEmail)}
-              placeholder={t('AuthForm.email')}
-              type="email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setAuthLogin)}
+              placeholder={t('AuthForm.login')}
+              type="text"
+              pattern="^(?=[a-z_\d]*[a-z])[a-z_\d]{2,7}$"
             />
             <br />
           </label>
@@ -75,7 +62,7 @@ const AuthForm = () => {
             <Styled.Auth_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleChange(e, setUserPassword)
+                handleChange(e, setAuthPassword)
               }
               placeholder={t('AuthForm.password')}
               type="password"
@@ -87,12 +74,9 @@ const AuthForm = () => {
             {t('AuthForm.confirmPass')}:
             <Styled.Auth_Form_input
               data-testid="name-input"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                handleChange(e, setUserPassword)
-              }
               placeholder={t('AuthForm.password')}
               type="password"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>
