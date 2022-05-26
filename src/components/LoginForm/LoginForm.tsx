@@ -42,6 +42,7 @@ const LoginForm = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserLogin)}
               placeholder={t('LoginForm.login')}
               type="text"
+              pattern="^(?=[a-z_\d]*[a-z])[a-z_\d]{2,7}$"
             />
             <br />
           </label>
