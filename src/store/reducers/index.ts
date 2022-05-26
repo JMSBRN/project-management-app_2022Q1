@@ -4,6 +4,7 @@ import { columnFormReducer } from './columnFormReducer';
 import { isOpenReducer } from './isOpenReducer';
 import { profileFormReducer } from './profileFormReducer';
 import { taskFormReducer } from './taskFormReducer';
+import { authFormReducer } from './authFormReducer';
 import { loginFormReducer } from './loginFormReducer';
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   column: columnFormReducer,
   task: taskFormReducer,
   modal: isOpenReducer,
+  auth: authFormReducer,
   login: loginFormReducer,
 });

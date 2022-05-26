@@ -5,8 +5,10 @@ import { setUserLogin, setUserLoginPassword } from '../../store/actions/actionCr
 import { AnyAction } from 'redux';
 import { State } from '../../store/utils';
 import { apiLoginUser } from '../../Api';
+import { useTranslation } from 'react-i18next';
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   const { userLogin, userLoginPassword } = useSelector((state: State) => state.login);
   const dispatch = useDispatch();
   const handleChange = (
@@ -17,44 +19,48 @@ const LoginForm = () => {
   };
   const handleUserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    apiLoginUser({ login: userLogin, password: userLoginPassword });
+    const loginUser = {
+      login: userLogin,
+      password: userLoginPassword,
+    };
+    apiLoginUser(loginUser);
+    setTimeout(() => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        location.replace('/main');
+      }
+    }, 2000);
   };
   return (
     <Styled.Login_Form_main>
       <Styled.Login_Form_container>
-        <Styled.User_info>
-          <img src="" alt="user-logo" />
-          <div className="user-email">Email</div>
-          <div className="user-password">Password</div>
-        </Styled.User_info>
         <Styled.Login_Form onSubmit={handleUserSubmit}>
           <label>
-            Email:
+            {t('LoginForm.login')}
             <Styled.Login_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserLogin)}
-              placeholder="login:"
+              placeholder={t('LoginForm.login')}
               type="text"
-              // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              pattern="^(?=[a-z_\d]*[a-z])[a-z_\d]{2,7}$"
             />
             <br />
           </label>
           <span data-testid="error-name"></span>
           <label>
-            Password:
+            {t('LoginForm.password')}
             <Styled.Login_Form_input
               data-testid="name-input"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 handleChange(e, setUserLoginPassword)
               }
-              placeholder="password:"
+              placeholder={t('LoginForm.password')}
               type="password"
-              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>
           <span data-testid="error-name"></span>
-          <Styled.Login_Form_input_submit type="submit" value="submit" />
+          <Styled.Login_Form_input_submit type="submit" value={t('LoginForm.btn')} />
         </Styled.Login_Form>
       </Styled.Login_Form_container>
     </Styled.Login_Form_main>
