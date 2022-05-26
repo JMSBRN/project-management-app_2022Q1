@@ -24,6 +24,12 @@ const LoginForm = () => {
       password: userLoginPassword,
     };
     apiLoginUser(loginUser);
+    setTimeout(() => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        location.replace('/main');
+      }
+    }, 2000);
   };
   return (
     <Styled.Login_Form_main>
@@ -36,7 +42,6 @@ const LoginForm = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserLogin)}
               placeholder={t('LoginForm.login')}
               type="text"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
             <br />
           </label>
@@ -50,7 +55,6 @@ const LoginForm = () => {
               }
               placeholder={t('LoginForm.password')}
               type="password"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>

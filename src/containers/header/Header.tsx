@@ -11,6 +11,10 @@ const Header = () => {
   const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     i18n.changeLanguage(e.target.value);
   };
+  const setLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('Login_Error_msg');
+  };
   return (
     <>
       <Styled.Header>
@@ -38,7 +42,11 @@ const Header = () => {
             { text: 'ru', value: 'ru' },
           ]}
         />
-        <Button className="header-log-out-tn" textButton={t('Headerlinks.logOut')}></Button>
+        <Button
+          className="header-log-out-tn"
+          onClick={setLogout}
+          textButton={t('Headerlinks.logOut')}
+        ></Button>
       </Styled.Header>
       <Outlet />
     </>
