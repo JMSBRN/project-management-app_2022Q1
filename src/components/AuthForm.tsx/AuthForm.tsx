@@ -66,7 +66,6 @@ const AuthForm = () => {
               }
               placeholder={t('AuthForm.password')}
               type="password"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>
@@ -76,7 +75,6 @@ const AuthForm = () => {
               data-testid="name-input"
               placeholder={t('AuthForm.password')}
               type="password"
-              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>

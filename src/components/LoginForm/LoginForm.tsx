@@ -24,6 +24,12 @@ const LoginForm = () => {
       password: userLoginPassword,
     };
     apiLoginUser(loginUser);
+    setTimeout(() => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        location.replace('/main');
+      }
+    }, 2000);
   };
   return (
     <Styled.Login_Form_main>
@@ -50,7 +56,6 @@ const LoginForm = () => {
               }
               placeholder={t('LoginForm.password')}
               type="password"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             />
             <br />
           </label>
