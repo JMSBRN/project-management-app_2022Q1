@@ -47,9 +47,14 @@
   },
   "AuthForm": {
     "name":"Имя",
-    "email": "Эл. почта",
+    "login": "Логин",
     "password": "Пароль",
     "confirmPass": "Подтвердите пароль",
+    "btn": "Отправить"
+  },
+  "LoginForm": {
+    "login": "Логин",
+    "password": "Пароль",
     "btn": "Отправить"
   },
   "NotFound": {

@@ -47,9 +47,14 @@
   },
   "AuthForm": {
     "name":"Name",
-    "email": "Email",
+    "login": "Login",
     "password": "Password",
     "confirmPass": "Confirm Password",
+    "btn": "Submit"
+  },
+  "LoginForm": {
+    "login": "Login",
+    "password": "Password",
     "btn": "Submit"
   },
   "NotFound": {
