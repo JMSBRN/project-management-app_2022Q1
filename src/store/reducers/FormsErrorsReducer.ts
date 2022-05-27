@@ -19,10 +19,22 @@ export const FormsErrorsReducer: Reducer<IError, Action> = (
         loginPasswordError: action.payload,
       };
     }
-    case Actions.SET_LOGIN_USERNOTFOUND_ERROR: {
+    case Actions.SET_AUTH_NAME_ERROR: {
       return {
         ...state,
-        loginUserNotFoundError: action.payload,
+        authNameError: action.payload,
+      };
+    }
+    case Actions.SET_AUTH_LOGIN_ERROR: {
+      return {
+        ...state,
+        authLoginError: action.payload,
+      };
+    }
+    case Actions.SET_AUTH_PASSWORD_ERROR: {
+      return {
+        ...state,
+        authPasswordError: action.payload,
       };
     }
     default:

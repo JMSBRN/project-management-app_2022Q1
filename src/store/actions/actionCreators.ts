@@ -113,3 +113,15 @@ export const setLoginUserNotFoundError = (loginUserNotFoundError: string) => ({
   type: Actions.SET_LOGIN_USERNOTFOUND_ERROR,
   payload: loginUserNotFoundError,
 });
+export const setAuthNameError = (authNameError: string) => ({
+  type: Actions.SET_AUTH_NAME_ERROR,
+  payload: authNameError,
+});
+export const setAuthLoginError = (authLoginError: string) => ({
+  type: Actions.SET_AUTH_LOGIN_ERROR,
+  payload: authLoginError,
+});
+export const setAuthPasswordError = (authPasswordError: string) => ({
+  type: Actions.SET_AUTH_PASSWORD_ERROR,
+  payload: authPasswordError,
+});

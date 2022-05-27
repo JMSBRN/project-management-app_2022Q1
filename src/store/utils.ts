@@ -53,6 +53,9 @@ export const initialState = {
     loginError: '',
     loginPasswordError: '',
     loginUserNotFoundError: '',
+    authNameError: '',
+    authLoginError: '',
+    authPasswordError: '',
     errors: [],
   },
 };
@@ -120,4 +123,7 @@ export interface IError {
   loginError: string;
   loginPasswordError: string;
   loginUserNotFoundError: string;
+  authNameError: string;
+  authLoginError: string;
+  authPasswordError: string;
 }
