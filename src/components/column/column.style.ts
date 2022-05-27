@@ -5,14 +5,18 @@ export const Column = styled.div`
   flex-direction: column;
   max-height: 100%;
   min-width: 270px;
-  margin-right: 10px;
+  margin-right: 30px;
   padding: 10px 10px 30px 10px;
   border-radius: 5px;
-  background-color: var(--color-background-white);
-  color: var(--color-text-dark);
+  background-color: #008b8b;
+  color: var(--color-background-white);
   border: 1px solid var(--color-background-dark);
   align-self: flex-start;
   position: relative;
+  transition: 0.5s ease-in;
+  &:hover {
+    box-shadow: 10px 5px 5px rgba(0, 0, 150, 0.2);
+  }
 `;
 
 export const Title = styled.div`
@@ -28,6 +32,7 @@ export const Delete_main_board = styled.div`
   right: 5px;
   bottom: 3px;
   font-size: 24px;
+  transition: 0.5s ease-in;
   &:hover {
     color: red;
     cursor: pointer;

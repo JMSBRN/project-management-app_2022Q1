@@ -30,7 +30,7 @@ const Header = () => {
             </NavLink>
           </Styled.Ul>
           <Styled.Ul>
-            <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/board'}>
+            <NavLink className={({ isActive }) => (isActive ? 'active-link' : '')} to={'/main'}>
               {t('Headerlinks.CreateNewBoard')}
             </NavLink>
           </Styled.Ul>

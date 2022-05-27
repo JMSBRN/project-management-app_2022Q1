@@ -6,13 +6,19 @@ export const Auth_Form_main = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: var(--color-background-white);
+  background-color: var(--color-background-light);
 `;
 export const Auth_Form_container = styled.div`
   min-width: 450px;
   height: auto;
   margin-top: 100px;
   border: 0.5px solid grey;
+  border-radius: 5px;
+  background-color: var(--color-background-white);
+  transition: 0.5s ease-in;
+  &:hover {
+    box-shadow: 10px 5px 5px rgba(0, 0, 150, 0.2);
+  }
 `;
 export const Auth_Form = styled.form`
   width: 450px;

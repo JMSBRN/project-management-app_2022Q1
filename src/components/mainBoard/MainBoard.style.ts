@@ -12,18 +12,20 @@ export const Main_Board = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   font-size: 20px;
-  color: white;
+  color: var(--color-background-white);
   border-radius: 3px;
   background-color: var(--color-button-regular);
+  transition: 0.5s ease-in;
   &:hover {
     background-color: #008b8b;
-    transition: 0.3s;
+    box-shadow: 10px 5px 5px rgba(0, 0, 150, 0.2);
   }
 `;
 export const Delete_main_board = styled.div`
   position: absolute;
   right: 5px;
   bottom: 3px;
+  transition: 0.5s ease-in;
   &:hover {
     color: red;
     cursor: pointer;

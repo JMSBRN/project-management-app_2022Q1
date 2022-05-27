@@ -1,10 +1,9 @@
 import React from 'react';
 import * as Styled from './confirmation.styled';
 import Button from '../button/Button';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setIsOpen } from '../../store/actions/actionCreators';
 import { useTranslation } from 'react-i18next';
-import { State } from '../../store/utils';
 
 interface IProps {
   handleRemove: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -17,7 +16,6 @@ const Confirmation = ({ handleRemove }: IProps) => {
   const handleClose = () => {
     dispatch(setIsOpen(false));
   };
-  //const { boardId } = useSelector((state: State) => state.board);
 
   return (
     <>

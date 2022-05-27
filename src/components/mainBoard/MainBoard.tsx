@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setForm, setId, setIsOpen, setRemoveBoard } from '../../store/actions/actionCreators';
-import { IBoardList, State } from '../../store/utils';
+import { useDispatch } from 'react-redux';
+import { setForm, setId, setIsOpen } from '../../store/actions/actionCreators';
+import { IBoardList } from '../../store/utils';
 import * as Styled from './MainBoard.style';
 
 interface IProps {
@@ -10,7 +10,6 @@ interface IProps {
 const MainBoard = (props: IProps) => {
   const { boardTitle, boardDescr, boardId } = props.boardItem;
   const dispatch = useDispatch();
-  const { id } = useSelector((state: State) => state.modal);
 
   const handleOpen = () => {
     dispatch(setIsOpen(true));
