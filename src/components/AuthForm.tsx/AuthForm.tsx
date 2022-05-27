@@ -1,7 +1,14 @@
 import React from 'react';
 import * as Styled from './AuthForm.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAuthName, setAuthLogin, setAuthPassword } from '../../store/actions/actionCreators';
+import {
+  setAuthName,
+  setAuthLogin,
+  setAuthPassword,
+  setAuthNameError,
+  setAuthLoginError,
+  setAuthPasswordError,
+} from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import { AnyAction } from 'redux';
 import { useTranslation } from 'react-i18next';
@@ -28,6 +35,15 @@ const AuthForm = () => {
       password: password,
     };
     apiCreateUser(authUser);
+    setTimeout(() => {
+      const errors = JSON.parse(localStorage.getItem('Auth_Error_msg') || '');
+      const nameError = errors.filter((el: string) => el.includes('name'));
+      const loginError = errors.filter((el: string) => el.includes('login'));
+      const passwordError = errors.filter((el: string) => el.includes('password'));
+      dispatch(setAuthNameError(nameError));
+      dispatch(setAuthLoginError(loginError));
+      dispatch(setAuthPasswordError(passwordError));
+    }, 2000);
   };
 
   return (
