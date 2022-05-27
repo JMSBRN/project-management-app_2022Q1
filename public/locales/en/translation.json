@@ -45,12 +45,18 @@
     "userPlaceholder": "Enter user",
     "btn": "Create task"
   },
+  "AuthPage": {
+   "mainTitle": "Plase fill this out all fields..."
+  },
   "AuthForm": {
     "name":"Name",
     "login": "Login",
     "password": "Password",
     "confirmPass": "Confirm Password",
-    "btn": "Submit"
+    "btn": "Submit",
+    "nameError": "name should not be empty",
+    "loginError": "login should not be empty",
+    "passwordError": "password should not be empty"
   },
   "LoginPage": {
    "mainTitle": "Welcome to Trello Clone"

@@ -19,6 +19,9 @@ const AuthForm = () => {
   const { name, login, password } = useSelector((state: State) => state.auth);
   const error = useSelector((state: State) => state.error);
   const dispatch = useDispatch();
+  const nameErrorTranslate = t('AuthForm.nameError');
+  const loginErrorTranslate = t('AuthForm.loginError');
+  const passwordErrorTranslate = t('AuthForm.passwordError');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -62,7 +65,7 @@ const AuthForm = () => {
             />
             <br />
           </label>
-          <Styled.errors>{error.authNameError}</Styled.errors>
+          <Styled.errors>{error.authNameError ? `${nameErrorTranslate}` : ''}</Styled.errors>
           <label>
             {t('AuthForm.login')}:
             <Styled.Auth_Form_input
@@ -75,7 +78,7 @@ const AuthForm = () => {
             />
             <br />
           </label>
-          <Styled.errors>{error.authLoginError}</Styled.errors>
+          <Styled.errors>{error.authLoginError ? `${loginErrorTranslate}` : ''}</Styled.errors>
           <label>
             {t('AuthForm.password')}:
             <Styled.Auth_Form_input
@@ -90,7 +93,9 @@ const AuthForm = () => {
             />
             <br />
           </label>
-          <Styled.errors>{error.authPasswordError}</Styled.errors>
+          <Styled.errors>
+            {error.authPasswordError ? `${passwordErrorTranslate}` : ''}
+          </Styled.errors>
           <label>
             {t('AuthForm.confirmPass')}:
             <Styled.Auth_Form_input
