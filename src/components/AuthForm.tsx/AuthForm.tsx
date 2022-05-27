@@ -10,6 +10,7 @@ import { apiCreateUser } from '../../Api';
 const AuthForm = () => {
   const { t } = useTranslation();
   const { name, login, password } = useSelector((state: State) => state.auth);
+  const error = useSelector((state: State) => state.error);
   const dispatch = useDispatch();
 
   const handleChange = (
@@ -44,7 +45,7 @@ const AuthForm = () => {
             />
             <br />
           </label>
-          <span data-testid="error-name"></span>
+          <Styled.errors>{error.authNameError}</Styled.errors>
           <label>
             {t('AuthForm.login')}:
             <Styled.Auth_Form_input
@@ -56,7 +57,7 @@ const AuthForm = () => {
             />
             <br />
           </label>
-          <span data-testid="error-name"></span>
+          <Styled.errors>{error.authLoginError}</Styled.errors>
           <label>
             {t('AuthForm.password')}:
             <Styled.Auth_Form_input
@@ -69,6 +70,7 @@ const AuthForm = () => {
             />
             <br />
           </label>
+          <Styled.errors>{error.authPasswordError}</Styled.errors>
           <label>
             {t('AuthForm.confirmPass')}:
             <Styled.Auth_Form_input
@@ -78,7 +80,6 @@ const AuthForm = () => {
             />
             <br />
           </label>
-          <span data-testid="error-name"></span>
           <Styled.Auth_Form_input_submit type="submit" value={t('AuthForm.btn')} />
         </Styled.Auth_Form>
       </Styled.Auth_Form_container>

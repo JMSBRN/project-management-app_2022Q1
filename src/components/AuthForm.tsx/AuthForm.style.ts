@@ -44,3 +44,6 @@ export const Auth_Form_input_submit = styled.input`
   border-radius: 4px;
   cursor: pointer;
 `;
+export const errors = styled.div`
+  color: red;
+`;
