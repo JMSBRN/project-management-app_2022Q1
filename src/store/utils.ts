@@ -50,9 +50,9 @@ export const initialState = {
     id: '',
   },
   error: {
-    error: '',
-    passwordError: '',
-    userNotFoundError: '',
+    loginError: '',
+    loginPasswordError: '',
+    loginUserNotFoundError: '',
     errors: [],
   },
 };
@@ -117,11 +117,7 @@ export interface IFormLogin {
   userLoginPassword: string;
 }
 export interface IError {
-  error: string;
-  passwordError: string;
-  userNotFoundError: string;
-  errors: IErrors[];
-}
-export interface IErrors {
-  errors: string;
+  loginError: string;
+  loginPasswordError: string;
+  loginUserNotFoundError: string;
 }

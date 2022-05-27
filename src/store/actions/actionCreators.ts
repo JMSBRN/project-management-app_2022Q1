@@ -101,15 +101,15 @@ export const setAuthPassword = (password: string) => ({
   type: Actions.SET_AUTHPASSWORD,
   payload: password,
 });
-export const setLoginError = (error: string) => ({
+export const setLoginError = (loginError: string) => ({
   type: Actions.SET_LOGIN_ERROR,
-  payload: error,
+  payload: loginError,
 });
-export const setPasswordError = (passwordError: string) => ({
-  type: Actions.SET_PASSWORD_ERROR,
-  payload: passwordError,
+export const setLoginPasswordError = (loginPasswordError: string) => ({
+  type: Actions.SET_LOGIN_PASSWORD_ERROR,
+  payload: loginPasswordError,
 });
-export const setUserNotFoundError = (userNotFoundError: string) => ({
-  type: Actions.SET_USERNOTFOUND_ERROR,
-  payload: userNotFoundError,
+export const setLoginUserNotFoundError = (loginUserNotFoundError: string) => ({
+  type: Actions.SET_LOGIN_USERNOTFOUND_ERROR,
+  payload: loginUserNotFoundError,
 });

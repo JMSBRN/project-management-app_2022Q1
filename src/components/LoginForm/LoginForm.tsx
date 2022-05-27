@@ -3,10 +3,10 @@ import * as Styled from './LoginForm.style';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setLoginError,
-  setPasswordError,
+  setLoginPasswordError,
   setUserLogin,
   setUserLoginPassword,
-  setUserNotFoundError,
+  setLoginUserNotFoundError,
 } from '../../store/actions/actionCreators';
 import { AnyAction } from 'redux';
 import { State } from '../../store/utils';
@@ -41,12 +41,12 @@ const LoginForm = () => {
         const loginError = errors.filter((el: string) => el.includes('login'));
         const passwordError = errors.filter((el: string) => el.includes('password'));
         dispatch(setLoginError(loginError));
-        dispatch(setPasswordError(passwordError));
+        dispatch(setLoginPasswordError(passwordError));
       } else {
         dispatch(setLoginError(''));
-        dispatch(setPasswordError(''));
+        dispatch(setLoginPasswordError(''));
         const userNotFoundError = JSON.parse(localStorage.getItem('Login_Error_msg') || '');
-        dispatch(setUserNotFoundError(userNotFoundError));
+        dispatch(setLoginUserNotFoundError(userNotFoundError));
       }
     }, 2000);
   };
@@ -66,7 +66,7 @@ const LoginForm = () => {
             />
             <br />
           </label>
-          <Styled.errors>{error.error}</Styled.errors>
+          <Styled.errors>{error.loginError}</Styled.errors>
           <br />
           <label>
             {t('LoginForm.password')}
@@ -82,8 +82,8 @@ const LoginForm = () => {
             />
             <br />
           </label>
-          <Styled.errors>{error.passwordError}</Styled.errors>
-          <Styled.errors>{error.userNotFoundError}</Styled.errors>
+          <Styled.errors>{error.loginPasswordError}</Styled.errors>
+          <Styled.errors>{error.loginUserNotFoundError}</Styled.errors>
           <br />
           <Styled.Login_Form_input_submit type="submit" value={t('LoginForm.btn')} />
         </Styled.Login_Form>
