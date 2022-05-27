@@ -19,6 +19,12 @@ export const isOpenReducer: Reducer<IModal, Action> = (
         form: action.payload,
       };
     }
+    case Actions.SET_ID: {
+      return {
+        ...state,
+        id: action.payload,
+      };
+    }
     default:
       return state;
   }

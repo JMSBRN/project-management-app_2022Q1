@@ -28,9 +28,8 @@ export const Ul = styled.ul`
     text-decoration: none;
     text-transform: uppercase;
     color: var(--color-text-white);
-
+    transition: 0.5s ease-in;
     &:hover {
-      border-bottom: 1px solid var(--color-text-light);
       color: var(--color-text-light);
     }
 

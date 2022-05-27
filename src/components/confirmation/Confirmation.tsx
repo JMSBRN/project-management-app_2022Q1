@@ -5,7 +5,12 @@ import { useDispatch } from 'react-redux';
 import { setIsOpen } from '../../store/actions/actionCreators';
 import { useTranslation } from 'react-i18next';
 
-const Confirmation = () => {
+interface IProps {
+  handleRemove: (e: React.MouseEvent<HTMLDivElement>) => void;
+  boardId?: string;
+}
+
+const Confirmation = ({ handleRemove }: IProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const handleClose = () => {
@@ -20,7 +25,11 @@ const Confirmation = () => {
         <Styled.Info>{t('Confirmation.info')}.</Styled.Info>
         <Styled.Action>
           <Button textButton={t('Confirmation.btns.cancel')} onClick={handleClose} />
-          <Button textButton={t('Confirmation.btns.delete')} onClick={handleClose} />
+          <Button
+            id="delete"
+            textButton={t('Confirmation.btns.delete')}
+            onClick={(e: React.MouseEvent<HTMLDivElement>) => handleRemove(e)}
+          />
         </Styled.Action>
       </Styled.Wrapper>
     </>

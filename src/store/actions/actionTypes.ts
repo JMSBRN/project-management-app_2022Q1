@@ -13,12 +13,14 @@ export enum Actions {
   SET_COLUMNTITLE = 'SET_COLUMNTITLE',
   SET_COLUMNLIST = 'SET_COLUMNLIST',
   REMOVE_COLUMN = 'REMOVE_COLUMN',
+  SET_BOARDID = 'SET_BOARDID',
   SET_BOARDTITLE = 'SET_BOARDTITE',
   SET_BOARDDESCR = 'SET_BOARDDESCR',
   SET_BOARDLIST = 'SET_BOARDLIST',
   REMOVE_BOARD = 'REMOVE_BOARD',
   SET_ISOPEN = 'SET_ISOPEN',
   SET_FORM = 'SET_FORM',
+  SET_ID = 'SET_ID',
   SET_USERLOGIN = 'SET_USERLOGIN',
   SET_AUTHNAME = 'SET_AUTHNAME',
   SET_AUTHLOGIN = 'SET_AUTHLOGIN',
@@ -76,6 +78,14 @@ export type Action =
     }
   | {
       type: Actions.REMOVE_COLUMN;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_ID;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_BOARDID;
       payload: string;
     }
   | {
