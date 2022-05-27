@@ -57,7 +57,8 @@ const AuthForm = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setAuthName)}
               placeholder={t('AuthForm.name')}
               type="text"
-              pattern="[A-Za-z]{2,}"
+              pattern="[a-zA-ZА-Яа-яЁё][a-zA-ZА-Яа-яЁё0-9]{1,15}"
+              title=" A-z min-2, max-15"
             />
             <br />
           </label>
@@ -70,6 +71,7 @@ const AuthForm = () => {
               placeholder={t('AuthForm.login')}
               type="text"
               pattern="[a-zA-ZА-Яа-яЁё][a-zA-ZА-Яа-яЁё0-9]{1,15}"
+              title=" A-z min-2, max-15"
             />
             <br />
           </label>
@@ -83,6 +85,8 @@ const AuthForm = () => {
               }
               placeholder={t('AuthForm.password')}
               type="password"
+              pattern="[0-9]{8,}"
+              title="min 8 digits"
             />
             <br />
           </label>
@@ -93,6 +97,8 @@ const AuthForm = () => {
               data-testid="name-input"
               placeholder={t('AuthForm.password')}
               type="password"
+              pattern="[0-9]{8,}"
+              title="min 8 digits"
             />
             <br />
           </label>
