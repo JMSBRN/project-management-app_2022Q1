@@ -18,6 +18,8 @@ const LoginForm = () => {
   const { userLogin, userLoginPassword } = useSelector((state: State) => state.login);
   const error = useSelector((state: State) => state.error);
   const dispatch = useDispatch();
+  const loginErrorTransl = t('LoginForm.loginError');
+  const passwordErrorTransl = t('LoginForm.passwordError');
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     callback: (value: string) => AnyAction
@@ -66,7 +68,7 @@ const LoginForm = () => {
             />
             <br />
           </label>
-          <Styled.errors>{error.loginError}</Styled.errors>
+          <Styled.errors>{error.loginError ? `${loginErrorTransl}` : ''}</Styled.errors>
           <br />
           <label>
             {t('LoginForm.password')}
@@ -82,7 +84,7 @@ const LoginForm = () => {
             />
             <br />
           </label>
-          <Styled.errors>{error.loginPasswordError}</Styled.errors>
+          <Styled.errors>{error.loginPasswordError ? `${passwordErrorTransl}` : ''}</Styled.errors>
           <Styled.errors>{error.loginUserNotFoundError}</Styled.errors>
           <br />
           <Styled.Login_Form_input_submit type="submit" value={t('LoginForm.btn')} />

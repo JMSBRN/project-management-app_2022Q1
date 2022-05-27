@@ -52,10 +52,16 @@
     "confirmPass": "Confirm Password",
     "btn": "Submit"
   },
+  "LoginPage": {
+   "mainTitle": "Welcome to Trello Clone"
+  },
+
   "LoginForm": {
     "login": "Login",
     "password": "Password",
-    "btn": "Submit"
+    "btn": "Submit",
+    "loginError": "login should not be empty",
+    "passwordError": "password should not be empty"
   },
   "NotFound": {
     "linkWelcome": "Welcome page",
