@@ -40,7 +40,7 @@ const AuthForm = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setAuthName)}
               placeholder={t('AuthForm.name')}
               type="text"
-              pattern="[A-Za-z]{3}"
+              pattern="[A-Za-z]{2,}"
             />
             <br />
           </label>
@@ -52,7 +52,7 @@ const AuthForm = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setAuthLogin)}
               placeholder={t('AuthForm.login')}
               type="text"
-              pattern="^(?=[a-z_\d]*[a-z])[a-z_\d]{2,7}$"
+              pattern="[a-zA-ZА-Яа-яЁё][a-zA-ZА-Яа-яЁё0-9]{1,15}"
             />
             <br />
           </label>

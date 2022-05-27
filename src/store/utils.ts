@@ -70,7 +70,10 @@ export const initialState = {
     form: '',
   },
   error: {
-    error: 'error',
+    error: '',
+    passwordError: '',
+    userNotFoundError: '',
+    errors: [],
   },
 };
 
@@ -132,4 +135,10 @@ export interface IFormLogin {
 }
 export interface IError {
   error: string;
+  passwordError: string;
+  userNotFoundError: string;
+  errors: IErrors[];
+}
+export interface IErrors {
+  errors: string;
 }

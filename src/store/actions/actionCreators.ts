@@ -97,3 +97,11 @@ export const setLoginError = (error: string) => ({
   type: Actions.SET_LOGIN_ERROR,
   payload: error,
 });
+export const setPasswordError = (passwordError: string) => ({
+  type: Actions.SET_PASSWORD_ERROR,
+  payload: passwordError,
+});
+export const setUserNotFoundError = (userNotFoundError: string) => ({
+  type: Actions.SET_USERNOTFOUND_ERROR,
+  payload: userNotFoundError,
+});

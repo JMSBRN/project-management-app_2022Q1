@@ -1,4 +1,4 @@
-import { IRegList, ITaskList, IColumnList, IBoardList, IError } from '../utils';
+import { IRegList, ITaskList, IColumnList, IBoardList } from '../utils';
 
 export enum Actions {
   SET_USERNAME = 'SET_USERNAME',
@@ -25,6 +25,8 @@ export enum Actions {
   SET_AUTHPASSWORD = 'SET_AUTHPASSWORD',
   SET_USERLOGINPASSWORD = 'SET_USERLOGINPASSWORD',
   SET_LOGIN_ERROR = 'SET_LOGIN_ERROR',
+  SET_PASSWORD_ERROR = 'SET_PASSWORD_ERROR',
+  SET_USERNOTFOUND_ERROR = 'SET_USERNOTFOUND_ERROR',
 }
 
 export type Action =
@@ -122,5 +124,13 @@ export type Action =
     }
   | {
       type: Actions.SET_LOGIN_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_PASSWORD_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_USERNOTFOUND_ERROR;
       payload: string;
     };

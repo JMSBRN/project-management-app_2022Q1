@@ -1,7 +1,13 @@
 import React from 'react';
 import * as Styled from './LoginForm.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUserLogin, setUserLoginPassword } from '../../store/actions/actionCreators';
+import {
+  setLoginError,
+  setPasswordError,
+  setUserLogin,
+  setUserLoginPassword,
+  setUserNotFoundError,
+} from '../../store/actions/actionCreators';
 import { AnyAction } from 'redux';
 import { State } from '../../store/utils';
 import { apiLoginUser } from '../../Api';
@@ -30,8 +36,19 @@ const LoginForm = () => {
       if (token) {
         location.replace('/main');
       }
+      const errors = JSON.parse(localStorage.getItem('Login_Error_msg') || '');
+      if (errors !== 'User was not founded!') {
+        const loginError = errors.filter((el: string) => el.includes('login'));
+        const passwordError = errors.filter((el: string) => el.includes('password'));
+        dispatch(setLoginError(loginError));
+        dispatch(setPasswordError(passwordError));
+      } else {
+        dispatch(setLoginError(''));
+        dispatch(setPasswordError(''));
+        const userNotFoundError = JSON.parse(localStorage.getItem('Login_Error_msg') || '');
+        dispatch(setUserNotFoundError(userNotFoundError));
+      }
     }, 2000);
-    console.log(error.error);
   };
   return (
     <Styled.Login_Form_main>
@@ -44,7 +61,8 @@ const LoginForm = () => {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, setUserLogin)}
               placeholder={t('LoginForm.login')}
               type="text"
-              pattern="^(?=[a-z_\d]*[a-z])[a-z_\d]{2,7}$"
+              pattern="[a-zA-ZА-Яа-яЁё][a-zA-ZА-Яа-яЁё0-9]{1,15}"
+              title=" A-z min-2, max-15"
             />
             <br />
           </label>
@@ -59,10 +77,13 @@ const LoginForm = () => {
               }
               placeholder={t('LoginForm.password')}
               type="password"
+              pattern="[0-9]{8,}"
+              title="min 8 digits"
             />
             <br />
           </label>
-          <Styled.errors>{error.error}</Styled.errors>
+          <Styled.errors>{error.passwordError}</Styled.errors>
+          <Styled.errors>{error.userNotFoundError}</Styled.errors>
           <br />
           <Styled.Login_Form_input_submit type="submit" value={t('LoginForm.btn')} />
         </Styled.Login_Form>

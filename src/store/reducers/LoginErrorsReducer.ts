@@ -13,6 +13,18 @@ export const LoginErrorsReducer: Reducer<IError, Action> = (
         error: action.payload,
       };
     }
+    case Actions.SET_PASSWORD_ERROR: {
+      return {
+        ...state,
+        passwordError: action.payload,
+      };
+    }
+    case Actions.SET_USERNOTFOUND_ERROR: {
+      return {
+        ...state,
+        userNotFoundError: action.payload,
+      };
+    }
     default:
       return state;
   }
