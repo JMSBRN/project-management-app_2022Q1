@@ -8,6 +8,10 @@ export const Card = styled.div`
   background-color: var(--color-background-white);
   border: 1px solid var(--color-background-dark);
   color: var(--color-background-dark);
+  transition: 0.5s ease-in;
+  &:hover {
+    box-shadow: 10px 5px 5px rgba(0, 0, 150, 0.2);
+  }
 `;
 
 export const Photo = styled.div`

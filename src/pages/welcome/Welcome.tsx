@@ -23,12 +23,6 @@ const Welcome = () => {
   return (
     <Styled.Welcome>
       <Styled.Layout>
-        <Styled.H1>{t('welcomeRoute.title')}</Styled.H1>
-        <Styled.Container>
-          {Team.map((item: IMember, i: number) => {
-            return <TeamCard key={i} member={item} />;
-          })}
-        </Styled.Container>
         {token == null ? (
           <Styled.SingBtnWrapper>
             <Styled.Ul>
@@ -45,6 +39,12 @@ const Welcome = () => {
             </Styled.Ul>
           </Styled.main_Page_Link_wrapper>
         )}
+        <Styled.H1>{t('welcomeRoute.title')}</Styled.H1>
+        <Styled.Container>
+          {Team.map((item: IMember, i: number) => {
+            return <TeamCard key={i} member={item} />;
+          })}
+        </Styled.Container>
       </Styled.Layout>
     </Styled.Welcome>
   );
