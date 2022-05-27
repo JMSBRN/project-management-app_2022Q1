@@ -42,8 +42,13 @@ export const Auth_Form_input_submit = styled.input`
   color: white;
   border: none;
   border-radius: 4px;
+  color: var(--color-text-light);
   cursor: pointer;
+  &:active {
+    background-color: var(--color-button-active);
+  }
 `;
 export const errors = styled.div`
+  height: 20px;
   color: red;
 `;
