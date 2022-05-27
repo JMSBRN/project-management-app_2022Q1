@@ -6,7 +6,7 @@ export const Login_Form_main = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: var(--color-background-white);
+  background-color: var(--color-background-light);
 `;
 export const Login_Form_container = styled.div`
   width: 450px;
@@ -14,12 +14,17 @@ export const Login_Form_container = styled.div`
   margin-top: 100px;
   display: grid;
   grid-template-columns: 200px 450px;
-  border: 0.5px solid grey;
 `;
 export const Login_Form = styled.form`
   width: 450px;
   height: auto;
   padding: 20px;
+  border-radius: 5px;
+  border: 0.5px solid grey;
+  background-color: var(--color-background-white);
+  &:hover {
+    box-shadow: 10px 5px 5px rgba(0, 0, 150, 0.2);
+  }
 `;
 export const Login_Form_input = styled.input`
   width: 100%;
