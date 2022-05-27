@@ -5,13 +5,13 @@ interface ButtonProps {
   className?: string;
   textButton: string;
   linkPath?: string;
-  onClick?: () => void;
+  onClick?: (() => void) | ((e: React.MouseEvent<HTMLDivElement>) => void);
   id?: string;
 }
 const Button = ({ className, linkPath, textButton, onClick, id }: ButtonProps) => {
   return (
-    <Styled.Button onClick={onClick} className={className}>
-      <Styled.Link role="button" to={linkPath || ''} id={id}>
+    <Styled.Button onClick={onClick} className={className} id={id}>
+      <Styled.Link role="button" to={linkPath || ''}>
         {textButton}
       </Styled.Link>
     </Styled.Button>

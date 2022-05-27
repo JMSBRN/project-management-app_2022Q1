@@ -57,6 +57,14 @@ export const setRemoveColumn = (columnTitle: string) => ({
   type: Actions.REMOVE_COLUMN,
   payload: columnTitle,
 });
+export const setBoardId = (boardId: string) => ({
+  type: Actions.SET_BOARDID,
+  payload: boardId,
+});
+export const setId = (id: string) => ({
+  type: Actions.SET_ID,
+  payload: id,
+});
 export const setBoardTitle = (boardTitle: string) => ({
   type: Actions.SET_BOARDTITLE,
   payload: boardTitle,
@@ -69,9 +77,9 @@ export const setBoardList = (boardList: IBoardList[]) => ({
   type: Actions.SET_BOARDLIST,
   payload: boardList,
 });
-export const setRemoveBoard = (boardTitle: string) => ({
+export const setRemoveBoard = (boardId: string) => ({
   type: Actions.REMOVE_BOARD,
-  payload: boardTitle,
+  payload: boardId,
 });
 export const setIsOpen = (isOpen: boolean) => ({
   type: Actions.SET_ISOPEN,

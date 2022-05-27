@@ -12,11 +12,11 @@ export const Wrapper = styled.div`
 `;
 export const Icon = styled.div`
   color: red;
-  font-size: 50px;
-  padding: 8px 25px 12px;
+  font-size: 30px;
+  padding: 8px 20px 12px;
   border: 4px solid red;
   border-radius: 50%;
-  width: 100px;
+  width: 70px;
   margin: 0 auto 20px;
 `;
 export const Title = styled.h3`

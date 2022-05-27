@@ -17,12 +17,16 @@ const EditProfile = () => {
     dispatch(setIsOpen(false));
   };
 
+  const handleRemoveBoard = () => {
+    //dispatch(setRemoveBoard(userId));
+  };
+
   return (
     <div>
       EditProfile
       <button onClick={handleOpen}>delete user</button>
       <Modal isOpen={isOpen} handleClose={handleClose}>
-        <Confirmation />
+        <Confirmation handleRemove={handleRemoveBoard} />
       </Modal>
     </div>
   );

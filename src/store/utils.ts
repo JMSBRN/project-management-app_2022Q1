@@ -1,7 +1,7 @@
 export type State = {
   profile: IFormProfile;
   board: IFormBoard;
-  // boardList: IBoardList;
+  boardList: IBoardList;
   column: IFormColumn;
   // columnList: IColumnList;
   task: IFormTask;
@@ -28,31 +28,10 @@ export const initialState = {
     userLoginPassword: '',
   },
   board: {
+    boardId: '',
     boardTitle: '',
     boardDescr: '',
-    boardList: [
-      // {
-      //   boardTitle: '',
-      //   boardDescr: '',
-      //   columnTitle: '',
-      //   columnList: [
-      //     {
-      //       columnTitle: '',
-      //       taskList: [],
-      //     },
-      //     {
-      //       columnTitle: '',
-      //       taskList: [
-      //         {
-      //           taskName: '',
-      //           taskDescr: '',
-      //           taskUser: '',
-      //         },
-      //       ],
-      //     },
-      //   ],
-      // },
-    ],
+    boardList: [],
   },
   column: {
     columnTitle: '',
@@ -67,12 +46,14 @@ export const initialState = {
   modal: {
     isOpen: false,
     form: '',
+    id: '',
   },
 };
 
 export interface IModal {
   isOpen: boolean;
   form: string;
+  id: string;
 }
 
 export interface IFormProfile {
@@ -83,11 +64,13 @@ export interface IFormProfile {
 }
 
 export interface IFormBoard {
+  boardId: string;
   boardTitle: string;
   boardDescr: string;
   boardList: IBoardList[];
 }
 export interface IBoardList {
+  boardId: string;
   boardTitle: string;
   boardDescr: string;
 }

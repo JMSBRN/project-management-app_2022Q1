@@ -10,12 +10,14 @@ import {
 import { State } from '../../store/utils';
 import * as Styled from './BoardForm.style';
 import { useTranslation } from 'react-i18next';
+import nextId from 'react-id-generator';
 
 export const BoardForm = () => {
   const { t } = useTranslation();
   const { boardList } = useSelector((state: State) => state.board);
   const { boardTitle, boardDescr } = useSelector((state: State) => state.board);
   const dispatch = useDispatch();
+  const myId = nextId();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -30,6 +32,7 @@ export const BoardForm = () => {
       setBoardList([
         ...boardList,
         {
+          boardId: myId,
           boardTitle: boardTitle,
           boardDescr: boardDescr,
         },
