@@ -118,7 +118,14 @@ const AuthForm = () => {
             <br />
           </label>
           <Styled.errors>{error.userExitsError ? `${userExistsErrorTranslate}` : ''}</Styled.errors>
-          <Styled.Auth_Form_input_submit type="submit" value={t('AuthForm.btn')} />
+          {error.userExitsError !== '' ? (
+            <Styled.Auth_Form_redirect_button
+              linkPath={'/login'}
+              textButton={t('AuthForm.redirectToLogin')}
+            />
+          ) : (
+            <Styled.Auth_Form_input_submit type="submit" value={t('AuthForm.btn')} />
+          )}
         </Styled.Auth_Form>
       </Styled.Auth_Form_container>
     </Styled.Auth_Form_main>
