@@ -2,7 +2,8 @@ import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
 const useAuth = () => {
-  const user = { loggedIn: true };
+  const token = localStorage.getItem('token');
+  const user = { loggedIn: token !== null };
   return user && user.loggedIn;
 };
 const ProtectedRoute = () => {

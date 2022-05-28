@@ -101,3 +101,31 @@ export const setAuthPassword = (password: string) => ({
   type: Actions.SET_AUTHPASSWORD,
   payload: password,
 });
+export const setLoginError = (loginError: string) => ({
+  type: Actions.SET_LOGIN_ERROR,
+  payload: loginError,
+});
+export const setLoginPasswordError = (loginPasswordError: string) => ({
+  type: Actions.SET_LOGIN_PASSWORD_ERROR,
+  payload: loginPasswordError,
+});
+export const setLoginUserNotFoundError = (loginUserNotFoundError: string) => ({
+  type: Actions.SET_LOGIN_USERNOTFOUND_ERROR,
+  payload: loginUserNotFoundError,
+});
+export const setAuthNameError = (authNameError: string) => ({
+  type: Actions.SET_AUTH_NAME_ERROR,
+  payload: authNameError,
+});
+export const setAuthLoginError = (authLoginError: string) => ({
+  type: Actions.SET_AUTH_LOGIN_ERROR,
+  payload: authLoginError,
+});
+export const setAuthPasswordError = (authPasswordError: string) => ({
+  type: Actions.SET_AUTH_PASSWORD_ERROR,
+  payload: authPasswordError,
+});
+export const setUserAlreadyExists = (userExitsError: string) => ({
+  type: Actions.SET_AUTH_USEREXITS_ERROR,
+  payload: userExitsError,
+});

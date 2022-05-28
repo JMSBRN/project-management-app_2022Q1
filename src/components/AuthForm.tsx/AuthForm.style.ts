@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Button from '../button/Button';
 
 export const Auth_Form_main = styled.div`
   display: flex;
@@ -42,5 +43,29 @@ export const Auth_Form_input_submit = styled.input`
   color: white;
   border: none;
   border-radius: 4px;
+  color: var(--color-text-light);
   cursor: pointer;
+  &:active {
+    background-color: var(--color-button-active);
+  }
+`;
+export const Auth_Form_redirect_button = styled(Button)`
+  width: 100%;
+  height: 45px;
+  margin-top: 15px;
+  margin-left: 0;
+  text-align: center;
+  background-color: var(--color-button-regular);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  color: var(--color-text-light);
+  cursor: pointer;
+  &:active {
+    background-color: var(--color-button-active);
+  }
+`;
+export const errors = styled.div`
+  height: 20px;
+  color: red;
 `;

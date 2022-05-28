@@ -25,7 +25,6 @@ export const authFormReducer: Reducer<IAuthForm, Action> = (
         password: action.payload,
       };
     }
-
     default:
       return state;
   }

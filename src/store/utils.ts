@@ -9,6 +9,7 @@ export type State = {
   modal: IModal;
   auth: IAuthForm;
   login: IFormLogin;
+  error: IError;
 };
 
 export const initialState = {
@@ -47,6 +48,16 @@ export const initialState = {
     isOpen: false,
     form: '',
     id: '',
+  },
+  error: {
+    loginError: '',
+    loginPasswordError: '',
+    loginUserNotFoundError: '',
+    authNameError: '',
+    authLoginError: '',
+    authPasswordError: '',
+    userExitsError: '',
+    errors: [],
   },
 };
 
@@ -108,4 +119,13 @@ export interface IAuthForm {
 export interface IFormLogin {
   userLogin: string;
   userLoginPassword: string;
+}
+export interface IError {
+  loginError: string;
+  loginPasswordError: string;
+  loginUserNotFoundError: string;
+  authNameError: string;
+  authLoginError: string;
+  authPasswordError: string;
+  userExitsError: string;
 }

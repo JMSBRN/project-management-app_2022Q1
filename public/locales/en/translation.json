@@ -45,17 +45,31 @@
     "userPlaceholder": "Enter user",
     "btn": "Create task"
   },
+  "AuthPage": {
+   "mainTitle": "Plase fill this out all fields..."
+  },
   "AuthForm": {
     "name":"Name",
     "login": "Login",
     "password": "Password",
     "confirmPass": "Confirm Password",
-    "btn": "Submit"
+    "btn": "Submit",
+    "redirectToLogin": "Go to login page",
+    "nameError": "name should not be empty",
+    "loginError": "login should not be empty",
+    "passwordError": "password should not be empty",
+    "userExistsError": "User login already exists!"
   },
+  "LoginPage": {
+   "mainTitle": "Welcome to Trello Clone"
+  },
+
   "LoginForm": {
     "login": "Login",
     "password": "Password",
-    "btn": "Submit"
+    "btn": "Submit",
+    "loginError": "login should not be empty",
+    "passwordError": "password should not be empty"
   },
   "NotFound": {
     "linkWelcome": "Welcome page",

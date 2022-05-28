@@ -26,6 +26,13 @@ export enum Actions {
   SET_AUTHLOGIN = 'SET_AUTHLOGIN',
   SET_AUTHPASSWORD = 'SET_AUTHPASSWORD',
   SET_USERLOGINPASSWORD = 'SET_USERLOGINPASSWORD',
+  SET_LOGIN_ERROR = 'SET_LOGIN_ERROR',
+  SET_LOGIN_PASSWORD_ERROR = 'SET_LOGIN_PASSWORD_ERROR',
+  SET_LOGIN_USERNOTFOUND_ERROR = 'SET_LOGIN_USERNOTFOUND_ERROR',
+  SET_AUTH_NAME_ERROR = 'SET_AUTH_NAME_ERROR',
+  SET_AUTH_LOGIN_ERROR = 'SET_AUTH_LOGIN_ERROR',
+  SET_AUTH_PASSWORD_ERROR = 'SET_AUTH_PASSWORD_ERROR',
+  SET_AUTH_USEREXITS_ERROR = 'SET_AUTH_USEREXITS_ERROR',
 }
 
 export type Action =
@@ -127,5 +134,33 @@ export type Action =
     }
   | {
       type: Actions.SET_USERLOGIN;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_LOGIN_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_LOGIN_PASSWORD_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_LOGIN_USERNOTFOUND_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_AUTH_NAME_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_AUTH_LOGIN_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_AUTH_PASSWORD_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_AUTH_USEREXITS_ERROR;
       payload: string;
     };
