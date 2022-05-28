@@ -54,6 +54,7 @@
     "password": "Password",
     "confirmPass": "Confirm Password",
     "btn": "Submit",
+    "redirectToLogin": "Go to login page",
     "nameError": "name should not be empty",
     "loginError": "login should not be empty",
     "passwordError": "password should not be empty",
