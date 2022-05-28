@@ -125,3 +125,7 @@ export const setAuthPasswordError = (authPasswordError: string) => ({
   type: Actions.SET_AUTH_PASSWORD_ERROR,
   payload: authPasswordError,
 });
+export const setUserAlreadyExists = (userExitsError: string) => ({
+  type: Actions.SET_AUTH_USEREXITS_ERROR,
+  payload: userExitsError,
+});

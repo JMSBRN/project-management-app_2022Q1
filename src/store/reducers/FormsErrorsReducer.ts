@@ -37,6 +37,12 @@ export const FormsErrorsReducer: Reducer<IError, Action> = (
         authPasswordError: action.payload,
       };
     }
+    case Actions.SET_AUTH_USEREXITS_ERROR: {
+      return {
+        ...state,
+        userExitsError: action.payload,
+      };
+    }
     default:
       return state;
   }

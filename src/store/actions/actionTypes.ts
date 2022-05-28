@@ -32,6 +32,7 @@ export enum Actions {
   SET_AUTH_NAME_ERROR = 'SET_AUTH_NAME_ERROR',
   SET_AUTH_LOGIN_ERROR = 'SET_AUTH_LOGIN_ERROR',
   SET_AUTH_PASSWORD_ERROR = 'SET_AUTH_PASSWORD_ERROR',
+  SET_AUTH_USEREXITS_ERROR = 'SET_AUTH_USEREXITS_ERROR',
 }
 
 export type Action =
@@ -157,5 +158,9 @@ export type Action =
     }
   | {
       type: Actions.SET_AUTH_PASSWORD_ERROR;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_AUTH_USEREXITS_ERROR;
       payload: string;
     };

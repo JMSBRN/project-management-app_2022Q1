@@ -56,6 +56,7 @@ export const initialState = {
     authNameError: '',
     authLoginError: '',
     authPasswordError: '',
+    userExitsError: '',
     errors: [],
   },
 };
@@ -126,4 +127,5 @@ export interface IError {
   authNameError: string;
   authLoginError: string;
   authPasswordError: string;
+  userExitsError: string;
 }

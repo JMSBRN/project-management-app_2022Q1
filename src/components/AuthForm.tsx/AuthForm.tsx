@@ -8,6 +8,7 @@ import {
   setAuthNameError,
   setAuthLoginError,
   setAuthPasswordError,
+  setUserAlreadyExists,
 } from '../../store/actions/actionCreators';
 import { State } from '../../store/utils';
 import { AnyAction } from 'redux';
@@ -22,6 +23,7 @@ const AuthForm = () => {
   const nameErrorTranslate = t('AuthForm.nameError');
   const loginErrorTranslate = t('AuthForm.loginError');
   const passwordErrorTranslate = t('AuthForm.passwordError');
+  const userExistsErrorTranslate = t('AuthForm.userExistsError');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -40,12 +42,20 @@ const AuthForm = () => {
     apiCreateUser(authUser);
     setTimeout(() => {
       const errors = JSON.parse(localStorage.getItem('Auth_Error_msg') || '');
-      const nameError = errors.filter((el: string) => el.includes('name'));
-      const loginError = errors.filter((el: string) => el.includes('login'));
-      const passwordError = errors.filter((el: string) => el.includes('password'));
-      dispatch(setAuthNameError(nameError));
-      dispatch(setAuthLoginError(loginError));
-      dispatch(setAuthPasswordError(passwordError));
+      if (errors !== 'User login already exists!') {
+        const nameError = errors.filter((el: string) => el.includes('name'));
+        const loginError = errors.filter((el: string) => el.includes('login'));
+        const passwordError = errors.filter((el: string) => el.includes('password'));
+        dispatch(setAuthNameError(nameError));
+        dispatch(setAuthLoginError(loginError));
+        dispatch(setAuthPasswordError(passwordError));
+      } else {
+        dispatch(setAuthNameError(''));
+        dispatch(setAuthLoginError(''));
+        dispatch(setAuthPasswordError(''));
+        const userExistsError = JSON.parse(localStorage.getItem('Auth_Error_msg') || '');
+        dispatch(setUserAlreadyExists(userExistsError));
+      }
     }, 2000);
   };
 
@@ -107,6 +117,7 @@ const AuthForm = () => {
             />
             <br />
           </label>
+          <Styled.errors>{error.userExitsError ? `${userExistsErrorTranslate}` : ''}</Styled.errors>
           <Styled.Auth_Form_input_submit type="submit" value={t('AuthForm.btn')} />
         </Styled.Auth_Form>
       </Styled.Auth_Form_container>
