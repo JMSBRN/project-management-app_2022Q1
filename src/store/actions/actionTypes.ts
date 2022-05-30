@@ -10,6 +10,9 @@ export enum Actions {
   SET_TASKDESCR = 'SET_TASKDESCR',
   SET_TASKUSER = 'SET_TASKUSER',
   SET_TASKLIST = 'SET_TASKLIST',
+  EDIT_TASKNAME = 'EDIT_TASKNAME',
+  EDIT_TASKDESCR = 'EDIT_TASKDESCR',
+  EDIT_TASKUSER = 'EDIT_TASKUSER',
   REMOVE_TASK = 'REMOVE_TASK',
   SET_COLUMNID = 'SET_COLUMNID',
   SET_COLUMNTITLE = 'SET_COLUMNTITLE',
@@ -70,6 +73,27 @@ export type Action =
   | {
       type: Actions.SET_TASKUSER;
       payload: string;
+    }
+  | {
+      type: Actions.EDIT_TASKNAME;
+      payload: {
+        taskId: string;
+        taskName: string;
+      };
+    }
+  | {
+      type: Actions.EDIT_TASKDESCR;
+      payload: {
+        taskId: string;
+        taskDescr: string;
+      };
+    }
+  | {
+      type: Actions.EDIT_TASKUSER;
+      payload: {
+        taskId: string;
+        taskUser: string;
+      };
     }
   | {
       type: Actions.SET_TASKLIST;

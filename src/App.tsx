@@ -12,7 +12,7 @@ import ProtectedRoute from './containers/protectedRoute/ProtectedRoute';
 import EditProfile from './pages/editProfile/EditProfile';
 import Header from './containers/header/Header';
 import LoginPage from './pages/loginPage/LoginPage';
-import { Boards } from './pages/boards/Boards';
+import { TaskPage } from './pages/taskPage/TaskPage';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route element={<Header />}>
                 <Route path="board" element={<Board />} />
-                <Route path="boards" element={<Boards />} />
+                <Route path="/:id" element={<TaskPage />} />
                 <Route path="edit" element={<EditProfile />} />
                 <Route path="main" element={<Main />} />
               </Route>

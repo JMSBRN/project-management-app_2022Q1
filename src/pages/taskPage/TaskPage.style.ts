@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  margin: 7px auto;
+  width: 30%;
+  color: var(--color-text-light);
+`;
+
 export const Task_block = styled.div`
   background-color: var(--color-background-dark);
-  margin: 7px 0;
   padding: 5px;
   min-height: 60px;
-  width: calc(100%-20px);
   border-radius: 5px;
   box-shadow: 0 1px 0 var(--color-background-dark-60);
   position: relative;
-  a {
-    color: var(--color-text-light);
-    text-decoration: none;
-  }
 `;
 
 export const Title = styled.h4`
@@ -40,4 +40,13 @@ export const Delete_main_board = styled.div`
     color: red;
     cursor: pointer;
   }
+`;
+
+export const Btn_block = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Input = styled.input`
+  padding: 10px;
 `;
