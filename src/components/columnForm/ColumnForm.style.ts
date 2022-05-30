@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   margin: auto;
-  width: 450px;
+  min-width: 300px;
+  max-width: 450px;
   height: 330px;
   padding: 20px;
   display: flex;

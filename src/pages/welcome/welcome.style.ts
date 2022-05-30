@@ -8,7 +8,8 @@ export const Container = styled.div`
   width: 100%;
   margin: auto;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `;
 
 export const Layout = styled.div`

@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { device } from '../../containers/header/header.style';
 
 export const Wrapper = styled.div`
   position: fixed;
   overflow: auto;
   left: 0;
-  top: 0;
+  top: 50px;
   width: 100%;
   height: 100%;
   margin: auto;
@@ -28,7 +29,13 @@ export const Btn = styled.div`
   cursor: pointer;
 `;
 export const Body = styled.div`
-  width: 500px;
+  @media ${device.desktop} {
+    width: 500px;
+  }
+  @media ${device.tablet} {
+    width: 320px;
+  }
+
   height: auto;
   margin: auto;
   background-color: white;
