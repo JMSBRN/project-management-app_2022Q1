@@ -8,7 +8,7 @@ export const Main = styled.div`
 export const Boards_list = styled.div`
   position: absolute;
   top: 20px;
-  left: 20px;
+  padding-left: 20px;
   width: 100%;
   height: auto;
   display: flex;

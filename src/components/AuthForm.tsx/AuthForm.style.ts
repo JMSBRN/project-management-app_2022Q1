@@ -10,7 +10,7 @@ export const Auth_Form_main = styled.div`
   background-color: var(--color-background-light);
 `;
 export const Auth_Form_container = styled.div`
-  min-width: 450px;
+  min-width: 300px;
   height: auto;
   margin-top: 100px;
   border: 0.5px solid grey;
@@ -22,7 +22,7 @@ export const Auth_Form_container = styled.div`
   }
 `;
 export const Auth_Form = styled.form`
-  width: 450px;
+  min-width: 300px;
   height: auto;
   padding: 20px;
 `;
