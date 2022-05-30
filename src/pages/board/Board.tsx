@@ -15,6 +15,7 @@ import {
 import TaskForm from '../../components/taskForm/TaskForm';
 import { useTranslation } from 'react-i18next';
 import Confirmation from '../../components/confirmation/Confirmation';
+import { useNavigate } from 'react-router-dom';
 
 const Board = () => {
   const { t } = useTranslation();
@@ -22,6 +23,8 @@ const Board = () => {
   const { columnList } = useSelector((state: State) => state.column);
   const { boardTitle } = useSelector((state: State) => state.board);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const goBack = () => navigate(-1);
 
   const handleOpenColumn = () => {
     dispatch(setIsOpen(true));
@@ -51,6 +54,9 @@ const Board = () => {
 
   return (
     <>
+      <Styled.Wrapper>
+        <Button textButton="Go back..." onClick={goBack} />
+      </Styled.Wrapper>
       <Styled.Title>{boardTitle}</Styled.Title>
       <Styled.Board>
         {columnList?.map((column, i) => (
