@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setForm, setId, setIsOpen, setTaskList } from '../../store/actions/actionCreators';
+import {
+  editColumnTitle,
+  setForm,
+  setId,
+  setIsOpen,
+  setTaskList,
+} from '../../store/actions/actionCreators';
 import { IColumnList, State } from '../../store/utils';
 import Button from '../button/Button';
 import Task from '../task/Task';
@@ -15,6 +21,7 @@ const Column = (props: IProps) => {
   const { t } = useTranslation();
   const { columnTitle, columnId } = props.columnItem;
   const { taskList } = useSelector((state: State) => state.task);
+
   const dispatch = useDispatch();
 
   const handleOpenModal = () => {
@@ -34,10 +41,39 @@ const Column = (props: IProps) => {
     dispatch(setTaskList([...taskList]));
   };
 
+  const [isEdit, setIsEdit] = useState(false);
+  const [correctedTitle, setCorrectedTitle] = useState(columnTitle);
+
+  const handleEdit = () => {
+    setIsEdit(true);
+  };
+
+  const handleCorrect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCorrectedTitle(e.target.value);
+  };
+
+  const handleSave = () => {
+    setIsEdit(false);
+    dispatch(editColumnTitle(columnId, correctedTitle));
+  };
+
+  const handleCancel = () => {
+    setIsEdit(false);
+  };
+
   return (
     <>
       <Styled.Column>
-        <Styled.Title>{columnTitle}</Styled.Title>
+        {!isEdit && <Styled.Title onClick={handleEdit}>{columnTitle}</Styled.Title>}
+        {isEdit && (
+          <>
+            <Styled.Input type="text" value={correctedTitle} onChange={handleCorrect} />
+            <Styled.Btn_block>
+              <Button textButton="Submit" onClick={handleSave} />
+              <Button textButton="Cancel" onClick={handleCancel} />
+            </Styled.Btn_block>
+          </>
+        )}
         <Styled.Task_list>
           {taskList?.map((task, i) => {
             return <Task key={i} taskItem={task} />;

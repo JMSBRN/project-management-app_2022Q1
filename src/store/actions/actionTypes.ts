@@ -13,6 +13,7 @@ export enum Actions {
   REMOVE_TASK = 'REMOVE_TASK',
   SET_COLUMNID = 'SET_COLUMNID',
   SET_COLUMNTITLE = 'SET_COLUMNTITLE',
+  EDIT_COLUMNTITLE = 'EDIT_COLUMNTITLE',
   SET_COLUMNLIST = 'SET_COLUMNLIST',
   REMOVE_COLUMN = 'REMOVE_COLUMN',
   SET_BOARDID = 'SET_BOARDID',
@@ -85,6 +86,13 @@ export type Action =
   | {
       type: Actions.SET_COLUMNTITLE;
       payload: string;
+    }
+  | {
+      type: Actions.EDIT_COLUMNTITLE;
+      payload: {
+        columnId: string;
+        columnTitle: string;
+      };
     }
   | {
       type: Actions.SET_COLUMNLIST;
