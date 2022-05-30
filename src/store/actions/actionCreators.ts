@@ -57,6 +57,13 @@ export const setColumnTitle = (columnTitle: string) => ({
   type: Actions.SET_COLUMNTITLE,
   payload: columnTitle,
 });
+export const editColumnTitle = (columnTitle: string, columnId: string) => ({
+  type: Actions.EDIT_COLUMNTITLE,
+  payload: {
+    columnTitle,
+    columnId,
+  },
+});
 export const setColumnList = (columnList: IColumnList[]) => ({
   type: Actions.SET_COLUMNLIST,
   payload: columnList,
