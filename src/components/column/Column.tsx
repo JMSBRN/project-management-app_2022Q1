@@ -1,13 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setForm,
-  setId,
-  setIsOpen,
-  setRemoveColumn,
-  setRemoveTask,
-  setTaskList,
-} from '../../store/actions/actionCreators';
+import { setForm, setId, setIsOpen, setTaskList } from '../../store/actions/actionCreators';
 import { IColumnList, State } from '../../store/utils';
 import Button from '../button/Button';
 import Task from '../task/Task';
@@ -20,7 +13,6 @@ interface IProps {
 
 const Column = (props: IProps) => {
   const { t } = useTranslation();
-  const { isOpen, form, id } = useSelector((state: State) => state.modal);
   const { columnTitle, columnId } = props.columnItem;
   const { taskList } = useSelector((state: State) => state.task);
   const dispatch = useDispatch();
@@ -41,11 +33,6 @@ const Column = (props: IProps) => {
   const handleAddTask = () => {
     dispatch(setTaskList([...taskList]));
   };
-
-  // const handleRemoveTask = () => {
-  //   dispatch(setRemoveTask(id));
-  //   dispatch(setIsOpen(false));
-  // };
 
   return (
     <>
