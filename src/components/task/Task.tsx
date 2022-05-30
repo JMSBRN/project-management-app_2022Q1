@@ -19,14 +19,18 @@ const Task = (props: IProps) => {
     dispatch(setId(taskId));
   };
 
+  const handleSaveId = () => {
+    dispatch(setId(taskId));
+  };
+
   return (
     <Styled.Task_block>
-      <NavLink to={`/${taskId}`}>
+      <NavLink to={`/${taskId}`} onClick={handleSaveId}>
         <Styled.Title>{taskName}</Styled.Title>
         <Styled.Descr>{taskDescr}</Styled.Descr>
         <Styled.User>{taskUser}</Styled.User>
-        <Styled.Delete_main_board onClick={handleOpen}>&#128465;</Styled.Delete_main_board>
       </NavLink>
+      <Styled.Delete_main_board onClick={handleOpen}>&#128465;</Styled.Delete_main_board>
     </Styled.Task_block>
   );
 };

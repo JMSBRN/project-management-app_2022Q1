@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { State } from '../../store/utils';
+import { ITaskList, State } from '../../store/utils';
 import { useNavigate } from 'react-router-dom';
 import * as Styled from './TaskPage.style';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,19 +7,35 @@ import Button from '../../components/button/Button';
 import { editTaskDescr, editTaskName, editTaskUser } from '../../store/actions/actionCreators';
 
 export const TaskPage = () => {
-  const { taskName, taskDescr, taskUser, taskId } = useSelector((state: State) => state.task);
+  const { taskList } = useSelector((state: State) => state.task);
+  const { id } = useSelector((state: State) => state.modal);
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
   const dispatch = useDispatch();
-  const [isEdit, setIsEdit] = useState(false);
-  const [correctedName, setCorrectedName] = useState(taskName);
-  const [correctedDescr, setCorrectedDescr] = useState(taskDescr);
-  const [correctedUser, setCorrectedUser] = useState(taskUser);
+  const [isEditName, setIsEditName] = useState(false);
+  const [isEditDescr, setIsEditDescr] = useState(false);
+  const [isEditUser, setIsEditUser] = useState(false);
 
-  const handleEdit = () => {
-    setIsEdit(true);
+  const taskItem = taskList.map((task) => {
+    if (task.taskId === id) {
+      return task;
+    }
+  });
+  const newTask = taskItem.sort().slice(0, 1)[0];
+
+  const [correctedName, setCorrectedName] = useState(newTask?.taskName);
+  const [correctedDescr, setCorrectedDescr] = useState(newTask?.taskDescr);
+  const [correctedUser, setCorrectedUser] = useState(newTask?.taskUser);
+
+  const handleEditName = () => {
+    setIsEditName(true);
   };
-
+  const handleEditDescr = () => {
+    setIsEditDescr(true);
+  };
+  const handleEditUser = () => {
+    setIsEditUser(true);
+  };
   const handleCorrectName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCorrectedName(e.target.value);
   };
@@ -29,54 +45,60 @@ export const TaskPage = () => {
   const handleCorrectUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCorrectedUser(e.target.value);
   };
-
   const handleSaveName = () => {
-    setIsEdit(false);
-    dispatch(editTaskName(taskId, correctedName));
+    setIsEditName(false);
+    dispatch(editTaskName(newTask?.taskId, correctedName));
   };
   const handleSaveDescr = () => {
-    setIsEdit(false);
-    dispatch(editTaskDescr(taskId, correctedDescr));
+    setIsEditDescr(false);
+    dispatch(editTaskDescr(newTask?.taskId, correctedDescr));
   };
   const handleSaveUser = () => {
-    setIsEdit(false);
-    dispatch(editTaskUser(taskId, correctedUser));
+    setIsEditUser(false);
+    dispatch(editTaskUser(newTask?.taskId, correctedUser));
   };
-
-  const handleCancel = () => {
-    setIsEdit(false);
+  const handleCancelName = () => {
+    setIsEditName(false);
+  };
+  const handleCancelDescr = () => {
+    setIsEditDescr(false);
+  };
+  const handleCancelUser = () => {
+    setIsEditUser(false);
   };
 
   return (
-    <Styled.Wrapper id={taskId}>
+    <Styled.Wrapper id={'taskId'}>
       <Styled.Task_block>
-        {!isEdit && <Styled.Title onClick={handleEdit}>{taskName}</Styled.Title>}
-        {!isEdit && <Styled.Descr onClick={handleEdit}>{taskDescr}</Styled.Descr>}
-        {!isEdit && <Styled.User onClick={handleEdit}>{taskUser}</Styled.User>}
-        {isEdit && (
+        {!isEditName && <Styled.Title onClick={handleEditName}>{newTask?.taskName}</Styled.Title>}
+        {!isEditDescr && (
+          <Styled.Descr onClick={handleEditDescr}>{newTask?.taskDescr}</Styled.Descr>
+        )}
+        {!isEditUser && <Styled.User onClick={handleEditUser}>{newTask?.taskUser}</Styled.User>}
+        {isEditName && (
           <>
             <Styled.Input type="text" value={correctedName} onChange={handleCorrectName} />
             <Styled.Btn_block>
               <Button textButton="Submit" onClick={handleSaveName} />
-              <Button textButton="Cancel" onClick={handleCancel} />
+              <Button textButton="Cancel" onClick={handleCancelName} />
             </Styled.Btn_block>
           </>
         )}
-        {isEdit && (
+        {isEditDescr && (
           <>
             <Styled.Input type="text" value={correctedDescr} onChange={handleCorrectDescr} />
             <Styled.Btn_block>
               <Button textButton="Submit" onClick={handleSaveDescr} />
-              <Button textButton="Cancel" onClick={handleCancel} />
+              <Button textButton="Cancel" onClick={handleCancelDescr} />
             </Styled.Btn_block>
           </>
         )}
-        {isEdit && (
+        {isEditUser && (
           <>
             <Styled.Input type="text" value={correctedUser} onChange={handleCorrectUser} />
             <Styled.Btn_block>
               <Button textButton="Submit" onClick={handleSaveUser} />
-              <Button textButton="Cancel" onClick={handleCancel} />
+              <Button textButton="Cancel" onClick={handleCancelUser} />
             </Styled.Btn_block>
           </>
         )}

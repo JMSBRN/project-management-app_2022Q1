@@ -41,21 +41,21 @@ export const setTaskUser = (taskUser: string) => ({
   type: Actions.SET_TASKUSER,
   payload: taskUser,
 });
-export const editTaskName = (taskId: string, taskName: string) => ({
+export const editTaskName = (taskId?: string, taskName?: string) => ({
   type: Actions.EDIT_TASKNAME,
   payload: {
     taskId,
     taskName,
   },
 });
-export const editTaskDescr = (taskId: string, taskDescr: string) => ({
+export const editTaskDescr = (taskId?: string, taskDescr?: string) => ({
   type: Actions.EDIT_TASKDESCR,
   payload: {
     taskId,
     taskDescr,
   },
 });
-export const editTaskUser = (taskId: string, taskUser: string) => ({
+export const editTaskUser = (taskId?: string, taskUser?: string) => ({
   type: Actions.EDIT_TASKUSER,
   payload: {
     taskId,
