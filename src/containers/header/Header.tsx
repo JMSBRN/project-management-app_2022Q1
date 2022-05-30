@@ -35,18 +35,20 @@ const Header = () => {
             </NavLink>
           </Styled.Ul>
         </Styled.HeaderNavLinkWwrapper>
-        <Select
-          onChange={changeLanguage}
-          options={[
-            { text: 'en', value: 'en' },
-            { text: 'ru', value: 'ru' },
-          ]}
-        />
-        <Button
-          className="header-log-out-tn"
-          onClick={setLogout}
-          textButton={t('Headerlinks.logOut')}
-        ></Button>
+        <Styled.Btns_block>
+          <Select
+            onChange={changeLanguage}
+            options={[
+              { text: 'en', value: 'en' },
+              { text: 'ru', value: 'ru' },
+            ]}
+          />
+          <Button
+            className="header-log-out-tn"
+            onClick={setLogout}
+            textButton={t('Headerlinks.logOut')}
+          ></Button>
+        </Styled.Btns_block>
       </Styled.Header>
       <Outlet />
     </>
