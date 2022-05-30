@@ -1,4 +1,4 @@
-import { IFormTask, initialState } from '../utils';
+import { IFormTask, initialState, ITaskList } from '../utils';
 import { Reducer } from 'redux';
 import { Actions, Action } from '../actions/actionTypes';
 
@@ -23,6 +23,23 @@ export const taskFormReducer: Reducer<IFormTask, Action> = (
       return {
         ...state,
         taskUser: action.payload,
+      };
+    }
+    case Actions.EDIT_TASKITEM: {
+      const newTaskList = state.taskList.map((task: ITaskList) => {
+        if (task.taskId === action.payload.taskId) {
+          return {
+            ...task,
+            taskName: action.payload.taskName,
+            taskDescr: action.payload.taskDescr,
+            taskUser: action.payload.taskUser,
+          };
+        }
+        return task;
+      });
+      return {
+        ...state,
+        taskList: newTaskList,
       };
     }
     case Actions.SET_TASKLIST: {

@@ -41,3 +41,12 @@ export const Delete_main_board = styled.div`
     cursor: pointer;
   }
 `;
+
+export const Btn_block = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const Input = styled.input`
+  padding: 10px;
+`;
