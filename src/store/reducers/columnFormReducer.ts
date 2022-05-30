@@ -10,17 +10,18 @@ export const columnFormReducer = (state: IFormColumn = initialState.column, acti
       };
     }
     case Actions.EDIT_COLUMNTITLE: {
+      const newColumnList = state.columnList.map((item: IColumnList) => {
+        if (item.columnId === action.payload.columnId) {
+          return {
+            ...item,
+            columnTitle: action.payload.columnTitle,
+          };
+        }
+        return item;
+      });
       return {
         ...state,
-        columnList: state.columnList.map((item: IColumnList) => {
-          if (item.columnId === action.payload.columnId) {
-            return {
-              ...item,
-              columnTitle: action.payload.columnTitle,
-            };
-          }
-          return item;
-        }),
+        columnList: newColumnList,
       };
     }
     case Actions.SET_COLUMNLIST: {
