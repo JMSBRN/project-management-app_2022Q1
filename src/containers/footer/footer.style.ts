@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../header/header.style';
 
 export const Footer = styled.footer`
   width: 100%;
@@ -15,6 +16,7 @@ export const Footer = styled.footer`
 export const RsSchoolLink = styled.a`
   text-decoration: none;
   color: var(--color-text-light);
+  margin: 0 10px;
 
   img {
     width: 100px;
@@ -23,10 +25,18 @@ export const RsSchoolLink = styled.a`
 `;
 
 export const GitLinksContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 200px;
+  @media ${device.desktop} {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+  }
+  @media ${device.tablet} {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 200px;
+  }
 `;
 
 export const GitImg = styled.img`

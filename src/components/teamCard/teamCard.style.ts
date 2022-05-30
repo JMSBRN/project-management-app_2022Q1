@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
-  width: 30%;
-  margin: 0 15px;
+  min-width: 270px;
+  max-width: 30%;
+  margin: 10px 15px;
   padding: 20px;
   border-radius: 5px;
   background-color: var(--color-background-white);

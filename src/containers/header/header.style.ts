@@ -1,7 +1,19 @@
 import styled from 'styled-components';
 
+const size = {
+  mobile: '320px',
+  tablet: '768px',
+  desktop: '1920px',
+};
+
+export const device = {
+  mobile: `(max-width: ${size.mobile})`,
+  tablet: `(max-width: ${size.tablet})`,
+  desktop: `(max-width: ${size.desktop})`,
+};
+
 export const Header = styled.header`
-  width: 100%;
+  max-width: 100%;
   height: 60px;
   position: sticky;
   top: 0;
@@ -13,8 +25,15 @@ export const Header = styled.header`
 `;
 
 export const HeaderNavLinkWwrapper = styled.div`
-  width: 90%;
-  display: flex;
+  @media ${device.desktop} {
+    max-width: 90%;
+    display: flex;
+  }
+  @media ${device.tablet} {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+  }
 `;
 
 export const Ul = styled.ul`

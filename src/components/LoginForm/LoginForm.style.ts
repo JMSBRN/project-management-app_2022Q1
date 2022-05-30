@@ -9,14 +9,14 @@ export const Login_Form_main = styled.div`
   background-color: var(--color-background-light);
 `;
 export const Login_Form_container = styled.div`
-  width: 450px;
+  width: 300px;
   height: auto;
   margin-top: 100px;
   display: grid;
   grid-template-columns: 200px 450px;
 `;
 export const Login_Form = styled.form`
-  width: 450px;
+  width: 300px;
   height: auto;
   padding: 20px;
   border-radius: 5px;
