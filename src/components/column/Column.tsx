@@ -2,8 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setForm,
+  setId,
   setIsOpen,
   setRemoveColumn,
+  setRemoveTask,
   setTaskList,
 } from '../../store/actions/actionCreators';
 import { IColumnList, State } from '../../store/utils';
@@ -18,23 +20,32 @@ interface IProps {
 
 const Column = (props: IProps) => {
   const { t } = useTranslation();
-  const { columnTitle } = props.columnItem;
+  const { isOpen, form, id } = useSelector((state: State) => state.modal);
+  const { columnTitle, columnId } = props.columnItem;
   const { taskList } = useSelector((state: State) => state.task);
   const dispatch = useDispatch();
-
-  const handleRemove = () => {
-    dispatch(setRemoveColumn(columnTitle));
-  };
 
   const handleOpenModal = () => {
     dispatch(setIsOpen(true));
     handleAddTask();
+    dispatch(setId(columnId));
     dispatch(setForm('task'));
+  };
+
+  const handleOpenConfirm = () => {
+    dispatch(setIsOpen(true));
+    dispatch(setForm('deleteCol'));
+    dispatch(setId(columnId));
   };
 
   const handleAddTask = () => {
     dispatch(setTaskList([...taskList]));
   };
+
+  // const handleRemoveTask = () => {
+  //   dispatch(setRemoveTask(id));
+  //   dispatch(setIsOpen(false));
+  // };
 
   return (
     <>
@@ -46,7 +57,7 @@ const Column = (props: IProps) => {
           })}
         </Styled.Task_list>
         <Button id="task" textButton={'➕ ' + t('Task.addTask')} onClick={handleOpenModal} />
-        <Styled.Delete_main_board onClick={handleRemove}>&#128465;</Styled.Delete_main_board>
+        <Styled.Delete_main_board onClick={handleOpenConfirm}>&#128465;</Styled.Delete_main_board>
       </Styled.Column>
     </>
   );

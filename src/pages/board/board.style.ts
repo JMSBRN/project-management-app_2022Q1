@@ -9,6 +9,11 @@ export const Board = styled.div`
   padding: 20px;
 `;
 
+export const Title = styled.h3`
+  margin: 30px auto;
+  font-size: 36px;
+`;
+
 export const Link = styled(NavLink)`
   width: 90%;
   height: 95%;

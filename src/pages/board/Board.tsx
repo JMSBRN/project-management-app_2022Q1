@@ -6,16 +6,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { State } from '../../store/utils';
 import ColumnForm from '../../components/columnForm/ColumnForm';
 import Modal from '../../components/modal/Modal';
-import { setForm, setIsOpen } from '../../store/actions/actionCreators';
+import {
+  setForm,
+  setIsOpen,
+  setRemoveColumn,
+  setRemoveTask,
+} from '../../store/actions/actionCreators';
 import TaskForm from '../../components/taskForm/TaskForm';
 import { useTranslation } from 'react-i18next';
+import Confirmation from '../../components/confirmation/Confirmation';
 
 const Board = () => {
   const { t } = useTranslation();
-  const { isOpen, form } = useSelector((state: State) => state.modal);
+  const { isOpen, form, id } = useSelector((state: State) => state.modal);
   const { columnList } = useSelector((state: State) => state.column);
-
+  const { boardTitle } = useSelector((state: State) => state.board);
   const dispatch = useDispatch();
+
   const handleOpenColumn = () => {
     dispatch(setIsOpen(true));
     dispatch(setForm('column'));
@@ -25,11 +32,26 @@ const Board = () => {
     dispatch(setIsOpen(false));
   };
 
+  const handleRemoveColumn = () => {
+    dispatch(setRemoveColumn(id));
+    dispatch(setIsOpen(false));
+  };
+
+  const handleRemoveTask = () => {
+    dispatch(setRemoveTask(id));
+    dispatch(setIsOpen(false));
+  };
+
   const column = form === 'column' ? <ColumnForm /> : null;
   const task = form === 'task' ? <TaskForm /> : null;
+  const confirmCol =
+    form === 'deleteCol' ? <Confirmation handleRemove={handleRemoveColumn} /> : null;
+  const confirmTask =
+    form === 'deleteTask' ? <Confirmation handleRemove={handleRemoveTask} /> : null;
 
   return (
     <>
+      <Styled.Title>{boardTitle}</Styled.Title>
       <Styled.Board>
         {columnList?.map((column, i) => (
           <Column key={i} columnItem={column} />
@@ -38,6 +60,8 @@ const Board = () => {
         <Modal isOpen={isOpen} handleClose={handleCloseColumn}>
           {column}
           {task}
+          {confirmCol}
+          {confirmTask}
         </Modal>
       </Styled.Board>
     </>

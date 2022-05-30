@@ -5,12 +5,14 @@ import { setColumnList, setColumnTitle, setIsOpen } from '../../store/actions/ac
 import { State } from '../../store/utils';
 import * as Styled from './ColumnForm.style';
 import { useTranslation } from 'react-i18next';
+import nextId from 'react-id-generator';
 
 const ColumnForm = () => {
   const { t } = useTranslation();
   const { columnTitle } = useSelector((state: State) => state.column);
   const { columnList } = useSelector((state: State) => state.column);
   const dispatch = useDispatch();
+  const myId = nextId();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -25,6 +27,7 @@ const ColumnForm = () => {
       setColumnList([
         ...columnList,
         {
+          columnId: myId,
           columnTitle: columnTitle,
         },
       ])

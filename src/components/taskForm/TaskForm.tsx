@@ -11,11 +11,13 @@ import {
 import { State } from '../../store/utils';
 import * as Styled from './taskForm.styled';
 import { useTranslation } from 'react-i18next';
+import nextId from 'react-id-generator';
 
 const TaskForm = () => {
   const { taskList, taskName, taskDescr, taskUser } = useSelector((state: State) => state.task);
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const myId = nextId();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -30,6 +32,7 @@ const TaskForm = () => {
       setTaskList([
         ...taskList,
         {
+          taskId: myId,
           taskName: taskName,
           taskDescr: taskDescr,
           taskUser: taskUser,

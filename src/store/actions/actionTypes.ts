@@ -5,16 +5,18 @@ export enum Actions {
   SET_USEREMAIL = 'SET_USEREMAIL',
   SET_USERPASSWORD = 'SET_USERPASSWORD',
   SET_USERLIST = 'SET_USERLIST',
+  SET_TASKID = 'SET_TASKID',
   SET_TASKNAME = 'SET_TASKNAME',
   SET_TASKDESCR = 'SET_TASKDESCR',
   SET_TASKUSER = 'SET_TASKUSER',
   SET_TASKLIST = 'SET_TASKLIST',
   REMOVE_TASK = 'REMOVE_TASK',
+  SET_COLUMNID = 'SET_COLUMNID',
   SET_COLUMNTITLE = 'SET_COLUMNTITLE',
   SET_COLUMNLIST = 'SET_COLUMNLIST',
   REMOVE_COLUMN = 'REMOVE_COLUMN',
   SET_BOARDID = 'SET_BOARDID',
-  SET_BOARDTITLE = 'SET_BOARDTITE',
+  SET_BOARDTITLE = 'SET_BOARDTITLE',
   SET_BOARDDESCR = 'SET_BOARDDESCR',
   SET_BOARDLIST = 'SET_BOARDLIST',
   REMOVE_BOARD = 'REMOVE_BOARD',
@@ -53,6 +55,10 @@ export type Action =
       payload: IRegList[];
     }
   | {
+      type: Actions.SET_TASKID;
+      payload: string;
+    }
+  | {
       type: Actions.SET_TASKNAME;
       payload: string;
     }
@@ -70,6 +76,10 @@ export type Action =
     }
   | {
       type: Actions.REMOVE_TASK;
+      payload: string;
+    }
+  | {
+      type: Actions.SET_COLUMNID;
       payload: string;
     }
   | {

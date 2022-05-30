@@ -35,10 +35,12 @@ export const initialState = {
     boardList: [],
   },
   column: {
+    columnId: '',
     columnTitle: '',
     columnList: [],
   },
   task: {
+    taskId: '',
     taskName: '',
     taskDescr: '',
     taskUser: '',
@@ -87,20 +89,24 @@ export interface IBoardList {
 }
 
 export interface IFormColumn {
+  columnId: string;
   columnTitle: string;
   columnList: IColumnList[];
 }
 export interface IColumnList {
+  columnId: string;
   columnTitle: string;
 }
 
 export interface IFormTask {
+  taskId: string;
   taskName: string;
   taskDescr: string;
   taskUser: string;
   taskList: ITaskList[];
 }
 export interface ITaskList {
+  taskId: string;
   taskName: string;
   taskDescr: string;
   taskUser: string;
