@@ -34,7 +34,7 @@ export const taskFormReducer: Reducer<IFormTask, Action> = (
     case Actions.REMOVE_TASK: {
       return {
         ...state,
-        taskList: state.taskList.filter((task) => task.taskName !== action.payload),
+        taskList: state.taskList.filter((task) => task.taskId !== action.payload),
       };
     }
     default:

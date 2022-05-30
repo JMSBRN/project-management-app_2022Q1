@@ -25,6 +25,10 @@ export const setUserList = (userList: IRegList[]) => ({
   type: Actions.SET_USERLIST,
   payload: userList,
 });
+export const setTaskId = (taskId: string) => ({
+  type: Actions.SET_TASKID,
+  payload: taskId,
+});
 export const setTaskName = (taskName: string) => ({
   type: Actions.SET_TASKNAME,
   payload: taskName,
@@ -44,6 +48,10 @@ export const setTaskList = (taskList: ITaskList[]) => ({
 export const setRemoveTask = (taskName: string) => ({
   type: Actions.REMOVE_TASK,
   payload: taskName,
+});
+export const setColumnId = (columnId: string) => ({
+  type: Actions.SET_COLUMNID,
+  payload: columnId,
 });
 export const setColumnTitle = (columnTitle: string) => ({
   type: Actions.SET_COLUMNTITLE,

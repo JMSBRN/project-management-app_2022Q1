@@ -22,7 +22,7 @@ export const columnFormReducer: Reducer<IFormColumn, Action> = (
     case Actions.REMOVE_COLUMN: {
       return {
         ...state,
-        columnList: state.columnList.filter((column) => column.columnTitle !== action.payload),
+        columnList: state.columnList.filter((column) => column.columnId !== action.payload),
       };
     }
     default:
