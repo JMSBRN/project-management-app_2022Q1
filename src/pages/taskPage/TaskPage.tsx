@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import * as Styled from './TaskPage.style';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../components/button/Button';
-import { editTaskItem } from '../../store/actions/actionCreators';
+import { editTaskDescr, editTaskName, editTaskUser } from '../../store/actions/actionCreators';
 
 export const TaskPage = () => {
   const { taskName, taskDescr, taskUser, taskId } = useSelector((state: State) => state.task);
@@ -30,9 +30,17 @@ export const TaskPage = () => {
     setCorrectedUser(e.target.value);
   };
 
-  const handleSave = () => {
+  const handleSaveName = () => {
     setIsEdit(false);
-    dispatch(editTaskItem(taskId, correctedName, correctedDescr, correctedUser));
+    dispatch(editTaskName(taskId, correctedName));
+  };
+  const handleSaveDescr = () => {
+    setIsEdit(false);
+    dispatch(editTaskDescr(taskId, correctedDescr));
+  };
+  const handleSaveUser = () => {
+    setIsEdit(false);
+    dispatch(editTaskUser(taskId, correctedUser));
   };
 
   const handleCancel = () => {
@@ -49,7 +57,7 @@ export const TaskPage = () => {
           <>
             <Styled.Input type="text" value={correctedName} onChange={handleCorrectName} />
             <Styled.Btn_block>
-              <Button textButton="Submit" onClick={handleSave} />
+              <Button textButton="Submit" onClick={handleSaveName} />
               <Button textButton="Cancel" onClick={handleCancel} />
             </Styled.Btn_block>
           </>
@@ -58,7 +66,7 @@ export const TaskPage = () => {
           <>
             <Styled.Input type="text" value={correctedDescr} onChange={handleCorrectDescr} />
             <Styled.Btn_block>
-              <Button textButton="Submit" onClick={handleSave} />
+              <Button textButton="Submit" onClick={handleSaveDescr} />
               <Button textButton="Cancel" onClick={handleCancel} />
             </Styled.Btn_block>
           </>
@@ -67,7 +75,7 @@ export const TaskPage = () => {
           <>
             <Styled.Input type="text" value={correctedUser} onChange={handleCorrectUser} />
             <Styled.Btn_block>
-              <Button textButton="Submit" onClick={handleSave} />
+              <Button textButton="Submit" onClick={handleSaveUser} />
               <Button textButton="Cancel" onClick={handleCancel} />
             </Styled.Btn_block>
           </>
