@@ -9,6 +9,11 @@ export const Board = styled.div`
   padding: 20px;
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: end;
+`;
+
 export const Title = styled.h3`
   margin: 30px auto;
   font-size: 36px;
