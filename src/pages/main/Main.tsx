@@ -33,16 +33,18 @@ const Main = () => {
   const board = form === 'board' ? <BoardForm /> : null;
 
   return (
-    <Styled.Boards_list>
-      {boardList.map((el, id) => (
-        <MainBoard key={id} boardItem={el} />
-      ))}
-      <Button textButton={'➕ ' + t('Main.addBoard')} onClick={handleOpen} />
-      <Modal isOpen={isOpen} handleClose={handleClose}>
-        {confirm}
-        {board}
-      </Modal>
-    </Styled.Boards_list>
+    <Styled.Main>
+      <Styled.Boards_list>
+        <Button textButton={'➕ ' + t('Main.addBoard')} onClick={handleOpen} />
+        {boardList.map((el, id) => (
+          <MainBoard key={id} boardItem={el} />
+        ))}
+        <Modal isOpen={isOpen} handleClose={handleClose}>
+          {confirm}
+          {board}
+        </Modal>
+      </Styled.Boards_list>
+    </Styled.Main>
   );
 };
 
