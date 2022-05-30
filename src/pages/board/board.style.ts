@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Board = styled.div`
   width: 100%;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 250px);
   display: flex;
   overflow-x: auto;
   padding: 20px;
