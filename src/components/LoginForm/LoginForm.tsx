@@ -48,7 +48,6 @@ const LoginForm = () => {
         dispatch(setLoginError(''));
         dispatch(setLoginPasswordError(''));
         const userNotFoundError = JSON.parse(localStorage.getItem('Login_Error_msg') || '');
-        console.log(userNotFoundError);
         dispatch(setUserAlreadyExists(userNotFoundError));
       }
     }, 2000);
