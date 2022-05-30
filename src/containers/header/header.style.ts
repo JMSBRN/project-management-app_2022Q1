@@ -19,7 +19,7 @@ export const Header = styled.header`
   top: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   z-index: 1;
   background-color: var(--color-background-dark);
 `;
@@ -56,4 +56,8 @@ export const Ul = styled.ul`
       color: var(--color-text-light);
     }
   }
+`;
+
+export const Btns_block = styled.div`
+  display: flex;
 `;
